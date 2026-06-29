@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/Doc/" />
+  <Folder Name="/src/" />
+  <Folder Name="/src/Common/">
+    <Project Path="metal.Common/metal.Common.csproj" Id="93411cc2-a40f-44a3-89c3-405fee9db6ec" />
+  </Folder>
+  <Folder Name="/src/Core/">
+    <Project Path="metal.Application/metal.Application.csproj" Id="d6ee17e6-1849-42c3-9851-c86d929dd9fb" />
+    <Project Path="metal.Domain/metal.Domain.csproj" Id="a6ef5539-668c-4a92-bfe0-8dab0114ee2a" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="metal.infrastructure/metal.infrastructure.csproj" Id="0df13a72-fde8-40b0-8d27-ad4b49eeb4a9" />
+    <Project Path="metal.persistance/metal.persistance.csproj" Id="15553b4b-a6bb-47a5-b841-399535be1af2" />
+  </Folder>
+  <Folder Name="/src/presentation/">
+    <Project Path="metal/metal.csproj" />
+  </Folder>
+  <Folder Name="/Test/" />
+</Solution>
