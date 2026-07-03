@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
+using metal.Domain.Entities.posters;
 //db set
 public class AppDbContext //: DbContext
 {
@@ -18,4 +18,5 @@ public class AppDbContext //: DbContext
   //      optionsBuilder.UseSqlServer(@"Server=Ahmadreza\MYDB;Database=metalposters;Trusted_Connection=True;TrustServerCertificate=True;");
   //  }
 
+    public List<element1> Element1s { get; set; }
 }

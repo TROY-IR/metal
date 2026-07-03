@@ -21,6 +21,48 @@ namespace metal.persistance.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("metal.Domain.Entities.posters.element1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("src")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("element1");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.posters.element2", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("src")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("element2");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.users.Role", b =>
                 {
                     b.Property<long>("Id")
@@ -36,6 +78,23 @@ namespace metal.persistance.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Name = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Name = "Operator"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            Name = "Customer"
+                        });
                 });
 
             modelBuilder.Entity("metal.Domain.Entities.users.User", b =>
@@ -84,11 +143,7 @@ namespace metal.persistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("RoleId1")
+                    b.Property<long>("RoleId")
                         .HasColumnType("bigint");
 
                     b.Property<long>("UserId")
@@ -96,7 +151,7 @@ namespace metal.persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId1");
+                    b.HasIndex("RoleId");
 
                     b.HasIndex("UserId");
 
@@ -107,7 +162,7 @@ namespace metal.persistance.Migrations
                 {
                     b.HasOne("metal.Domain.Entities.users.Role", "Role")
                         .WithMany("Userinrole")
-                        .HasForeignKey("RoleId1")
+                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

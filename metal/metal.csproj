@@ -25,7 +25,6 @@
     <Folder Include="Areas\troy\Data\" />
     <Folder Include="Areas\troy\Models\" />
     <Folder Include="wwwroot\sitetemplate\assets\fonts\" />
-    <Folder Include="wwwroot\troy\" />
   </ItemGroup>
 
   <ItemGroup>

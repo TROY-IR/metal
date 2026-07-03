@@ -11,11 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\metal.Common\metal.Common.csproj" />
     <ProjectReference Include="..\metal.Domain\metal.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="service\users\command\" />
   </ItemGroup>
 
 </Project>

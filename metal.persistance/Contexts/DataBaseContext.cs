@@ -1,4 +1,5 @@
 ﻿using metal.Application.InterFace.Contexts;
+using metal.Common.Bugeto_Store.Common.Roles;
 using metal.Domain.Entities.posters;
 using metal.Domain.Entities.users;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,13 @@ namespace metal.persistance.Contexts
 
         public DbSet<element1> element1 { get; set; }
         public DbSet<element2> element2 { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Role>().HasData(new Role { Id = 1, Name = nameof(UserRoles.Admin) });
+            modelBuilder.Entity<Role>().HasData(new Role { Id = 2, Name = nameof(UserRoles.Operator) });
+            modelBuilder.Entity<Role>().HasData(new Role { Id = 3, Name = nameof(UserRoles.Customer) });
+        }
 
         public Task<int> SaveChangeAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
         {

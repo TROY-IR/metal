@@ -1,4 +1,7 @@
-﻿@{
+﻿@using metal.Domain.Entities.posters;
+@using metal.Models;
+@model AppDbContext;
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -53,9 +56,14 @@
 
         <div class="radif">
 
+            @foreach(var d1 in Model.Element1s){
+                <img class="mini1 mah" src=@d1.src alt="">
+                Console.WriteLine(d1.src);
+            }
+
         </div>
         <div class="radif1">
-            <img class="mini1 mah" src="/men.jpg" alt="">
+            <img class="mini1 mah" src=`/${men.jpg}` alt="">
             <img class="mini1 mah" src="/men.jpg" alt="">
             <img class="mini1 mah" src="/men.jpg" alt="">
             <img class="mini1 mah" src="/men.jpg" alt="">
@@ -77,6 +85,7 @@
         <img class="head" src="/j1.jpg" alt="">
 
         <div class="radif">
+
             <img class="mini" src="/men.jpg" alt="">
             <img class="mini" src="/men.jpg" alt="">
             <img class="mini" src="/men.jpg" alt="">

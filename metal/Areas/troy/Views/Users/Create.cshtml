@@ -1,0 +1,59 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "ثبت نام کاربر جدید";
+    Layout = "~/Areas/troy/Views/Shared/_troylay.cshtml";
+}
+
+<div class="d1" id="d1">
+
+    <h1 class="h1">Sign up</h1>
+
+    <form >
+
+        <div id="d2" class="d2">
+
+
+
+            <label id="in" class="in1">First Name</label>
+            <input id="in" type="text" class="Name" placeholder="Ahmadreza" name="firstname">
+
+            <label id="in" class="in1">Age</label>
+            <input id="in1" type="number" class="Age" placeholder="18" name="age">
+
+        </div>
+
+        <label id="in2" class="in2">Last Name</label>
+        <input id="in2" type="text" class="Last" placeholder="Amjadpoor" name="lastname">
+
+        <label id="in2" class="in2">Number</label>
+        <input id="in4" class="Number" placeholder="09123456789" name="number">
+
+        <select name="Role" id="Role" class="se1" asp-items="@ViewBag.Rols">
+        </select>
+
+        <label for="se"></label>
+        <select name="typeactivity" id="se" class="se">
+
+            <option value="Personal" class="op"> type a Activity </option>
+            <option value="Corporate" class="op"> Coroporate</option>
+            <option value="Corporate" class="op"> Personal</option>
+
+        </select>
+
+
+    <div class="ch">
+
+        <label for="rols" class="ro1" id="ro">
+            <input type="checkbox" id="ro" class="ro">
+            I Accsep All Rols
+        </label>
+
+        <button type="submit" class="su">Sign up</button>
+
+    </div>
+
+    </form>
+
+    <a class="link" href="www.digikala.com">www.digikala.com</a>
+
+</div>
