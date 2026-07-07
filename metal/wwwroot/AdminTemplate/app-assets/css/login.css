@@ -9,14 +9,20 @@
     margin-left: 230px;
     border-radius: 14px;
     box-shadow: 0px 0px 30px 0px;
-    background-image: url("sitetemplate/assets/image/otherimg/1h.png");
+
     background-position: center;
     background-size: cover;
 }
 
-.d1 * {
-    
-    position:relative;
+.db {
+    height: 550px;
+    width: 1100px;
+    border-radius: 14px;
+    box-shadow: 0px 0px 30px 0px;
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    z-index: -2;
 }
 
 
@@ -37,6 +43,21 @@
 }
 
 #in {
+    width: 140px;
+    margin-top: 0px;
+    margin-left: 70px;
+    display: block;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: #e3e2e2;
+    border-bottom-color: rgb(157, 157, 157);
+    background: none;
+    outline: none;
+    transition: width 0.4s ease-in-out;
+}
+
+#iin {
     width: 140px;
     margin-top: 0px;
     margin-left: 70px;
@@ -81,7 +102,20 @@
     transition: width 0.4s ease-in-out;
 }
 
-
+#iin2 {
+    width: 140px;
+    margin-left: 270px;
+    margin-bottom: 0px;
+    display: block;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    color: #e3e2e2;
+    border-bottom-color: rgb(157, 157, 157);
+    background: none;
+    transition: width 0.4s ease-in-out;
+}
 
 
 #in4 {
@@ -195,24 +229,24 @@
     color: #e3e3e3;
 }
 
-#in:hover {
-    width: 200px;
+#in#iin:hover {
+    width: 150px;
 }
 
-#in2:hover {
-    width: 200px;
+#in2#iin2:hover {
+    width: 150px;
 }
 
 #in1:hover {
-    width: 200px;
+    width: 150px;
 }
 
 #in3:hover {
-    width: 200px;
+    width: 150px;
 }
 
 #in4:hover {
-    width: 200px;
+    width: 150px;
 }
 
 #se:hover {

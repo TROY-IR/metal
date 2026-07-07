@@ -1,4 +1,5 @@
 using metal.Application.InterFace.Contexts;
+using metal.Application.service.users.command;
 using metal.Application.service.users.quary.get;
 using metal.Application.service.users.quary.getrole;
 using metal.Application.Services.Users.Commands.RgegisterUser;
@@ -17,6 +18,7 @@ builder.Services.AddDbContext<DataBaseContext>(op => op.UseSqlServer(constr));
 builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
 builder.Services.AddScoped<Igetuserservice, getuserService>();
 builder.Services.AddScoped<igetroleservice, GetRolesService>();
+builder.Services.AddScoped<IRgegisterUserService, RgegisterUserService>();
 
 var app = builder.Build();
 
