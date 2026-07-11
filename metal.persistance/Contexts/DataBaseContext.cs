@@ -29,7 +29,13 @@ namespace metal.persistance.Contexts
             modelBuilder.Entity<Role>().HasData(new Role { Id = 1, Name = nameof(UserRoles.Admin) });
             modelBuilder.Entity<Role>().HasData(new Role { Id = 2, Name = nameof(UserRoles.Operator) });
             modelBuilder.Entity<Role>().HasData(new Role { Id = 3, Name = nameof(UserRoles.Customer) });
+
+
+
+            modelBuilder.Entity<User>().HasQueryFilter(p => !p.IsRemoved);
         }
+
+        
 
         public Task<int> SaveChangeAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
         {

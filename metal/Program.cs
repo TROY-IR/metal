@@ -1,5 +1,9 @@
+using metal;
 using metal.Application.InterFace.Contexts;
 using metal.Application.service.users.command;
+using metal.Application.service.users.command.EditUser;
+using metal.Application.service.users.command.removeuser;
+using metal.Application.service.users.command.UserStatusChange;
 using metal.Application.service.users.quary.get;
 using metal.Application.service.users.quary.getrole;
 using metal.Application.Services.Users.Commands.RgegisterUser;
@@ -19,6 +23,9 @@ builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
 builder.Services.AddScoped<Igetuserservice, getuserService>();
 builder.Services.AddScoped<igetroleservice, GetRolesService>();
 builder.Services.AddScoped<IRgegisterUserService, RgegisterUserService>();
+builder.Services.AddScoped<IRemoveUserService, RemoveUserService>();
+builder.Services.AddScoped<IUserSatusChangeService, UserSatusChangeService>();
+builder.Services.AddScoped<IEditUserService, EditUserService>();
 
 var app = builder.Build();
 

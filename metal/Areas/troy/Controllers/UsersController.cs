@@ -1,11 +1,14 @@
 ﻿
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using metal.Application.service.users.command;
+using metal.Application.service.users.command.EditUser;
+using metal.Application.service.users.command.removeuser;
+using metal.Application.service.users.command.UserStatusChange;
 using metal.Application.service.users.quary.get;
 using metal.Application.service.users.quary.getrole;
 using metal.Application.Services.Users.Commands.RgegisterUser;
-using metal.Application.service.users.command;
 using metal.Common.Bugeto_Store.Common.Roles;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace metal.Areas.troy.Controllers
 {
@@ -15,11 +18,24 @@ namespace metal.Areas.troy.Controllers
         private readonly Igetuserservice _getUsersService;
         private readonly igetroleservice _getRolesService;
         private readonly IRgegisterUserService _rgegisterUserService;
-        public UsersController(Igetuserservice getUsersService, igetroleservice getRolesService, IRgegisterUserService rgegisterUserService)
+        private readonly IRemoveUserService _removeUserService;
+        private readonly IUserSatusChangeService _userSatusChangeService;
+        private readonly IEditUserService _editUserService;
+        public UsersController(
+            Igetuserservice getUsersService,
+            igetroleservice getRolesService,
+            IRgegisterUserService rgegisterUserService,
+            IRemoveUserService removeUserService,
+            IUserSatusChangeService userSatusChangeService,
+            IEditUserService editUserService
+            )
         {
             _getUsersService = getUsersService;
             _getRolesService = getRolesService;
             _rgegisterUserService = rgegisterUserService;
+            _removeUserService = removeUserService;
+            _userSatusChangeService = userSatusChangeService;
+            _editUserService = editUserService;
         }
 
 
@@ -31,13 +47,20 @@ namespace metal.Areas.troy.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-        
+
             return View();
-    
+
+        }
+
+        public IActionResult signin()
+        {
+
+            return View();
+
         }
 
         [HttpPost]
-        public IActionResult Create(string Email,string password,int RoleId,string fullname,string repassword)
+        public IActionResult Create(string Email, string password, int RoleId, string fullname, string repassword)
         {
             var result = _rgegisterUserService.Execute(new RequestRgegisterUserDto
             {
@@ -57,5 +80,27 @@ namespace metal.Areas.troy.Controllers
                 );
             return Json(result);
         }
+
+        [HttpPost]
+        public IActionResult Delete(long UserId)
+        {
+            return Json(_removeUserService.Execute(UserId));
+        }
+
+        [HttpPost]
+        public IActionResult UserSatusChange(long UserId)
+        {
+            return Json(_userSatusChangeService.Execute(UserId));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(long UserId, string Fullname)
+        {
+            return Json(_editUserService.Execute(new RequestEdituserDto
+            {
+                Fullname = Fullname,
+                UserId = UserId,
+            }));
+        }
     }
-    }
+}

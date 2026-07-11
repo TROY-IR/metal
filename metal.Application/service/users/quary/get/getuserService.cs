@@ -26,7 +26,8 @@ namespace metal.Application.service.users.quary.get
                 fullName = p.fullName,
                 Adress = p.Adress,
                 Cuntry = p.Cuntry,
-                Id = p.Id
+                Id = p.Id,
+                isactive = p.isactive
                 
             }).ToList();
 
