@@ -1,13 +1,17 @@
 using metal;
 using metal.Application.InterFace.Contexts;
+using metal.Application.InterFace.FacadPaerns;
+using metal.Application.service.Products.Facadpatern;
 using metal.Application.service.users.command;
 using metal.Application.service.users.command.EditUser;
 using metal.Application.service.users.command.removeuser;
+using metal.Application.service.users.command.userlogin;
 using metal.Application.service.users.command.UserStatusChange;
 using metal.Application.service.users.quary.get;
 using metal.Application.service.users.quary.getrole;
 using metal.Application.Services.Users.Commands.RgegisterUser;
 using metal.persistance.Contexts;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,8 +30,26 @@ builder.Services.AddScoped<IRgegisterUserService, RgegisterUserService>();
 builder.Services.AddScoped<IRemoveUserService, RemoveUserService>();
 builder.Services.AddScoped<IUserSatusChangeService, UserSatusChangeService>();
 builder.Services.AddScoped<IEditUserService, EditUserService>();
+builder.Services.AddScoped<IUserLoginService, UserLoginService>();
+
+builder.Services.AddScoped<IProductFacad, ProductFacad>();
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+}).AddCookie(options =>
+{
+    options.LoginPath = new PathString("/");
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(5.0);
+});
+
+
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

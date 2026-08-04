@@ -2,6 +2,8 @@
 {
     public class Role
     {
+        public bool IsRemoved;
+
         public long Id { get; set; }
         public string Name { get; set; }
         public ICollection<Userinrole> Userinrole { get; set; }

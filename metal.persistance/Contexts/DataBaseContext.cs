@@ -1,6 +1,7 @@
 ﻿using metal.Application.InterFace.Contexts;
 using metal.Common.Bugeto_Store.Common.Roles;
 using metal.Domain.Entities.posters;
+using metal.Domain.Entities.Products;
 using metal.Domain.Entities.users;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -24,18 +25,47 @@ namespace metal.persistance.Contexts
         public DbSet<element1> element1 { get; set; }
         public DbSet<element2> element2 { get; set; }
 
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductImages> ProductImages { get; set; }
+        public DbSet<ProductFeatures> ProductFeatures { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            //Seed Data
+            SeedData(modelBuilder);
+
+
+            // اعمال ایندکس بر روی فیلد ایمیل
+            // اعمال عدم تکراری بودن ایمیل
+            modelBuilder.Entity<User>().HasIndex(u => u.EmailAdress).IsUnique();
+
+            //-- عدم نمایش اطلاعات حذف شده
+            ApplyQueryFilter(modelBuilder);
+        }
+
+
+
+        private void ApplyQueryFilter(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Role>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Userinrole>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Category>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Product>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<ProductImages>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<ProductFeatures>().HasQueryFilter(p => !p.IsRemoved);
+        }
+
+        private void SeedData(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Role>().HasData(new Role { Id = 1, Name = nameof(UserRoles.Admin) });
             modelBuilder.Entity<Role>().HasData(new Role { Id = 2, Name = nameof(UserRoles.Operator) });
             modelBuilder.Entity<Role>().HasData(new Role { Id = 3, Name = nameof(UserRoles.Customer) });
-
-
-
-            modelBuilder.Entity<User>().HasQueryFilter(p => !p.IsRemoved);
         }
 
-        
 
         public Task<int> SaveChangeAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
         {
