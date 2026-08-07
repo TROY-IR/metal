@@ -5,7 +5,9 @@ using metal.Application.service.Products.Command.AddNewProduct;
 using metal.Application.service.Products.Quary.GetAllCategories;
 using metal.Application.service.Products.Quary.GetCategories;
 using metal.Application.service.Products.Quary.GetProductDetailForAdmin;
+using metal.Application.service.Products.Quary.GetProductDetailForSite;
 using metal.Application.service.Products.Quary.GetProductForAdmin;
+using metal.Application.service.Products.Quary.GetProDuctForSite;
 using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
@@ -79,6 +81,22 @@ namespace metal.Application.service.Products.Facadpatern
             }
         }
 
+        private IGetProductForSiteService _getProductForSiteService;
+        public IGetProductForSiteService GetProductForSiteService
+        {
+            get
+            {
+                return _getProductForSiteService = _getProductForSiteService ?? new GetProductForSiteService(_context);
+            }
+        }
 
+        private IGetProductDetailForSiteService _getProductDetailForSiteService;
+        public IGetProductDetailForSiteService GetProductDetailForSiteService
+        {
+            get
+            {
+                return _getProductDetailForSiteService = _getProductDetailForSiteService ?? new GetProductDetailForSiteService(_context);
+            }
+        }
     }
 }

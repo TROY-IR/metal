@@ -1,0 +1,80 @@
+﻿@using metal.Application.service.Products.Quary.GetProductDetailForSite
+@model ProductDetailForSiteDto;
+
+
+<div id="poster-3d" class="poster" data-src="@Model.Images.FirstOrDefault()">
+
+</div>
+
+<div class="allfu">
+
+    @foreach(var fu in Model.Features)
+    {
+        <div class="fu">
+            <span class="tfu">@fu.Value</span>
+        </div>
+    }
+
+</div>
+
+<div class="titel">
+    <span class="tit">@Model.Title</span>
+</div>
+<div class="titel">
+    <span class="tit">@Model.Description</span>
+</div>
+<style>
+.poster{
+    width:90%;
+    height:60%;
+
+    margin-left:5%;
+    margin-top: 5%;
+    border-radius:14px;
+
+}
+.allfu{
+    width:90%;
+    height:8%;
+
+        margin-left: 5%;
+        margin-top: 0.5%;
+
+   justify-content:center;
+   align-items:center;
+   flex-wrap:nowrap;
+   display:flex;
+}
+
+.fu{
+        width: 30%;
+        height: 100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        border-left: 1px solid #ffff;
+        border-right: 1px solid #ffff;
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+.tfu{
+    background-color:none;
+    color:azure;
+    font-size:130%;
+}
+.titel{
+        width: 90%;
+        height: 8%;
+        margin-left: 5%;
+        margin-top: 0.5%;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        display: flex;
+}
+.tit{
+        background-color: none;
+        color: azure;
+        font-size: 130%;
+}
+</style>

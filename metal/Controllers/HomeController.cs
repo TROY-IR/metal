@@ -1,3 +1,4 @@
+using metal.Application.InterFace.FacadPaerns;
 using metal.Application.service.users.quary.get;
 using metal.Areas.troy.Controllers;
 using metal.Domain.Entities.posters;
@@ -13,38 +14,17 @@ namespace metal.Controllers
     public class HomeController : Controller
     {
 
-        private readonly DataBaseContext _context;
+        private readonly IProductFacad _productFacad;
 
-        public HomeController(DataBaseContext context)
+        public HomeController(IProductFacad productFacad)
         {
-            _context = context;
-
+            _productFacad = productFacad;
+        }
+        public IActionResult Index(int page = 1)
+        {
+            return View(_productFacad.GetProductForSiteService.Execute(page).Data);
         }
 
-        public async Task<IActionResult> Index()
-        {
-            var dt = new AppDbContext
-            {
-                Element1s = await _context.element1.ToListAsync()
-            };
-
-         //   var dt = new
-         //    {
-         //       elemen1 = 
-         //        elemen2 = await _context.element2.ToListAsync()
-         //    };
-            foreach (var dd in dt.Element1s)
-            {
-                Console.WriteLine(dd);
-            }
-            //         Console.WriteLine(dt);
-            return View(new AppDbContext
-            {
-                Element1s=await _context.element1.ToListAsync()
-            });
-
-
-        }
 
         public IActionResult Privacy()
         {

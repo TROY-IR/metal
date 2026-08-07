@@ -125,17 +125,17 @@ scene.add(light2);
 const sphereRadius = 5;
 const sphereColor =
     textureLoader1.load(
-        "/sitetemplate/assets/image/otherimg//t6.jpg"
+        "/t6.jpg"
     );
 
 const sphereNormal =
     textureLoader1.load(
-        "/sitetemplate/assets/image/otherimg//t6.jpg"
+        "/t6.jpg"
     );
 
 const sphereRoughness =
     textureLoader1.load(
-        "/sitetemplate/assets/image/otherimg//t6.jpg"
+        "/t6.jpg"
     );
 const sphere = new THREE.Mesh(
 
@@ -308,7 +308,7 @@ for (const dir of points) {
             ),
 
             new THREE.MeshPhysicalMaterial({
-                map: tex.load(`sitetemplate/assets/image/coreimg/${add}.png`),
+                map: tex.load(`/${add}.png`),
 
 
                 metalness: 1,
@@ -372,6 +372,7 @@ const ph = document.querySelector('.photo')
 
 scene.background = null
 khodecore.appendChild(renderer.domElement)
-renderer.domElement.style.height = window.innerWidth
+renderer.domElement.style.height = window.innerHeight * 0.6 + 'px'
+renderer.domElement.style.width = window.innerHeight * 0.6 + 'px'
 renderer.domElement.style.background = 'none'
-co.style.height = 920 * a + 'px'
+//   co.style.height = 920 * a + 'px'
