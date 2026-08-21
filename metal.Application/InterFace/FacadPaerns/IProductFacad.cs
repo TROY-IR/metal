@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using metal.Application.service.Products.Quary.GetProductDetailForSite;
+using metal.Application.service.Common.Quereis.GetMenuItem;
 
 namespace metal.Application.InterFace.FacadPaerns
 {
@@ -26,5 +27,6 @@ namespace metal.Application.InterFace.FacadPaerns
         IGetProductForSiteService GetProductForSiteService { get; }
 
         IGetProductDetailForSiteService GetProductDetailForSiteService { get; }
+        IGetMenuItemService GetMenuItemService { get; }
     }
 }

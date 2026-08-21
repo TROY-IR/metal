@@ -11,8 +11,7 @@
 
 </head>
 
-<body>
-    <div class="col">
+<body class="col">
 
         <div id="ch">
         </div>
@@ -22,38 +21,27 @@
             <div class="serinp">
                 <button class="bu1 show">✨AI &nbsp;</button>
                 <button class="bu show"> 🔍 </button>
-                <input class="search show" placeholder="search" type="text">
+                <form asp-action="SearchResult" asp-controller="Products" id="myform" method="get" name="name">
+                <input class="search show" placeholder="search" type="text" name="name">
+                <input type="number" id="sele" class="sele" name="catid" >
+</form>
+
+
             </div>
         </div>
 
 
-        <span class="glass-text"></span>
-
-
-        <div class="headt">
-            <h1 class="matn">best metal poster in the world</h1>
-            <h6 class="matn1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi, dignissimos!</h6>
-        </div>
+       @RenderBody()
 
 
 
+   
+        <script  type="module" src="~/sitetemplate/assets/js/site.js"> </script>
+ 
 
-        <div class="core" id="icore">
-
-            <video class="photo" src="/jon.webp" muted>
-            </video>
-
-            <div class="khodecore">
-            </div>
-
-        </div>
-        @RenderBody()
-
-    </div>
-
-    <script src="~/sitetemplate/assets/js/site.js"></script>
-    @RenderSection( "Scripts", required:false)
-
+  
 </body>
+
+
 
 </html>

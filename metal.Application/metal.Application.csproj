@@ -16,4 +16,8 @@
     <ProjectReference Include="..\metal.Domain\metal.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="service\Common\Cammands\" />
+  </ItemGroup>
+
 </Project>

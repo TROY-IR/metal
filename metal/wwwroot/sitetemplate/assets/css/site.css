@@ -26,23 +26,99 @@
     display: flex;
     overflow: hidden;
     gap: 10px;
-    border-bottom-right-radius: 18px;
-    border-bottom-left-radius: 18px;
     border-radius: 24px;
-    background: rgba(78, 5, 72, 0.08);
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    color: rgb(84, 84, 84);
     border-top: 1px solid rgba(255, 255, 255, 0.25);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    font-weight: 600;
-    transition: top 0.3s ease;
+    overflow: hidden;
     z-index: 1000;
-    transition: all 0.5s ease-in-out;
     opacity: 1;
-    transform: scale(1);
 }
+
+    .search-bar::before {
+        content: "";
+        top: -50%;
+        left: -50%;
+        width: 250%;
+        height: 150%;
+        position: absolute;
+        background: linear-gradient(130deg, rgba(0, 36, 75, 0.463)20%, rgba(0, 115, 168, 0.463)40%, rgba(32, 0, 105, 0.463)60%, rgba(16, 4, 129, 0.29) 85%);
+        animation: textLight 24s linear infinite;
+        pointer-events: none;
+    }
+
+@keyframes textLight {
+    0% {
+        left: -150%;
+    }
+
+    50% {
+        left: 0%;
+    }
+    100% {
+        left: -150%;
+    }
+}
+
+.categories {
+    background: rgba(18, 5, 78, 0.136);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    display: flex;
+    position: fixed;
+    display: flex;
+    top: 85px;
+    left: 5%;
+    height: 83px;
+    width: 90%;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+
+    display:none;
+}
+
+.cate0 {
+    width: 98%;
+    height: 65px;
+    margin-top: 0;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    
+}
+
+.sele{
+    display:none;
+}
+    .cate0::-webkit-scrollbar {
+        height: 10px;
+        opacity: 30%;
+        width: 90%;
+    }
+
+    .cate0::-webkit-scrollbar-track {
+        background: none;
+        border-radius: 14px;
+        width: 90%;
+    }
+
+    .cate0::-webkit-scrollbar-thumb {
+        background: linear-gradient(130deg, rgba(0, 36, 75, 0.663)20%, rgba(0, 115, 168, 0.663)40%, rgba(32, 0, 105, 0.663)60%, rgba(16, 4, 129, 0.69) 85%);
+        border-radius: 15px;
+    }
+    
 
 .search {
     border-radius: 18px;
@@ -140,7 +216,22 @@
 .col {
     width: 100%;
     overflow-x: hidden;
+    background-color: #101010;
 }
+
+    .col::-webkit-scrollbar-track {
+        background: none;
+    }
+
+    .col::-webkit-scrollbar-thumb {
+        background: #cdcdcd;
+        border-radius: 10px;
+    }
+
+        .col::-webkit-scrollbar-thumb:hover {
+            background: #282828;
+            border-radius: 19px;
+        }  
 
 .matn {
     font-size: 60px;
@@ -261,7 +352,7 @@
 }
 
 .photo {
-    background-color: aliceblue;
+ 
     margin-top: 142px;
     width: 517px;
     height: 300px;
@@ -269,6 +360,7 @@
     object-fit: cover;
     border-bottom-left-radius: 54px;
     z-index: 1;
+
 }
 
 .hpo {
@@ -281,6 +373,7 @@
     opacity: 0;
     z-index: 4000;
     animation: floating 5s ease-in-out infinite;
+
 }
 
     .hpo.show {
@@ -413,15 +506,19 @@
 }
 
 .catbb {
+    position: relative;
+    margin-left: 0.5%;
     width: 17%;
+    min-width: 110px;
     height: 100%;
     display: flex;
     transition: all 0.5s ease-in-out;
 }
 
 .cab {
-    width: 11%;
-    height: 7%;
+    width: 100%;
+    min-width: 110px;
+    height: 90%;
     border-radius: 30px;
     border-color: #d4d4d4;
     position: absolute;
@@ -728,7 +825,7 @@
     width: 517px;
     height: 700px;
     overflow: hidden;
-    background-image: url("ss.jpg");
+    background-image: url("/sitetemplate/assets/image/otherimg/ss.jpg");
     background-position: center;
     background-size: cover;
 }

@@ -15,8 +15,10 @@ namespace metal.Domain.Entities.Products
         public long? ParentCategoryId { get; set; }
 
 
+        public virtual ICollection<CategoryImages> CategoryImages { get; set; }
         //برای نمایش زیر دسته های هر گروه
         public virtual ICollection<Category> SubCategories { get; set; }
+        public Product products { get; set; }
 
     }
 }

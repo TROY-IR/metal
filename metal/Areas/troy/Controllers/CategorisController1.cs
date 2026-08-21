@@ -1,5 +1,7 @@
 ﻿using metal.Application.InterFace.FacadPaerns;
+using metal.Application.service.Products.Command.AddNewProduct;
 using Microsoft.AspNetCore.Mvc;
+using static metal.Application.service.Products.Command.AddNewCategory.AddNewCategoryService;
 
 namespace metal.Areas.troy.Controllers
 {
@@ -28,10 +30,17 @@ namespace metal.Areas.troy.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddNewCategory(long? ParentId, string Name)
+        public IActionResult AddNewCategory(RequestAddNewCategoryDto request)
         {
-            var result = _productFacad.AddNewCategoryService.Execute(ParentId, Name);
-            return Json(result);
+            List<IFormFile> images = new List<IFormFile>();
+            for (int i = 0; i < Request.Form.Files.Count; i++)
+            {
+                var file = Request.Form.Files[i];
+                images.Add(file);
+            }
+            request.Images = images;
+
+            return Json(_productFacad.AddNewCategoryService.Execute(request));
         }
     }
 

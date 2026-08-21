@@ -1,5 +1,6 @@
 ﻿using metal.Application.InterFace.Contexts;
 using metal.Application.InterFace.FacadPaerns;
+using metal.Application.service.Common.Quereis.GetMenuItem;
 using metal.Application.service.Products.Command.AddNewCategory;
 using metal.Application.service.Products.Command.AddNewProduct;
 using metal.Application.service.Products.Quary.GetAllCategories;
@@ -31,7 +32,7 @@ namespace metal.Application.service.Products.Facadpatern
         {
             get
             {
-                return _addNewCategory = _addNewCategory ?? new AddNewCategoryService(_context);
+                return _addNewCategory = _addNewCategory ?? new AddNewCategoryService(_context, _environment);
             }
         }
 
@@ -96,6 +97,15 @@ namespace metal.Application.service.Products.Facadpatern
             get
             {
                 return _getProductDetailForSiteService = _getProductDetailForSiteService ?? new GetProductDetailForSiteService(_context);
+            }
+        }
+
+        private IGetMenuItemService _getMenuItemService;
+        public IGetMenuItemService GetMenuItemService
+        {
+            get
+            {
+                return _getMenuItemService = _getMenuItemService ?? new GetMenuItemService(_context);
             }
         }
     }

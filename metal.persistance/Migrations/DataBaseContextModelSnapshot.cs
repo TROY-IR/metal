@@ -22,6 +22,46 @@ namespace metal.persistance.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("metal.Domain.Entities.HomePages.Slider", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<int>("Click")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("imsrc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("link")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("vsrc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Slider");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.Products.Category", b =>
                 {
                     b.Property<long>("Id")
@@ -57,6 +97,43 @@ namespace metal.persistance.Migrations
                     b.HasIndex("ParentCategoryId");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Products.CategoryImages", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("CatId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("CategoryId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Src")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("CategoryImages");
                 });
 
             modelBuilder.Entity("metal.Domain.Entities.Products.Product", b =>
@@ -101,7 +178,8 @@ namespace metal.persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("CategoryId")
+                        .IsUnique();
 
                     b.ToTable("Products");
                 });
@@ -341,11 +419,22 @@ namespace metal.persistance.Migrations
                     b.Navigation("ParentCategory");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.Products.CategoryImages", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.Products.Category", "Category")
+                        .WithMany("CategoryImages")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.Products.Product", b =>
                 {
                     b.HasOne("metal.Domain.Entities.Products.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
+                        .WithOne("products")
+                        .HasForeignKey("metal.Domain.Entities.Products.Product", "CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -395,7 +484,12 @@ namespace metal.persistance.Migrations
 
             modelBuilder.Entity("metal.Domain.Entities.Products.Category", b =>
                 {
+                    b.Navigation("CategoryImages");
+
                     b.Navigation("SubCategories");
+
+                    b.Navigation("products")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("metal.Domain.Entities.Products.Product", b =>

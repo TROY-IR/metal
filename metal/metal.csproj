@@ -24,7 +24,12 @@
 
   <ItemGroup>
     <Folder Include="Areas\troy\Data\" />
+    <Folder Include="Views\Search\" />
     <Folder Include="wwwroot\sitetemplate\assets\fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\sitetemplate\assets\js\vproduct.js" />
   </ItemGroup>
 
   <ItemGroup>

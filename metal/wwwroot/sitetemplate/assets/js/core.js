@@ -2,9 +2,7 @@
 const textureLoader1 =
     new THREE.TextureLoader();
 
-
-khodecore.style.height = window.innerWidth + 'px'
-khodecore.style.width = window.innerWidth + 'px'
+const khodecore1 = document.querySelector('.khodecore')
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x050505);
 const tex = new THREE.TextureLoader
@@ -16,7 +14,7 @@ const camera = new THREE.PerspectiveCamera(
 );
 
 
-camera.position.set(0, -1, 25);
+camera.position.set(-4, 0, 25);
 
 const renderer = new THREE.WebGLRenderer({
     antialias: true,
@@ -24,8 +22,8 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 renderer.setSize(
-    khodecore.clientWidth,
-    khodecore.clientHeight
+    khodecore1.clientWidth,
+    khodecore1.clientHeight
 );
 
 renderer.setPixelRatio(window.devicePixelRatio);
@@ -371,7 +369,7 @@ const co = document.querySelector('.core')
 const ph = document.querySelector('.photo')
 
 scene.background = null
-khodecore.appendChild(renderer.domElement)
+khodecore1.appendChild(renderer.domElement)
 renderer.domElement.style.height = window.innerHeight * 0.6 + 'px'
 renderer.domElement.style.width = window.innerHeight * 0.6 + 'px'
 renderer.domElement.style.background = 'none'

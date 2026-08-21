@@ -1,0 +1,141 @@
+﻿@using metal.Application.service.Products.Quary.GetProductForSearch
+@model (List<productSearchDto>,List<CatForSearchDto>,List<ProductForSearchDto>);
+
+
+<div class="radif">
+@foreach (var products in Model.Item1)
+    {
+        <div class="gk1">
+            <div class="gkk">
+                <img src="/@products.imsrc" class="acsk mah" data-id="@products.Id" alt="">
+                <h4 class="mtnk0">@products.titel</h4>
+            </div>
+            <h4 class="mtnk">@products.Name</h4>
+        </div>
+}
+</div>
+
+@foreach (var p1 in Model.Item2)
+    {
+            <div class="eleman">
+        <div class="tablo" id="itablo">
+
+            <img class="head" src="/@p1.Images alt="">
+
+                <div class="radif">
+
+                    @foreach (var p2 in Model.Item3)
+                    {
+                    <div class="gk1">
+                        <div class="gkk">
+                            <img src="/@p2.imsrc" class="acsk mah" data-id="@p2.Id" alt="">
+                            <h4 class="mtnk0">@p2.titel</h4>
+                        </div>
+                        <h4 class="mtnk">@p2.Name</h4>
+                    </div>                        
+                    }
+ 
+
+                </div>
+
+
+            </div>
+
+        </div>
+    }
+<style>
+    .radif {
+        width: 100%;
+        height: 170px;
+        margin-top: 265px;
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    .gk {
+        width: 140px;
+        height: 170px;
+        margin-left: 23px;
+        margin-top: 10px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(7px) saturate(140%);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+        display: inline-block;
+    }
+
+    .gk1 {
+        width: 90px;
+        height: 80px;
+        margin-left: 13px;
+        margin-top: 18px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(7px) saturate(140%);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+        display: inline-block;
+    }
+
+    .acs {
+        width: 110px;
+        height: 100%;
+        border-radius: 18px;
+    }
+
+    .mtn {
+        color: #ffffff;
+        /*  transform: rotate(90deg);*/
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        margin-left: 6px;
+        margin-top: 12px;
+        font-size: 13px;
+        position: absolute;
+        display: inline-block;
+    }
+
+    .mtnk0 {
+        color: #ffffff;
+        /*  transform: rotate(90deg);*/
+        writing-mode: sideways-lr;
+        margin-left: 3px;
+        margin-top: 12px;
+        font-size: 100%;
+        position: absolute;
+        display: inline-block;
+    }
+
+    .acsk {
+        width: 60px;
+        height: 80px;
+        border-top-left-radius: 18px;
+    }
+
+    .head {
+        height: 330px;
+        width: 500px;
+        position: absolute;
+        display: inline;
+        mask-image: linear-gradient(to top, transparent, rgb(255, 255, 255) 40%);
+    }
+
+    .eleman {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.912) 0%, rgba(21, 6, 36, 0.929) 95%);
+        width: 517px;
+        height: 537px;
+        margin-left: -10px;
+    }
+    .tablo {
+        width: 500px;
+        height: 517px;
+        margin-top: 10px;
+        margin-left: 10px;
+        border-radius: 24px;
+        display: flex;
+        position: absolute;
+        background: linear-gradient(to top, rgb(6, 0, 31) 40%, rgba(16, 45, 231, 0.377) 60%);
+        overflow: auto;
+    }
+</style>
+
+

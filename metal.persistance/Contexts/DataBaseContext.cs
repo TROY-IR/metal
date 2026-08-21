@@ -1,5 +1,6 @@
 ﻿using metal.Application.InterFace.Contexts;
 using metal.Common.Bugeto_Store.Common.Roles;
+using metal.Domain.Entities.HomePages;
 using metal.Domain.Entities.posters;
 using metal.Domain.Entities.Products;
 using metal.Domain.Entities.users;
@@ -30,7 +31,8 @@ namespace metal.persistance.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImages> ProductImages { get; set; }
         public DbSet<ProductFeatures> ProductFeatures { get; set; }
-
+        public DbSet<CategoryImages> CategoryImages { get; set; }
+        public DbSet<Slider> Slider { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -42,8 +44,11 @@ namespace metal.persistance.Contexts
             // اعمال عدم تکراری بودن ایمیل
             modelBuilder.Entity<User>().HasIndex(u => u.EmailAdress).IsUnique();
 
+
             //-- عدم نمایش اطلاعات حذف شده
             ApplyQueryFilter(modelBuilder);
+
+
         }
 
 
@@ -54,9 +59,11 @@ namespace metal.persistance.Contexts
             modelBuilder.Entity<Role>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Userinrole>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Category>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<CategoryImages>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Product>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<ProductImages>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<ProductFeatures>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Slider>().HasQueryFilter(p => !p.IsRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)

@@ -26,6 +26,13 @@
                                         </fieldset>
                                     </div>
 
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">تصاویر </label>
+                                            <input type="file" multiple class="form-control" accept="image/*" id="Images">
+                                        </fieldset>
+                                    </div>
+
                                     <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
                                         <fieldset class="form-group">
                                             <br />
@@ -66,20 +73,29 @@
             }).then((result) => {
                 if (result.value) {
 
-                    var Name = $("#Name").val();
-                    var parentId = $("#parentId").val();
+
+            var postData = new FormData();
+
+            //دریافت مقادیر از تکس باکس ها و....
+            postData.append("Name", $("#Name").val());
+            postData.append("parentId", $("#parentId").val());
 
 
-                    var postData = {
-                        'Name': Name,
-                        'parentId': parentId,
-                    };
+                                //دریافت عکس های انتخاب شده توسط کاربر و قرار دادن عکس ها در متغیر data
+                    var productImages = document.getElementById("Images");
+
+                    if (productImages.files.length > 0) {
+                       for (var i = 0; i < productImages.files.length; i++) {
+                         postData.append('Images-' + i, productImages.files[i]);
+                        }
+                    }
 
                     $.ajax({
-                        contentType: 'application/x-www-form-urlencoded',
-                        dataType: 'json',
+                    //    contentType: 'application/x-www-form-urlencoded',
                         type: "POST",
                         url: "AddNewCategory",
+                        contentType: false,
+                        processData: false,
                         data: postData,
                         success: function (data) {
                             if (data.isSuccess == true) {

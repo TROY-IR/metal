@@ -1,0 +1,63 @@
+﻿@using metal.Application.service.Common.Quereis.GetCategory
+@model List<CategoryDto>;
+
+
+
+@foreach(var item in Model)
+{
+    <div class="catbb">
+        <button class="cab cag">
+            @item.CategoryName
+        </button>
+
+        @foreach (var item1 in item.child)
+        {
+            <button class="cab cag" data-id="@item1.CatId">
+                @item1.CategoryName
+            </button>
+        }
+    </div>
+
+}
+
+
+
+
+
+
+<style>
+    .catbb {
+        margin-left: 0.5%;
+        width: 17%;
+        min-width: 110px;
+        height: 100%;
+        display: flex;
+        position: relative;
+        transition: all 0.5s ease-in-out;
+        flex-shrink: 0;
+        
+    }
+
+    .cab {
+        width: 100%;
+        min-width: 110px;
+        height: 90%;
+        border-radius: 30px;
+        border-color: #d4d4d4;
+        position: absolute;
+        background: rgba(244, 243, 244, 0.323);
+        backdrop-filter: blur(9px) saturate(140%);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+        box-shadow: 0 0px 10px #852e7b39;
+        flex-shrink: 0;
+        transition: all 0.5s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .catg0 {
+        width: 12%;
+    }
+</style>

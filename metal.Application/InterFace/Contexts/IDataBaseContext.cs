@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using metal.Domain.Entities.HomePages;
 
 namespace metal.Application.InterFace.Contexts
 {
@@ -18,6 +19,8 @@ namespace metal.Application.InterFace.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImages> ProductImages { get; set; }
         public DbSet<ProductFeatures> ProductFeatures { get; set; }
+        public DbSet<CategoryImages> CategoryImages { get; set; }
+        public DbSet<Slider> Slider { get; set; }
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();

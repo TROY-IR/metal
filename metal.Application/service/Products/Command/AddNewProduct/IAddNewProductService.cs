@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace metal.Application.service.Products.Command.AddNewProduct
 {
@@ -83,7 +84,8 @@ namespace metal.Application.service.Products.Command.AddNewProduct
             }
             catch (Exception ex)
             {
-
+                
+                Console.WriteLine("خطااااااااااا" + ex + "خطاااااااااا");
                 return new ResultDto
                 {
                     IsSuccess = false,
