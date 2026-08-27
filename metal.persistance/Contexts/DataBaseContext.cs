@@ -1,6 +1,7 @@
 ﻿using metal.Application.InterFace.Contexts;
 using metal.Common.Bugeto_Store.Common.Roles;
 using metal.Domain.Entities.HomePages;
+using metal.Domain.Entities.Media;
 using metal.Domain.Entities.posters;
 using metal.Domain.Entities.Products;
 using metal.Domain.Entities.users;
@@ -33,6 +34,11 @@ namespace metal.persistance.Contexts
         public DbSet<ProductFeatures> ProductFeatures { get; set; }
         public DbSet<CategoryImages> CategoryImages { get; set; }
         public DbSet<Slider> Slider { get; set; }
+
+        public DbSet<Media> Medias { get; set; }
+        public DbSet<MediaImages> MediaImages { get; set; }
+        public DbSet<MediaTexts> MediaTexts { get; set; }
+        public DbSet<MediaProducts> MediaProducts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

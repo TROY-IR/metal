@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using metal.Domain.Entities.HomePages;
+using metal.Domain.Entities.Media;
 
 namespace metal.Application.InterFace.Contexts
 {
@@ -21,6 +22,10 @@ namespace metal.Application.InterFace.Contexts
         public DbSet<ProductFeatures> ProductFeatures { get; set; }
         public DbSet<CategoryImages> CategoryImages { get; set; }
         public DbSet<Slider> Slider { get; set; }
+        public DbSet<Media> Medias { get; set; }
+        public DbSet<MediaImages> MediaImages { get; set; }
+        public DbSet<MediaTexts> MediaTexts { get; set; }
+        public DbSet<MediaProducts> MediaProducts { get; set; }
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();

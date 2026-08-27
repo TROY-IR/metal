@@ -1,5 +1,6 @@
 using metal.Application.InterFace.FacadPaerns;
 using metal.Application.service.Common.Quereis.GetSlider;
+using metal.Application.service.UI.DaynamicUi.Quary.Getmedia;
 using metal.Application.service.users.quary.get;
 using metal.Areas.troy.Controllers;
 using metal.Domain.Entities.posters;
@@ -19,20 +20,24 @@ namespace metal.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IGetSliderService _getSliderService;
         private readonly IProductFacad _productFacad;
+   //     private readonly IGetMedia _getMedia;
 
         public HomeController(IProductFacad productFacad
             ,ILogger<HomeController> logger
-            ,IGetSliderService getSliderService)
+            ,IGetSliderService getSliderService
+            ,IGetMedia getMedia)
         {
             _logger = logger;
             _getSliderService = getSliderService;
             _productFacad = productFacad;
+      //      _getMedia = getMedia;
         }
 
 
 
         public IActionResult Index(int page = 1)
         {
+    
             return View(_productFacad.GetProductForSiteService.Execute(page).Data);
         }
 

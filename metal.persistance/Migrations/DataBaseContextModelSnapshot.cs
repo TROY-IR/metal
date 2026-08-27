@@ -62,6 +62,113 @@ namespace metal.persistance.Migrations
                     b.ToTable("Slider");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.Media.Media", b =>
+                {
+                    b.Property<long>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("pName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Medias");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Media.MediaImages", b =>
+                {
+                    b.Property<long>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("id"));
+
+                    b.Property<long>("Mediaid")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("src")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Mediaid");
+
+                    b.ToTable("MediaImages");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Media.MediaProducts", b =>
+                {
+                    b.Property<long>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("id"));
+
+                    b.Property<string>("CName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Mediaid")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Titel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("src")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Mediaid");
+
+                    b.ToTable("MediaProducts");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Media.MediaTexts", b =>
+                {
+                    b.Property<long>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("id"));
+
+                    b.Property<long>("Mediaid")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Mediaid");
+
+                    b.ToTable("MediaTexts");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.Products.Category", b =>
                 {
                     b.Property<long>("Id")
@@ -410,6 +517,39 @@ namespace metal.persistance.Migrations
                     b.ToTable("Userinroles");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.Media.MediaImages", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.Media.Media", "Media")
+                        .WithMany("MImages")
+                        .HasForeignKey("Mediaid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Media");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Media.MediaProducts", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.Media.Media", "Media")
+                        .WithMany("MProducts")
+                        .HasForeignKey("Mediaid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Media");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Media.MediaTexts", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.Media.Media", "Media")
+                        .WithMany("MTexts")
+                        .HasForeignKey("Mediaid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Media");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.Products.Category", b =>
                 {
                     b.HasOne("metal.Domain.Entities.Products.Category", "ParentCategory")
@@ -480,6 +620,15 @@ namespace metal.persistance.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Media.Media", b =>
+                {
+                    b.Navigation("MImages");
+
+                    b.Navigation("MProducts");
+
+                    b.Navigation("MTexts");
                 });
 
             modelBuilder.Entity("metal.Domain.Entities.Products.Category", b =>

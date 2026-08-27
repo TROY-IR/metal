@@ -47,20 +47,20 @@ async function  getVideo() {
         
 
 
-        function playVideo(index) {
-            if (index >= videos.length) {
-                currentIndex = 0; // شروع دوباره از اول
-            }
+function playVideo(index) {
+    if (index >= videos.length) {
+        currentIndex = 0; // شروع دوباره از اول
+    }
 
-            pausedAt5 = false;
+    pausedAt5 = false;
 
-            player.src = videos[currentIndex];
-            player.load();
+    player.src = videos[currentIndex];
+    player.load();
 
-            player.onloadedmetadata = () => {
-                player.play();
-            };
-        }
+    player.onloadedmetadata = () => {
+        player.play();
+    };
+}
 
         player.addEventListener("timeupdate", () => {
 

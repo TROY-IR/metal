@@ -26,13 +26,13 @@ namespace metal.Application.service.Products.Quary.GetAllCategories
         {
             var categories = _context
                 .Categories
-                .Include(p => p.ParentCategory)
+         //       .Include(p => p.ParentCategory)
                 .Where(p => p.ParentCategoryId != null)
                 .ToList()
                 .Select(p => new AllCategoriesDto
                 {
                     Id = p.Id,
-                    Name = $"{p.ParentCategory.Name} - {p.Name}",
+                    Name = $"{p.ParentCategory?.Name} - {p.Name}",
                 }
                 ).ToList();
 

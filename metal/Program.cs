@@ -6,6 +6,8 @@ using metal.Application.service.Common.Quereis.GetSlider;
 using metal.Application.service.HomePages;
 using metal.Application.service.Products.Facadpatern;
 using metal.Application.service.Products.Quary.GetProductForSearch;
+using metal.Application.service.UI.DaynamicUi.Command.AddMediaUi;
+using metal.Application.service.UI.DaynamicUi.Quary.Getmedia;
 using metal.Application.service.users.command;
 using metal.Application.service.users.command.EditUser;
 using metal.Application.service.users.command.removeuser;
@@ -40,8 +42,11 @@ builder.Services.AddScoped<IProductFacad, ProductFacad>();
 
 builder.Services.AddScoped<IGetCategoryService, GetCategoryService>();
 builder.Services.AddScoped<IGetProductForSearch, GetProductForSearch>();
+
 builder.Services.AddScoped<IAddNewSliderService, AddNewSliderService>();
 builder.Services.AddScoped<IGetSliderService, GetSliderService>();
+builder.Services.AddScoped<IGetMedia, GetMedia>();
+builder.Services.AddScoped<IAddMediaUiService, AddMediaUiService>();
 
 builder.Services.AddAuthentication(options =>
 {
