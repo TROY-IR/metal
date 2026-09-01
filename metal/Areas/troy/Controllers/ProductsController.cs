@@ -40,6 +40,7 @@ namespace metal.Areas.troy.Controllers
             List<IFormFile> images = new List<IFormFile>();
             for (int i = 0; i < Request.Form.Files.Count; i++)
             {
+
                 var file = Request.Form.Files[i];
                 images.Add(file);
             }

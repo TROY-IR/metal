@@ -1,0 +1,38 @@
+﻿@using metal.Application.service.Carts
+@model CartDto
+
+
+
+
+
+
+    <div class="ffpar ppp">
+    @foreach (var item in Model.CartItems)
+    {
+
+        <div class="fff0 ">
+
+            <div class="fff ">
+
+                <div class=price0>
+                    <span class="price">
+                        @item.Price$
+                    </span>
+                </div>
+
+                <img class="fff1 " src="@item.Images">
+                <span class="fff2">@item.Product</span>
+            </div>
+
+            <h4 class="fff22 ">hhhhhhhh
+            </h4>
+        </div>
+}
+    </div>
+
+
+
+
+
+
+

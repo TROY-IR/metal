@@ -1,6 +1,7 @@
 using metal;
 using metal.Application.InterFace.Contexts;
 using metal.Application.InterFace.FacadPaerns;
+using metal.Application.service.Carts;
 using metal.Application.service.Common.Quereis.GetCategory;
 using metal.Application.service.Common.Quereis.GetSlider;
 using metal.Application.service.HomePages;
@@ -47,6 +48,11 @@ builder.Services.AddScoped<IAddNewSliderService, AddNewSliderService>();
 builder.Services.AddScoped<IGetSliderService, GetSliderService>();
 builder.Services.AddScoped<IGetMedia, GetMedia>();
 builder.Services.AddScoped<IAddMediaUiService, AddMediaUiService>();
+builder.Services.AddScoped<ICartService, CartService>();
+
+
+
+
 
 builder.Services.AddAuthentication(options =>
 {

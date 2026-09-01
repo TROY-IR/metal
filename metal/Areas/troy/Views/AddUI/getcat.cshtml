@@ -1,0 +1,18 @@
+﻿@using metal.Application.service.UI.DaynamicUi.Command.AddMediaUi
+@model List<AllProducts>
+
+
+
+
+@foreach(var item in Model)
+{
+    <div class="gk1">
+        <div class="gkk">
+            <img src="/@item.imsrc" class="acsk mah" alt="">
+            <h4 class="mtnk0">@item.Id</h4>
+        </div>
+        <h4 class="mtnk">@item.Name</h4>
+    </div>
+}
+
+

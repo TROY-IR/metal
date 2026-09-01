@@ -364,11 +364,27 @@ function playVideo(index) {
                             bar.className = 'bar'
                             bar.style.height = window.innerHeight - 50 + 'px'
                             col.appendChild(bar)
+
+
                             const menobar = document.createElement('div')
                             const meno = document.createElement('div')
-
                             menobar.className = 'menobar'
                             meno.className = 'meno'
+
+                            setTimeout(() => {
+                                menobar.classList.add('show');
+                                meno.classList.add('show');
+                            }, i * 350)
+                            meno.style.overflowX = 'auto'
+                            meno.style.display = 'flex'
+
+
+                            menobar.style.marginTop = (5 * a) + 'px'
+
+                            menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
+
+                            meno.style.height = (150 * a) + 'px'
+                            meno.style.width = (470 * a) + 'px'
 
 
 
@@ -377,65 +393,47 @@ function playVideo(index) {
                             bar.style.width = (520 * a) + 'px'
 
 
-                            menobar.style.backgroundImage = `url("/${i + 1}h.png")`
-                            menobar.style.backgroundPosition = 'center'
-
-                            setTimeout(() => {
-                                menobar.classList.add('show');
-                                meno.classList.add('show');
-                            }, i * 350)
 
 
-                            const ord = document.createElement('div')
-                            const ord1 = document.createElement('img')
-                            const ord2 = document.createElement('input')
+
+
+
                             const fb = document.createElement('img')
+                            const fb1 = document.createElement('img')
+                            const fb2 = document.createElement('img')
 
                             fb.classList.add('fb')
-                            ord.classList.add('ord')
-                            ord1.classList.add('ord')
-                            ord2.classList.add('ord')
-                            ord.style.position = 'absolute'
-                            meno.appendChild(ord)
-                            ord.appendChild(ord1)
-                            ord.appendChild(ord2)
+                            fb1.classList.add('fb')
+                            fb2.classList.add('fb')
+
                             meno.appendChild(fb)
-                            ord.style.marginTop = 2 + '%'
-                            ord.style.display = 'flex'
-                            fb.style.marginTop = (25) + '%'
-                            fb.style.marginLeft = (85) + '%'
-                            ord.style.marginLeft = 20 + 'px'
-                            ord.style.width = 37 + '%'
-                            ord.style.height = 90 + '%'
-                            ord1.style.width = 50 + '%'
-                            ord1.style.height = 90 + '%'
-                            ord1.style.marginLeft = 1 + '%'
-                            ord1.style.marginTop = 3 + '%'
-                            ord2.style.width = 42 + '%'
-                            ord2.style.height = 90 + '%'
-                            ord2.style.marginLeft = 3 + '%'
-                            ord2.style.marginTop = 3 + '%'
-                            const file = document.createElement('input')
-                            file.type = 'file'
-                            ord1.addEventListener('click', () => {
-                                file.click();
-                            })
-                            file.addEventListener('change', () => {
-                                const f = file.files[0];
-                                if (!file) return;
+                            meno.appendChild(fb1)
+                            meno.appendChild(fb2)
 
-                                const url = URL.createObjectURL(f)
-                                ord1.src = url;
+                            fb.style.marginTop = (-10) + '%'
+                            fb1.style.marginTop = (0) + '%'
+                            fb2.style.marginTop = (10) + '%'
 
-                            })
+                            fb.style.marginLeft = (5) + '%'
+                            fb1.style.marginLeft = (5) + '%'
+                            fb2.style.marginLeft = (5) + '%'
 
 
-                            menobar.style.marginTop = (60 * a) + 'px'
+                            meno.style.height = (165 * a) + 'px'
 
-                            menobar.style.marginLeft = (60 * a) + 'px'
+                            async function cart() {
 
-                            meno.style.height = (150 * a) + 'px'
-                            meno.style.width = (470 * a) + 'px'
+                                const sabad = await fetch("/Cart/CartUi")
+
+                                const chtml = await sabad.text();
+
+                                meno.innerHTML = chtml;
+
+                            }
+
+                            cart();
+
+
 
 
 
@@ -448,9 +446,6 @@ function playVideo(index) {
                                 re3.forEach(re => { re.remove() });
                             }, 300)
                         }
-
-
-
                     })
                 }
                 if (i == 2) {
@@ -467,8 +462,6 @@ function playVideo(index) {
                             menobar.className = 'menobar'
                             meno.className = 'meno'
 
-                            col.appendChild(menobar)
-                            col.appendChild(meno)
 
                             bar.appendChild(menobar)
                             bar.appendChild(meno)
@@ -1104,9 +1097,9 @@ function playVideo(index) {
 
 
 
-            foter = document.querySelectorAll('.foter'),
-                foter0 = document.querySelectorAll('.foter0'),
-                fim = document.querySelectorAll('.fim')
+         const  foter = document.querySelectorAll('.foter')
+          const  foter0 = document.querySelectorAll('.foter0')
+          const  fim = document.querySelectorAll('.fim')
 
             foter.forEach(f => {
 
@@ -1294,23 +1287,9 @@ catbb.forEach(c => {
                                 tp4 = true
                                 const menobar = document.createElement('div')
                                 const meno = document.createElement('div')
-                                const ffpar = document.createElement('div')
-                                const ffpar0 = document.createElement('div')
+                                col.appendChild(menobar)
+                                col.appendChild(meno)
 
-                                meno.appendChild(ffpar)
-                                ffpar.style.width = (460 * a) + 'px'
-                                ffpar.style.height = 95 + '%'
-                                ffpar0.style.display = 'flex'
-                                ffpar0.style.flexWrap = 'nowrap'
-                                ffpar.style.flexWrap = 'nowrap'
-                                ffpar.style.display = 'flex'
-                                ffpar.style.overflowX = 'auto'
-
-                                ffpar0.style.width = (140 * a * 10) + 'px'
-                                ffpar0.style.height = (97) + '%'
-
-                                ffpar.classList.add('ppp')
-                                ffpar.appendChild(ffpar0)
 
 
                                 const fb = document.createElement('img')
@@ -1333,73 +1312,23 @@ catbb.forEach(c => {
                                 fb1.style.marginLeft = (5) + '%'
                                 fb2.style.marginLeft = (5) + '%'
 
-                                for (let i = 0; i < 10; i++) {
 
-                                    meno.style.height = (165 * a) + 'px'
-                                    const fff = document.createElement('div')
-                                    const fff0 = document.createElement('div')
-                                    const fff1 = document.createElement('img')
-                                    const fs = document.createElement('img')
+                                meno.style.height = (165 * a) + 'px'
 
-                                    const fff2 = document.createElement('span')
-                                    const fff22 = document.createElement('h4')
-                                    fs.addEventListener('click', () => {
-                                        fff.remove()
-                                        fff1.remove()
-                                        fff2.remove()
-                                        fs.remove()
-                                        fff0.remove()
-                                    })
+                                async function cart() {
 
-                                    fff.classList.add('gks')
-                                    fff1.classList.add('acss')
-                                    fff22.classList.add('mtn')
-                                    fs.classList.add('fs')
+                                 const sabad = await fetch("/Cart/CartUi")
 
+                                const chtml = await sabad.text();
 
-                                    fff.appendChild(fs)
-                                    fff0.classList.add('gk')
+                                meno.innerHTML = chtml;
 
-
-                                    fff.style.display = 'flex'
-                                    fff.style.flexWrap = 'wrap'
-                                    fff0.style.display = 'flex'
-                                    fff0.style.flexWrap = 'nowrap'
-
-
-                                    fs.src = '/2h.png'
-                                    fs.style.borderTopLeftRadius = 18 + 'px'
-                                    fff1.style.borderTopLeftRadius = 18 + 'px'
-                                    fff0.style.borderRadius = 18 + 'px'
-
-                                    fff.style.flexShrink = 0
-                                    fff1.src = '/men.jpg'
-                                    fff2.textContent = 'fffffff'
-                                    fff22.textContent = 'fffffff'
-                                    fff0.display = 'flex'
-                                    fff0.style.width = (105 * a) + 'px'
-                                    fff0.style.height = (110 * a) + 'px'
-                                    fff.style.width = (75 * a) + 'px'
-                                    fff.style.height = (130 * a) + 'px'
-                                    //   fff0.style.marginTop = (-1 * a) + 'px'
-                                    fff.style.marginLeft = (0 * a) + 'px'
-                                    fff.style.marginTop = (0 * a) + 'px'
-                                    fff1.style.width = (75 * a) + 'px'
-                                    fff1.style.height = (110 * a) + 'px'
-                                    fff2.style.marginTop = (2 * a) + 'px'
-                                    fff2.style.marginLeft = (10 * a) + 'px'
-                                    fff2.style.fontSize = (14 * a) + 'px'
-
-                                    fff22.style.fontSize = (14 * a) + 'px'
-                                    fff22.style.marginLeft = (80 * a) + 'px'
-                                    // meno.appendChild(fff0)
-
-                                    ffpar0.appendChild(fff0)
-                                    fff0.appendChild(fff)
-                                    fff0.appendChild(fff22)
-                                    fff.appendChild(fff1)
-                                    fff.appendChild(fff2)
                                 }
+
+                                cart();
+
+
+
 
 
                             }
@@ -2636,6 +2565,7 @@ catbb.forEach(c => {
 
             const col = document.querySelector('.col')
             const tel = eve.target;
+            let id = tel.dataset.id
 
             if (tel.classList.contains('mah')) {
                 const ecl = tel.className;
@@ -2658,6 +2588,10 @@ catbb.forEach(c => {
                     chi1.classList.add('chi')
 
                     chi1.addEventListener('click', (e1) => {
+                        if (i == 2) {
+                            var cartres = fetch(`/Cart/AddToCart?ProductId=${id}`)
+                            console.log(cartres)
+                        }
                         if (i == 3) {
 
 
@@ -3824,7 +3758,6 @@ catbb.forEach(c => {
                             }
 
 
-                            let id = tel.dataset.id
 
                             console.log(id)
 
@@ -3858,7 +3791,9 @@ catbb.forEach(c => {
                             g()
                    
                 }
-                     } )
+                        
+
+                    })
 
 
                 }

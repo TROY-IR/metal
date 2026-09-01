@@ -19,10 +19,37 @@ namespace metal.Areas.troy.Controllers
         }
 
         [HttpPost]
-        public IActionResult HomeUi()
+        public IActionResult HomeUi(AddMedia request, List<AddMediaText>? Atext, List<AddMediaImage>? Aimages, List<AddMediaProduct>? Aproduct)
         {
-            ViewBag.Categories = new SelectList(_addMediaUiService.Execute(), "Id", "Name");
-            return View();
+
+            List<AddMediaImage> images = new List<AddMediaImage>();
+            for (int i = 0; i < Request.Form.Files.Count; i++)
+            {
+                AddMediaImage im = new AddMediaImage()
+                {
+                    IName = Aimages[i].IName,
+                    Images = Request.Form.Files[i]
+                };
+
+                images.Add(im);
+            }
+
+            request.MImages = images;
+            request.MTexts = Atext;
+            request.MProducts = Aproduct;
+
+
+
+            return Json(_addMediaUiService.AddUi(request));
+        }
+
+
+
+
+        public IActionResult getcat(int catid)
+        {
+
+            return PartialView("getcat",_addMediaUiService.CatProducts(catid));
         }
     }
 }

@@ -1,10 +1,14 @@
 ﻿using metal.Application.InterFace.Contexts;
+using metal.Application.service.UI.DaynamicUi.Quary.Getmedia;
 using metal.Common;
 using metal.Domain.Entities.Media;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static metal.Application.service.Products.Command.AddNewCategory.AddNewCategoryService;
 
 namespace metal.Application.service.UI.DaynamicUi.Command.AddMediaUi
 {
@@ -18,10 +22,12 @@ namespace metal.Application.service.UI.DaynamicUi.Command.AddMediaUi
     public class AddMediaUiService : IAddMediaUiService
     {
         private readonly IDataBaseContext _context;
+        private readonly IHostingEnvironment _environment;
 
-        public AddMediaUiService(IDataBaseContext context)
+        public AddMediaUiService(IDataBaseContext context, IHostingEnvironment hostingEnvironment)
         {
             _context = context;
+            _environment = hostingEnvironment;
         }
 
         public List<AllCategory> Execute()
@@ -58,48 +64,74 @@ namespace metal.Application.service.UI.DaynamicUi.Command.AddMediaUi
             return products;
         }
 
+
         public ResultDto AddUi(AddMedia request)
         {
             try
             {
 
-                var products = _context.Products.Include(p => p.ProductImages).Where(p => request.MProducts.Select(p1 => p1.Id).ToList().Contains(p.Id)).ToList();
-
-                var media = new Media
+                var media = new Media()
                 {
                     Name = request.Name,
                     pName = request.pName,
-                    
-                    MTexts = request.MTexts.ToList().Select(p => 
-                    new MediaTexts
-                    {
-                        Name = p.Name,
-                        Text =p.Text
-                    }
-                    ).ToList(),
-                    MImages = request.MImages.ToList().Select(p =>
-                    new MediaImages
-                    {
-                        Name = p.Name,
-                        src = p.src
-                    }
-                    ).ToList(),
-                    MProducts = request.MProducts. Join(
-                        products,
-                        mp => mp.Id,
-                        pdb => pdb.Id,
-                   (mp,pdb) => new MediaProducts
-                    {
-                        Name = pdb.Name,
-                        Titel = pdb.Description,
-                        CName = mp.CName,
-                        src = pdb.ProductImages.FirstOrDefault().Src
-                    }
-                    ).ToList()
                 };
 
-
                 _context.Medias.Add(media);
+
+
+
+                List<MediaTexts> mtext = new List<MediaTexts>();
+
+                foreach (var item in request.MTexts)
+                {
+                    mtext.Add( new MediaTexts
+                    {
+                        Name = item.TName,
+                        Text = item.Text,
+                        Media = media
+                    }
+                        );
+                }
+                _context.MediaTexts.AddRange(mtext);
+
+
+
+                List<MediaProducts> mpro = new List<MediaProducts>();
+
+                foreach (var item in request.MProducts)
+                {
+                    Console.WriteLine(item.Name);
+                    var p = _context.Products.Include(p => p.ProductImages).Include(p => p.Category).Where(p => p.Name == item.Name).FirstOrDefault();
+
+                    mpro.Add(new MediaProducts
+                    {
+                        Name = p.Name,
+                        CName = item.CName,
+                        src = p.ProductImages.FirstOrDefault().Src,
+                        Titel = p.Category.Name,
+                        Media = media
+                    }
+                        );
+                }
+                _context.MediaProducts.AddRange(mpro);
+
+
+
+
+                List<MediaImages> mim = new List<MediaImages>();
+
+                foreach (var item in request.MImages)
+                {
+                    var up = UploadFile(item.Images);
+                    mim.Add(new MediaImages
+                    {
+                        Name = item.IName,
+                        src = up.FileNameAddress,
+                        Media = media
+                    }
+                        );
+                }
+                _context.MediaImages.AddRange(mim);
 
                 _context.SaveChanges();
 
@@ -121,7 +153,52 @@ namespace metal.Application.service.UI.DaynamicUi.Command.AddMediaUi
             }
         }
 
+
+
+
+
+        private UploadDto UploadFile(IFormFile file)
+        {
+            if (file != null)
+            {
+                string folder = $@"images\ProductImages\";
+                var uploadsRootFolder = Path.Combine(_environment.WebRootPath, folder);
+                if (!Directory.Exists(uploadsRootFolder))
+                {
+                    Directory.CreateDirectory(uploadsRootFolder);
+                }
+
+
+                if (file == null || file.Length == 0)
+                {
+                    return new UploadDto()
+                    {
+                        Status = false,
+                        FileNameAddress = "",
+                    };
+                }
+
+                string fileName = DateTime.Now.Ticks.ToString() + file.FileName;
+                var filePath = Path.Combine(uploadsRootFolder, fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+
+                return new UploadDto()
+                {
+                    FileNameAddress = folder + fileName,
+                    Status = true,
+                };
+            }
+            return null;
+        }
     }
+
+
+
+
+
 
 
     public class AllCategory
@@ -142,32 +219,29 @@ namespace metal.Application.service.UI.DaynamicUi.Command.AddMediaUi
 
         public string Name { get; set; }
         public string pName { get; set; }
-        public virtual List<AddMediaText> MTexts { get; set; }
-        public virtual List<AddMediaImage> MImages { get; set; }
-        public virtual List<AddMediaProduct> MProducts { get; set; }
+        public virtual List<AddMediaText>? MTexts { get; set; }
+        public virtual List<AddMediaImage>? MImages { get; set; }
+        public virtual List<AddMediaProduct>? MProducts { get; set; }
     }
 
     public class AddMediaText
     {
 
-        public string Name { get; set; }
+        public string TName { get; set; }
         public string Text { get; set; }
 
     }
 
     public class AddMediaImage
     {
-        public string Name { get; set; }
-        public string src { get; set; }
+        public string IName { get; set; }
+        public IFormFile Images { get; set; }
 
     }
     public class AddMediaProduct
     {
-        public long Id { get; set; }
         public string Name { get; set; }
         public string CName { get; set; }
-        public string Titel { get; set; }
-        public string imsrc { get; set; }
 
 
     }

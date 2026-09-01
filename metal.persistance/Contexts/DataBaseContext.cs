@@ -1,5 +1,6 @@
 ﻿using metal.Application.InterFace.Contexts;
 using metal.Common.Bugeto_Store.Common.Roles;
+using metal.Domain.Entities.Carts;
 using metal.Domain.Entities.HomePages;
 using metal.Domain.Entities.Media;
 using metal.Domain.Entities.posters;
@@ -39,6 +40,8 @@ namespace metal.persistance.Contexts
         public DbSet<MediaImages> MediaImages { get; set; }
         public DbSet<MediaTexts> MediaTexts { get; set; }
         public DbSet<MediaProducts> MediaProducts { get; set; }
+        public DbSet<Cart> carts { get; set; }
+        public DbSet<CartItem> cartItems { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -70,6 +73,8 @@ namespace metal.persistance.Contexts
             modelBuilder.Entity<ProductImages>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<ProductFeatures>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Slider>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Cart>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<CartItem>().HasQueryFilter(p => !p.IsRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)

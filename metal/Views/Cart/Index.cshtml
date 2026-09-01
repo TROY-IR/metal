@@ -1,0 +1,2355 @@
+﻿@using metal.Application.service.Carts
+@model CartDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int sumTota = 0;
+}
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="body">
+   
+        <div class="col0">
+
+            <div class="hea">
+                <img src="back.jpg" class="he">
+            </div>
+
+
+             <div class="shop">
+                <div class="sabad">
+
+                @foreach (var item in Model.CartItems)
+                    {
+                        <div class="po">
+                            <div class=price0>
+                                <span class="price">
+                                    @item.Price$
+                                </span>
+                            </div>
+
+                            <img class="po_f" src="@item.Images">
+
+                            <div class="det">
+
+                                <div class="pname">
+                                    <h3 class="name">@item.Product</h3>
+                                    <h6 class="title">winter is comming</h6>
+                                </div>
+
+                                <div class="ptexra">
+                                    <div class="texra t1"><span class="tt">size</span></div>
+                                    <div class="val">
+                                        <div class="texra v t2"><span class="tt">22*33</span></div>
+                                        <div class="texra v t3"><span class="tt">22*33</span></div>
+                                        <div class="texra v t4"><span class="tt">22*33</span></div>
+                                        <div class="selecter"></div>
+                                     </div>
+                                </div>
+
+                                <div class="psize">
+                                    <div class="texra t1"><span class="tt">size</span></div>
+                                    <div class="val">
+                                        <div class="texra v t2"><span class="tt">22*33</span></div>
+                                        <div class="texra v t3"><span class="tt">22*33</span></div>
+                                        <div class="texra v t4"><span class="tt">22*33</span></div>
+                                        <div class="selecter"></div>
+                                    </div>
+                                </div>
+                               
+                                <div class="pprice">
+                                    <div class="texra v p4"><img class="tt"></div>
+                                    <div class="texra v p2"><span class="tt">MOVE</span></div>
+                                    <div class="texra v p3">
+                                        <input class="many" type="number" min="1" max="100" step="1" value="@item.Count" id="count-@item.Id">
+                                        <div class="quantity-nav">
+                                        <div class="quantity-button quantity-up" onclick="AddCount('@item.Id')">+</div>
+                                        <div class="quantity-button quantity-down" onclick="lowCount('@item.Id')">-</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="pardakht">
+
+                </div>
+            </div>
+
+            <div class="oth">
+            <div class="other">
+                <div class="header">
+                    <div class="heim">
+
+                    </div>
+                </div>
+                <div class="ofoter">
+                    <div class="foim">
+
+                    </div>
+                    <div class="foim">
+
+                    </div>
+                    <div class="foim">
+
+                    </div>
+                </div>
+            </div>
+            <div class="other">
+                <div class="header">
+                    <div class="heim">
+            
+                    </div>
+                </div>
+                <div class="ofoter">
+                    <div class="foim">
+            
+                    </div>
+                    <div class="foim">
+            
+                    </div>
+                    <div class="foim">
+            
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+
+            <div class="daste" id="idaste">
+            
+                
+                <div class="m_daste">
+                <img class="day" src="mashin (1).png">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+                <div class="m_daste">
+                    <img class="day">
+                </div>
+            
+            
+            </div>
+            <footer class="foter">
+
+            </footer>
+
+
+        </div>
+
+
+
+
+
+    <style>
+ * {
+    margin: 0;
+ }
+
+.hea{
+    width: 100%;
+    height: 170px;
+    position: absolute;
+    margin-top: -70px;
+    z-index: -2;
+
+}
+.he{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+.pardakht{
+    width: 95%;
+    height: 25%;
+
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    border-radius: 14px;
+
+    background-color: #b1b1b1;
+}
+
+.foter{
+    width: 100%;
+    height: 200px;
+}
+
+.shop{
+
+    width: 90%;
+
+    margin-top: 70px;
+    margin-left: 5%;
+
+    display: flex;
+    flex-wrap: wrap;
+
+   
+}
+.po{
+    background-color: rgb(26, 0, 31);
+    width: 100%;
+    margin-top: 14px;
+    height: 200px;
+    margin-left: 2.5%;
+    border-radius: 24px;
+
+      background: rgba(78, 5, 72, 0.08);
+  backdrop-filter: blur(9px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+position: relative;
+display: flex;
+flex-shrink: 1;
+flex-wrap: nowrap;
+  flex: 0 0 auto;
+    box-shadow: 0 0px 10px #050505;
+overflow: hidden;    
+}
+
+.price0{
+    background-color: brown;
+position: absolute;
+width: 15%;
+height: 15%;
+z-index: 10;
+display: flex;
+justify-content: center;
+align-items: center;
+border-bottom-right-radius: 14px;
+
+}
+
+.p3{
+    height: 25px;
+}
+
+.many::-webkit-outer-spin-button,
+.many::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    
+}
+
+.many{
+    position: absolute;
+    border-radius: 14px;
+    height: 22px;
+    border-left: none;
+    border-right: none;
+    outline: none;
+  background: rgba(78, 5, 72, 0.08);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  color: rgb(230, 230, 230);
+  text-align: center;   
+  
+  width: 75px; 
+  
+}
+
+.quantity-nav {
+    float: right;
+    position: relative;
+    height: 25px;
+  }
+  
+.quantity-button {
+    position: relative;
+    cursor: pointer;
+    width: 20px;
+    text-align: center;
+    color: #0fabc6;
+    font-size: 13px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+    line-height: 1.7;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    font-size: 1.071rem;
+  }
+  
+.quantity-button.quantity-up {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    left: -15px;
+    font-size: 25px;
+    padding-top: 0px;
+    line-height: 25px;
+    border-radius: 50%;
+    background: #86868624;
+    color: #0095ff;
+}
+
+.quantity-button.quantity-up:hover{
+    background: #52b7ff;
+    color: #fff;
+    transition: .2s;
+}
+  
+.quantity-button.quantity-down {
+    position: absolute;
+    height: 25px;
+
+    width: 25px;
+    left: 40px;
+    font-size: 25px;
+    line-height: 24px;
+    padding-top: 0px;
+    border-radius: 50%;
+    background: #86868624;
+    color: #fb5454;
+    transition: .2s;
+  }
+
+  .quantity-button.quantity-down:hover{
+      background: #ff8c8c;
+      color: #fff;
+      transition: .2s;
+}
+
+.price{
+color: #b1b1b1;
+}
+
+.det{
+    display:block ;
+    width: 60%;
+    display:flex ;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pname{
+    height: 25%;
+    width: 100%;
+    margin-top: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.name{
+display: block;
+    text-align: center;
+    width: 100%;
+color: #b1b1b1;
+}
+.title{
+    display: block;
+    text-align: center;
+    width: 100%;
+ color: #b1b1b1;   
+
+}
+
+.ptexra{
+
+    width: 90%;
+    height: 22%;
+    display: flex;
+    flex-wrap: nowrap;
+      justify-content: center;
+  align-items: center;
+  position: relative;  
+}
+
+.texra{
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.val{
+        width: 70%;
+    height: 25%;
+    margin-left: 1%;
+    display: flex;
+    flex-wrap: nowrap;
+      justify-content: center;
+  align-items: center;
+
+}
+
+.v{
+    width: 33%;
+}
+
+.tt{
+    color: #c5c4c4;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+}
+
+.t1{
+    width: 30%;
+
+}
+
+.selecter{
+    width: 22%;
+    height: 70%;
+    position: absolute;
+        border-radius: 7px;
+
+
+  background: rgba(168, 168, 168, 0.089);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  color: rgb(84, 84, 84);
+  font-weight: 600;
+  transition: top 0.3s ease;
+  z-index: 1000;
+}
+
+.psize{
+
+    width: 90%;
+    height: 22%;
+      display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.pprice{
+
+    margin-left: -25px;
+
+      display: flex;
+  justify-content: center;
+  align-items: center;
+    width: 90%;
+    height: 22%;
+}
+
+.body{
+flex-wrap: nowrap;
+width: 100%;
+background-color: #232323;
+}
+
+.up{
+    width: 100%;
+    height: 50px;
+    background-color: #282828;
+}
+
+.search-bar.p{
+    bottom: 15px;
+    top:auto
+}
+.search-bar {
+  position: fixed;
+  top: 15px;
+  left: 5%;
+  right: 0;
+  height: 55px;
+  width: 90%;
+  
+  display: flex;
+
+overflow: hidden;  
+  gap: 10px;
+
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-radius: 24px;
+
+
+  background: rgba(78, 5, 72, 0.08);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  color: rgb(84, 84, 84);
+  font-weight: 600;
+  transition: top 0.3s ease;
+  z-index: 1000;
+
+
+  transition: all 0.5s ease-in-out;
+  opacity: 1; transform: scale(1);
+}
+
+.search {
+  
+    border-radius: 18px;
+    height: 32px;
+    width: 82%;
+
+    margin-left: -5px;
+position: absolute;
+    border: none;
+   text-align: center;
+margin-bottom: 2px;
+color: rgb(181, 171, 181);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+font-size: 18px;
+border-right: none;
+border-left: none;
+
+overflow: hidden;
+  background: rgba(68, 4, 62, 0.08);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
+   border-right: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+
+  transition: box-shadow 0.4s ease-in-out;
+  transition:  0.5s ease-in-out;
+  opacity: 0; transform: scale(1);
+
+}
+
+.search:focus{
+
+    outline:none;
+    box-shadow: 0 0px 25px rgba(255, 255, 255, 0.15);
+    
+}
+
+.search.show{
+    opacity: 1;
+}
+.search.re{
+    opacity: 0; 
+    
+}
+.search.ai{
+      border-top: 1px solid rgba(249, 245, 5, 0.35);
+  border-bottom: 1px solid rgba(249, 245, 5, 0.35); 
+   border-right: 1px solid rgba(249, 245, 5, 0.35);
+        box-shadow: 0 0px 15px rgba(233, 230, 9, 0.30);
+}
+
+.serinp{
+
+    width: 80%;
+    height: 80%;
+
+    position: fixed;
+    margin-top: 9px;
+    margin-left: 17%;
+}
+
+.t{
+    transition: 0.5s ease-in-out;
+position: absolute;
+    width: 35px;
+    height: 35px;
+    margin-top: 9px;
+    margin-left: 4%;
+   
+    padding-bottom: 5px;
+font-size: 26px;
+}
+.glass-text {
+  font-size: 16px;
+  margin-right: -40px;
+}
+
+.bu1{
+    text-align:right;
+    font-size: 14px;
+    color: rgb(179, 159, 179);
+    margin-top: 0%;
+    margin-left: 75%;
+    width: 25%;
+    height: 35px;
+z-index: 0;
+border-left: none;
+  border-top: 2px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    border-right: 2px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 24px;
+
+      background: rgba(78, 5, 72, 1);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  position: absolute;
+
+      transition: width 0.4s ease-out;
+
+
+  transition: all 0.5s ease-in-out;
+  opacity: 0; transform: scale(1);
+}
+.bu{
+    width: 14%;
+    font-size: 14px;
+    color: #b1b1b1;
+    margin-top: 0%;
+    margin-left: 69%;
+    height: 34px;
+
+
+
+z-index: 1;
+  border-top: 2px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    border-right: 2px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 24px;
+      background: rgba(92, 4, 85, 1);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  position: absolute;
+
+      transition: width 0.4s ease-in-out;
+
+  transition: all 0.5s ease-in-out;
+  opacity: 0; transform: scale(1);
+}
+
+.bu.show{
+    opacity: 1;
+}
+.bu1.show{
+    opacity: 1;
+}
+.bu.re{
+opacity: 0;
+}
+.bu1.re{
+    opacity: 0;
+}
+
+@@keyframes floating {
+        0% {
+            transform: translate(0, 0);
+        }
+        25% {
+            transform: translate(5px, -2px);
+        }
+        50% {
+            transform: translate(10px, 0);
+        }
+        75% {
+            transform: translate(5px, 2px);
+        }
+        100% {
+            transform: translate(0, 0);
+        }
+    }
+
+.daste{
+
+    margin-top: 80px;
+    width: 100%;
+    background-image: url(/t6.jpg);
+
+    height: 190px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+         white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+
+}
+.daste::-webkit-scrollbar{
+    height: 3px;
+     opacity: 30%;    
+}
+.daste::-webkit-scrollbar-track{
+    background: none;
+}
+.daste::-webkit-scrollbar-thumb{
+    background: #cdcdcd;
+    border-radius: 10px;
+   
+}
+.daste::-webkit-scrollbar-thumb:hover{
+    background: #282828;
+    border-radius: 19px;
+
+}
+
+.m_daste{
+    background-color: rgb(255, 255, 255);
+    width: 104px;
+    height: 85%;
+margin-left: 15px;
+
+border-radius: 8px;
+
+margin-top: 17px;
+flex-shrink: 0;
+background-image: url(/ma.png);
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+
+z-index: 0;
+    
+}
+.day{
+    background-color: rgba(255, 255, 255, 0);
+    width: 60px;
+    height: 60px;
+    border-radius: 40px;
+margin-left: 22px;
+    margin-top: 50px;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+
+
+  flex: 0 0 auto;
+z-index: 1;
+
+}
+
+.radif{
+    width: 100%;
+    height: 180px;
+    flex: 1 1 ;
+    overflow: auto;
+    white-space: nowrap;
+   
+    background-color:#050505;
+}
+.sabad::-webkit-scrollbar{
+    height: 3px;
+
+}
+.sabad::-webkit-scrollbar-track{
+    background: none;
+  
+}
+.sabad::-webkit-scrollbar-thumb{
+    background: #cdcdcd;
+    border-radius: 10px;
+    
+}
+.sabad::-webkit-scrollbar-thumb:hover{
+    background: #282828;
+    border-radius: 19px;
+
+}
+.radif1{
+  
+    width: 100%;
+    height: 180px;
+    flex: 1 1 ;
+    overflow: auto;
+    white-space: nowrap;
+
+    background-color:#050505;
+}
+.radif1::-webkit-scrollbar{
+    z-index: 2;  
+    height: 3px;
+}
+.radif1::-webkit-scrollbar-track{
+    background: none;
+}
+.radif1::-webkit-scrollbar-thumb{
+    background: #cdcdcd;
+    border-radius: 10px;
+}
+.radif1::-webkit-scrollbar-thumb:hover{
+    background: #282828;
+    border-radius: 19px;
+}
+
+.mini{
+    margin-left: 15px;
+margin-top: 23px;
+    display: inline;
+    width: 70px;
+    height: 90px;
+    z-index: 2;
+    border-radius: 4px;
+   box-shadow: 0 0px 10px #626262;
+
+
+}
+.mini1{
+    margin-left: 15px;
+margin-top: 10px;
+    display: inline;
+    width: 70px;
+    height: 90px;
+    z-index: 1;
+    border-radius: 4px;
+   box-shadow: 0 0px 10px #636363;
+
+}
+
+.poster{
+      background: linear-gradient(to right, rgba(93, 8, 83, 0.912) 0%,rgba(73, 25, 124, 0.929) 95%);
+      width: 100%;
+      height: 265px;
+
+        background-image: url("ss.jpg");
+        background-position: center;
+        background-size: cover;
+display: flex;
+      flex: 1 1;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+.poster::-webkit-scrollbar{
+    height: 3px;;
+}
+.poster::-webkit-scrollbar-track{
+    background: #4c4c4c;
+}
+.poster::-webkit-scrollbar-thumb{
+    background: #cdcdcd;
+    border-radius: 10px;
+}
+.poster::-webkit-scrollbar-thumb:hover{
+    background: #282828;
+    border-radius: 19px;
+}
+
+
+
+.sefaresh{
+    width: 70%;
+    height: 97%;
+
+    overflow-x: auto;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.po_f{
+width: 40%;
+height: 100%;
+display: inline;
+border-top-left-radius: 24px;
+border-bottom-left-radius: 24px;
+ mask-image: linear-gradient(to left,transparent,rgb(255, 255, 255) 35%);
+}
+.po_f1{
+width: 60px;
+height: 42%;
+margin-top: 100px;
+margin-left: 20px;
+position: absolute;
+border-radius: 3px;
+}
+.po_f2{
+width: 18%;
+height: 42%;
+margin-top: 14px;
+margin-left: 18%;
+border-radius: 3px;
+position: absolute;
+}
+
+.jazire{
+    width: 145px;
+    height: 40px;
+
+   border-radius: 18px;
+
+
+position: absolute;
+display: flex;
+    transition: 0.35s ease-in-out;
+
+  background: rgba(123, 123, 123, 0.08);
+  backdrop-filter: blur(9px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  z-index: 2;
+
+  opacity: 0;
+}
+.jazire.show{
+opacity: 1;
+}
+.jazire.re{
+    opacity: 0;
+}
+
+.bar{
+    margin: 0px;
+    width: 517px;
+    height: 760px;
+    
+        white-space: nowrap;
+      position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  overflow:auto;
+
+  z-index: 999;
+}
+
+.im{
+    margin-top: 10px;
+    position: relative;
+    transition:  0.5s ease-in-out;
+    opacity: 0;
+    transform: translateX(-40px) scale(0.95);
+}
+.im.show{
+opacity: 1;
+transform: translateX(0) scale(1);
+}
+.im.an{
+    opacity: 0;
+}
+.menobar{
+width: 60px;
+height: 50px;
+
+margin-left: 15px;
+border-top-left-radius: 18px;
+border-top-right-radius: 18px;
+
+  background: rgba(137, 137, 137, 0.655);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+
+ white-space: nowrap;
+border-bottom: none;
+background-repeat: no-repeat;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  box-shadow: 0 0px 10px #28282894;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+ background-size: 60%;
+
+     transition:  0.5s ease-in-out;
+    opacity: 0;
+    transform: translateY(-40px) scale(0.95);
+
+}
+.menobar.show{
+opacity: 1;
+transform: translateX(0) scale(1);
+}
+.menobar.an{
+    opacity: 0;
+}
+
+.meno{
+    align-self: center;
+    width: 490px;
+    height: 150px;
+  margin-left: 15px;    
+  background: rgba(137, 137, 137, 0.655);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  box-shadow: 0 0px 10px #28282894;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  border-radius: 18px;
+
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+      transition:  0.5s ease-in-out;
+    opacity: 0;
+    transform: translateY(-40px) scale(0.95);
+}
+.meno.show{
+opacity: 1;
+transform: translateX(0) scale(1);
+}
+.meno.an{
+    opacity: 0;
+}
+
+.mog{
+    width: 150px;
+    height: 170px;
+margin-left: auto;
+margin-right: 0px;
+position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+    border-bottom-left-radius: 24px;
+    z-index: 998;
+
+  background: rgba(137, 137, 137, 0.655);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  box-shadow: 0 0px 10px #28282894;
+
+
+
+    transition: 0.5s ease-in-out;
+}
+.mog.re{
+        width: 150px;
+    height: 170px;
+margin-left: auto;
+margin-right: 0px;
+position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+    border-bottom-left-radius: 24px;
+    z-index: 998;
+}
+.mog.r{
+    opacity: 0;
+}
+
+.pomog{
+    width: 80px;
+    height: 112px;
+    margin-top: 10px;
+    background: rgba(137, 137, 137, 0.655);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  box-shadow: 0 0px 10px #28282894;
+
+position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+    border-radius: 18px;
+    z-index: 998;  
+        transition: 0.5s ease-in-out;
+}
+.pomog.r{
+    opacity: 0;
+}
+.pomog.po{
+    position: relative;
+}
+.mogbtn{
+    width: 35px;
+    height: 30px;
+
+    border-radius: 13px;
+    margin-top: 130px;
+    margin-left: 25px;
+    border: none;
+background-image: url('/1h.png');
+      background: rgba(0, 0, 0, 0.404);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+    box-shadow: 0 0px 10px #28282894;
+
+    background-repeat: no-repeat;
+    background-size: 50%;
+      align-items:center;
+  justify-content: center;
+  position: absolute;
+  background-position: center;
+    transition: 0.5s ease-in-out;
+}
+.mogbtn.r{
+    opacity: 0;
+}
+.pan{
+
+
+  top: 0;
+  left: 0;
+  right: 0;
+    border-bottom-left-radius: 24px;
+    z-index: 100;
+}
+
+.prof{
+    background: rgba(0, 8, 25, 0.655);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+position: fixed;
+  display: inline-block;
+  border-radius: 24px;
+      box-shadow: 0 0px 10px #28282894;
+
+}
+
+.gks{
+
+width: 120px;
+height: 130px;
+    margin-left: 23px;
+    margin-top: 18px;
+    border-radius: 14px;
+
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(7px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  
+
+}
+
+.acss{   
+    border-radius: 14px;
+    width: 85px;
+    height: 130px;
+}
+
+.mtns{
+    color: #ffffff;
+  /*  transform: rotate(90deg);*/
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+
+}
+
+.fs{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(7px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+
+}
+
+.fb{
+    width: 9%;
+    height: 14%;
+    right: 5%;
+      background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(7px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  position: absolute;
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.ord{
+      background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(7px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-radius: 14px;
+}
+
+.gk{
+    width: 110px;
+    height: 110px;
+
+    margin-left: 13px;
+    margin-top: 18px;
+    border-radius: 18px;
+
+     
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(7px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  
+  display: inline-block;
+}
+
+.gkk{
+    width: 80px;
+    height: 135px;
+    flex-wrap: wrap;
+    border-radius: 18px;
+
+  box-shadow: 0 0px 15px #626262;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(7px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  
+  display: inline-block;
+}
+
+.acs{
+    width: 80px;
+    height: 110px;
+
+    border-top-left-radius: 18px;
+
+}
+
+.mtn{
+    color: #ffffff;
+  /*  transform: rotate(90deg);*/
+  writing-mode:sideways-lr;
+  
+    margin-left: 3px;
+    margin-top: 12px;
+
+    font-size: 18px;
+    position: absolute;
+    display: inline-block;
+}
+
+.mtnk{
+    color: #ffffff;
+  /*  transform: rotate(90deg);*/
+  
+    margin-left: 12px;
+    margin-top: 0px;
+
+    font-size: 12px;
+   
+    display: flex;
+}
+
+.mog{
+    width: 150px;
+    height: 170px;
+margin-left: auto;
+margin-right: 0px;
+position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+    border-bottom-left-radius: 24px;
+    border-top-left-radius: 24px;
+    z-index: 998;
+
+  background: rgba(137, 137, 137, 0.655);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  box-shadow: 0 0px 10px #28282894;
+
+
+
+    transition: 0.5s ease-in-out;
+}
+.mog.re{
+        width: 150px;
+    height: 170px;
+margin-left: auto;
+margin-right: 0px;
+position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+    border-bottom-left-radius: 24px;
+    z-index: 998;
+}
+.mog.r{
+    opacity: 0;
+}
+
+.pomog{
+    width: 80px;
+    height: 112px;
+    margin-top: 10px;
+    background: rgba(137, 137, 137, 0.655);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  box-shadow: 0 0px 10px #28282894;
+
+position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+    border-radius: 18px;
+    z-index: 998;  
+        transition: 0.5s ease-in-out;
+}
+.pomog.r{
+    opacity: 0;
+}
+.pomog.po{
+    position: relative;
+}
+.mogbtn{
+    width: 35px;
+    height: 30px;
+
+    border-radius: 13px;
+    margin-top: 130px;
+    margin-left: 25px;
+    border: none;
+background-image: url('/1h.png');
+      background: rgba(0, 0, 0, 0.404);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+    box-shadow: 0 0px 10px #28282894;
+
+    background-repeat: no-repeat;
+    background-size: 50%;
+      align-items:center;
+  justify-content: center;
+  position: absolute;
+  background-position: center;
+    transition: 0.5s ease-in-out;
+}
+.mogbtn.r{
+    opacity: 0;
+}
+
+.mbar{
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin: 0;
+    flex-wrap: nowrap;
+    display: flex;
+
+}
+
+.sabad{
+    width: 97%;
+    height: 60%;
+
+    flex-wrap: wrap;
+    display: flex;
+    overflow-y: auto;
+}
+
+.oth{
+    width: 100%;
+    height: 300px;
+    
+    margin-top: 300px;
+
+    display: flex;
+
+  
+}
+
+.other{
+    width: 40%;
+    height: 80%;
+    border-radius: 14px;
+    margin-left: 7%;
+    margin-top: 30px;
+    background-color: #636363;
+}
+
+.header{
+
+    height: 50%;
+    
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    background-color: #d8d8d8;
+}
+.ofoter{
+
+    flex-wrap: wrap;
+    height: 50%;
+    display: flex;
+    
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    background-color: #3e3e3e;
+}
+
+.heim{
+    width: 70%;
+    height: 100%;
+
+    margin-left: 15%;
+
+    background-color: #282828;
+}
+.foim{
+    width: 27%;
+    height: 70%;
+
+    margin-left: 5%;
+    margin-top: 7%;
+
+    border-radius: 5px;
+
+    background-color: aqua;
+
+}
+    </style>
+</body>
+<script>
+           const khodecore = document.querySelector('.khodecore');
+            const body = document.querySelector('.body');
+            const col = document.querySelector('.col0');
+            const searchBar = document.querySelector('.search-bar');
+            const search = document.getElementById('.search');
+            const m_daste = document.querySelectorAll('.t,.khodecore,.matn,.matn1,.m_daste,.day');
+            const bo = document.querySelector(".bu")
+            const bo1 = document.querySelector(".bu1")
+            const serinp = document.querySelector(".serinp")
+            const cr = document.querySelector('.t');
+            const sabad = document.querySelector('.sabad');
+            const shop = document.querySelector('.shop');
+    const input = document.querySelectorAll('.many');
+    const btnPlus = document.querySelectorAll('.quantity-up');
+    const btnMinus = document.querySelectorAll('.quantity-down');
+
+            //    const ba = document.getElementById('idaste');
+            const base = searchBar.offsetWidth;
+            const a = window.innerWidth / 520;
+            const a0 = window.innerHeight / window.innerWidth;
+            const ax = window.innerWidth / 420;
+            const ah = window.innerHeight / 420;
+
+           
+            shop.style.height = (1.2 * window.innerHeight) + 'px' 
+
+            let cha = 0
+            let win = true
+
+                let isnew = false
+                let tp = false
+                let tp1 = false
+                let tp2 = false
+                let tp3 = false
+                let tp4 = false
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        Array.from(input).forEach((in1, ind) => {
+            in1.addEventListener('change', () => {
+                let min = parseInt(in1.min) || 0;
+                let max = parseInt(in1.max) || Infinity;
+                let val = parseInt(in1.value) || min;
+
+                if (val < min) in1.value = min;
+                if (val > max) in1.value = max;
+
+            });
+
+            btnPlus[ind].addEventListener('click', () => {
+                input[ind].stepUp();
+                input[ind].dispatchEvent(new Event('change', { bubbles: true }));
+            });
+
+            // کاهش مقدار
+            btnMinus[ind].addEventListener('click', () => {
+                input[ind].stepDown();
+                input[ind].dispatchEvent(new Event('change', { bubbles: true }));
+            });
+
+                // جلوگیری از تایپ دستی مقادیر کمتر از min یا بیشتر از max
+            });
+});
+    function AddCount(CartItemId) {
+     //   window.location.replace('/cart/add?CartItemId=' + CartItemId);
+        var fet = fetch('/cart/add?CartItemId=' + CartItemId)
+    }
+
+    function lowCount(CartItemId) {
+     //   window.location.replace('/cart/LowOff?CartItemId=' + CartItemId);
+        var fet1 = fetch('/cart/LowOff?CartItemId=' + CartItemId)
+    }
+  
+            if (window.innerWidth / window.innerHeight >= 1.5) {
+                shop.style.height = (0.90 * window.innerHeight) + 'px' 
+                const poo = document.querySelectorAll('.po');
+                const parda = document.querySelector('.pardakht');
+                const oth = document.querySelector('.oth');
+                poo.forEach((po) => {
+                po.style.width = 45 + '%'
+                })
+               
+                sabad.style.height = 95 + '%'
+                parda.style.width = 25 + '%'
+                parda.style.height = 85 + '%'
+                
+
+                sabad.style.width = 70 + '%'
+
+
+              
+                oth.style.height = (window.innerWidth * 0.4) + 'px'
+                oth.style.width = (window.innerWidth * 0.8) + 'px'
+                oth.style.marginLeft = (window.innerWidth * 0.1) + 'px'
+
+
+
+                cha = 1
+                serinp.style.width = 45 + '%'
+                serinp.style.marginLeft = 52 + '%'
+
+
+                //    bo1.style.width = 20 + '%'
+                //    bo.style.width = 10 + '%'
+                //    bo.style.marginLeft = 73 + '%'
+
+                console.log(window.innerWidth / window.innerHeight)
+
+                cr.src = '/ko2.png'
+                //  cr.style.marginLeft = -420 + 'px'
+
+                for (let i = 1; i < 7; i++) {
+
+                    const im = document.createElement('img')
+                    im.className = 'im'
+
+
+                    searchBar.appendChild(im);
+
+                    im.src = '/' + i + 'h.png'
+                    searchBar.append(im);
+
+                    im.style.width = 30 + 'px'
+                    im.style.height = 30 + 'px'
+
+
+                    if (i == 1) {
+                        im.style.marginLeft = 10 + '%';
+                    }
+                    else {
+                        im.style.marginLeft = 4 + '%'
+                    }
+                    setTimeout(() => {
+                        im.classList.add('show');
+
+                    }, i * 150)
+
+
+
+                    if (i == 1) {
+                            im.addEventListener('click', () => {
+                            if (!tp4) {
+                                tp4 = true
+                     const bar = document.createElement('div')
+                    bar.className = 'bar'
+                    bar.style.height = window.innerHeight - 50 + 'px'
+                    col.appendChild(bar)
+                        const menobar = document.createElement('div')
+                        const meno = document.createElement('div')
+
+                        menobar.className = 'menobar'
+                        meno.className = 'meno'
+
+               
+
+                        bar.appendChild(menobar)
+                        bar.appendChild(meno)
+                        bar.style.width = (520 * a) + 'px'
+
+
+                        menobar.style.backgroundImage = `url("/${i + 1}h.png")`
+                        menobar.style.backgroundPosition = 'center'
+
+                        setTimeout(() => {
+                            menobar.classList.add('show');
+                            meno.classList.add('show');
+                        }, i * 350)
+
+
+                        const ord = document.createElement('div')
+                        const ord1 = document.createElement('img')
+                        const ord2 = document.createElement('input')
+                        const fb = document.createElement('img')
+
+                        fb.classList.add('fb')
+                        ord.classList.add('ord')
+                        ord1.classList.add('ord')
+                        ord2.classList.add('ord')
+                        ord.style.position = 'absolute'
+                        meno.appendChild(ord)
+                        ord.appendChild(ord1)
+                        ord.appendChild(ord2)
+                        meno.appendChild(fb)
+                        ord.style.marginTop = 2 + '%'
+                        ord.style.display = 'flex'
+                        fb.style.marginTop = (25) + '%'
+                        fb.style.marginLeft = (85) + '%'
+                        ord.style.marginLeft = 20 + 'px'
+                        ord.style.width = 37 + '%'
+                        ord.style.height = 90 + '%'
+                        ord1.style.width = 50 + '%'
+                        ord1.style.height = 90 + '%'
+                        ord1.style.marginLeft = 1 + '%'
+                        ord1.style.marginTop = 3 + '%'
+                        ord2.style.width = 42 + '%'
+                        ord2.style.height = 90 + '%'
+                        ord2.style.marginLeft = 3 + '%'
+                        ord2.style.marginTop = 3 + '%'
+                        const file = document.createElement('input')
+                        file.type = 'file'
+                        ord1.addEventListener('click', () => {
+                            file.click();
+                        })
+                        file.addEventListener('change', () => {
+                            const f = file.files[0];
+                            if (!file) return;
+
+                            const url = URL.createObjectURL(f)
+                            ord1.src = url;
+
+                        })
+                     
+
+                                    menobar.style.marginTop = (60 * a) + 'px'
+
+                                    menobar.style.marginLeft = (60 * a) + 'px'
+
+                                    meno.style.height = (150 * a) + 'px'
+                                    meno.style.width = (470 * a) + 'px'
+                                
+
+                    
+                    }
+                     else if (tp4) {
+                        tp4 = false
+                        const re3 = document.querySelectorAll('.menobar,.meno');
+                        re3.forEach(re1 => re1.classList.add('an'));
+                        setTimeout(() => {
+                            re3.forEach(re => { re.remove() });
+                        }, 300)
+                    }
+                    
+
+
+                    } )
+                    }
+                    if (i == 2) {
+                        im.addEventListener('click', () => {
+                            if (!tp4) {
+                                tp4 = true
+                                const bar = document.createElement('div')
+                                bar.className = 'bar'
+                                bar.style.height = window.innerHeight - 50 + 'px'
+                                col.appendChild(bar)
+                                const menobar = document.createElement('div')
+                                const meno = document.createElement('div')
+
+                                menobar.className = 'menobar'
+                                meno.className = 'meno'
+
+                                col.appendChild(menobar)
+                                col.appendChild(meno)
+
+                                bar.appendChild(menobar)
+                                bar.appendChild(meno)
+                                bar.style.width = (520 * a) + 'px'
+
+
+                                menobar.style.backgroundImage = `url("/${i + 1}h.png")`
+                                menobar.style.backgroundPosition = 'center'
+
+                                setTimeout(() => {
+                                    menobar.classList.add('show');
+                                    meno.classList.add('show');
+                                }, i * 350)
+                        meno.style.overflowX = 'auto'
+                        meno.style.display = 'flex'
+
+
+                        const ffpar = document.createElement('div')
+                        const ffpar0 = document.createElement('div')
+
+                        meno.appendChild(ffpar)
+                        ffpar.style.width = (460 * a) + 'px'
+                        ffpar.style.height = 95 + '%'
+                        ffpar0.style.display = 'flex'
+                        ffpar0.style.flexWrap = 'nowrap'
+                        ffpar.style.flexWrap = 'nowrap'
+                        ffpar.style.display = 'flex'
+                        ffpar.style.overflowX = 'auto'
+
+                        ffpar0.style.width = (140 * a * 10) + 'px'
+                        ffpar0.style.height = (97) + '%'
+
+                        ffpar.classList.add('ppp')
+                        ffpar.appendChild(ffpar0)
+
+
+                        const fb = document.createElement('img')
+                        const fb1 = document.createElement('img')
+                        const fb2 = document.createElement('img')
+
+                        fb.classList.add('fb')
+                        fb1.classList.add('fb')
+                        fb2.classList.add('fb')
+
+                        meno.appendChild(fb)
+                        meno.appendChild(fb1)
+                        meno.appendChild(fb2)
+
+                        fb.style.marginTop = (-10) + '%'
+                        fb1.style.marginTop = (0) + '%'
+                        fb2.style.marginTop = (10) + '%'
+
+                        fb.style.marginLeft = (5) + '%'
+                        fb1.style.marginLeft = (5) + '%'
+                        fb2.style.marginLeft = (5) + '%'
+
+                        for (let i = 0; i < 10; i++) {
+
+                            meno.style.height = (165 * a) + 'px'
+                            const fff = document.createElement('div')
+                            const fff0 = document.createElement('div')
+                            const fff1 = document.createElement('img')
+                            const fs = document.createElement('img')
+
+                            const fff2 = document.createElement('span')
+                            const fff22 = document.createElement('h4')
+                            fs.addEventListener('click', () => {
+                                fff.remove()
+                                fff1.remove()
+                                fff2.remove()
+                                fs.remove()
+
+                            })
+
+                            fff.classList.add('gks')
+                            fff1.classList.add('acss')
+                            fff22.classList.add('mtn')
+                            fs.classList.add('fs')
+
+
+                            fff.appendChild(fs)
+                            fff0.classList.add('gk')
+
+
+                            fff.style.display = 'flex'
+                            fff.style.flexWrap = 'wrap'
+                            fff0.style.display = 'flex'
+                            fff0.style.flexWrap = 'nowrap'
+
+
+                            fs.src = '/2h.png'
+                            fs.style.borderTopLeftRadius = 18 + 'px'
+                            fff1.style.borderTopLeftRadius = 18 + 'px'
+                            fff0.style.borderRadius = 18 + 'px'
+
+                            fff.style.flexShrink = 0
+                            fff1.src = '/men.jpg'
+                            fff2.textContent = 'fffffff'
+                            fff22.textContent = 'fffffff'
+                            fff0.display = 'flex'
+                            fff0.style.width = (105 * a) + 'px'
+                            fff0.style.height = (110 * a) + 'px'
+                            fff.style.width = (75 * a) + 'px'
+                            fff.style.height = (130 * a) + 'px'
+                            //   fff0.style.marginTop = (-1 * a) + 'px'
+                            fff.style.marginLeft = (0 * a) + 'px'
+                            fff.style.marginTop = (0 * a) + 'px'
+                            fff1.style.width = (75 * a) + 'px'
+                            fff1.style.height = (110 * a) + 'px'
+                            fff2.style.marginTop = (2 * a) + 'px'
+                            fff2.style.marginLeft = (10 * a) + 'px'
+                            fff2.style.fontSize = (14 * a) + 'px'
+
+                            fff22.style.fontSize = (14 * a) + 'px'
+                            fff22.style.marginLeft = (80 * a) + 'px'
+                            // meno.appendChild(fff0)
+
+                            ffpar0.appendChild(fff0)
+                            fff0.appendChild(fff)
+                            fff0.appendChild(fff22)
+                            fff.appendChild(fff1)
+                            fff.appendChild(fff2)
+                        }
+
+
+
+
+                                    menobar.style.marginTop = (5 * a) + 'px'
+
+                                    menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
+
+                                    meno.style.height = (150 * a) + 'px'
+                                    meno.style.width = (470 * a) + 'px'
+                                
+                    }
+                                     else if (tp4) {
+                            tp4 = false
+                            const re3 = document.querySelectorAll('.menobar,.meno');
+                            re3.forEach(re1 => re1.classList.add('an'));
+                            setTimeout(() => {
+                                re3.forEach(re => { re.remove() });
+                            }, 300)}})}
+
+
+                    if (i == 3) {
+                        im.addEventListener('click', () => {
+                            if (!tp4) {
+                                tp4 = true
+                                const bar = document.createElement('div')
+                                bar.className = 'bar'
+                                bar.style.height = window.innerHeight - 50 + 'px'
+                                col.appendChild(bar)
+                                const menobar = document.createElement('div')
+                                const meno = document.createElement('div')
+
+                                menobar.className = 'menobar'
+                                meno.className = 'meno'
+
+                                col.appendChild(menobar)
+                                col.appendChild(meno)
+
+                                bar.appendChild(menobar)
+                                bar.appendChild(meno)
+                                bar.style.width = (520 * a) + 'px'
+
+
+                                menobar.style.backgroundImage = `url("/${i + 1}h.png")`
+                                menobar.style.backgroundPosition = 'center'
+
+                                setTimeout(() => {
+                                    menobar.classList.add('show');
+                                    meno.classList.add('show');
+                                }, i * 350)
+                                meno.style.overflowX = 'auto'
+                                meno.style.display = 'flex'
+
+
+                        const ffpar = document.createElement('div')
+                        const ffpar0 = document.createElement('div')
+
+                        meno.appendChild(ffpar)
+                        ffpar.style.width = (460 * a) + 'px'
+                        ffpar.style.height = 95 + '%'
+                        ffpar0.style.display = 'flex'
+                        ffpar0.style.flexWrap = 'nowrap'
+                        ffpar.style.flexWrap = 'nowrap'
+                        ffpar.style.display = 'flex'
+                        ffpar.style.overflowX = 'auto'
+
+                        ffpar0.style.width = (140 * a * 10) + 'px'
+                        ffpar0.style.height = (97) + '%'
+
+                        ffpar.classList.add('ppp')
+                        ffpar.appendChild(ffpar0)
+
+
+                        const fb = document.createElement('img')
+                        const fb1 = document.createElement('img')
+                        const fb2 = document.createElement('img')
+
+                        fb.classList.add('fb')
+                        fb1.classList.add('fb')
+                        fb2.classList.add('fb')
+
+                        meno.appendChild(fb)
+                        meno.appendChild(fb1)
+                        meno.appendChild(fb2)
+
+                        fb.style.marginTop = (-10) + '%'
+                        fb1.style.marginTop = (0) + '%'
+                        fb2.style.marginTop = (10) + '%'
+
+                        fb.style.marginLeft = (5) + '%'
+                        fb1.style.marginLeft = (5) + '%'
+                        fb2.style.marginLeft = (5) + '%'
+
+                        for (let i = 0; i < 10; i++) {
+
+                            meno.style.height = (165 * a) + 'px'
+                            const fff = document.createElement('div')
+                            const fff0 = document.createElement('div')
+                            const fff1 = document.createElement('img')
+                            const fs = document.createElement('img')
+
+                            const fff2 = document.createElement('span')
+                            const fff22 = document.createElement('h4')
+                            fs.addEventListener('click', () => {
+                                fff.remove()
+                                fff1.remove()
+                                fff2.remove()
+                                fs.remove()
+
+                            })
+
+                            fff.classList.add('gks')
+                            fff1.classList.add('acss')
+                            fff22.classList.add('mtn')
+                            fs.classList.add('fs')
+
+
+                            fff.appendChild(fs)
+                            fff0.classList.add('gk')
+
+
+                            fff.style.display = 'flex'
+                            fff.style.flexWrap = 'wrap'
+                            fff0.style.display = 'flex'
+                            fff0.style.flexWrap = 'nowrap'
+
+
+                            fs.src = '/2h.png'
+                            fs.style.borderTopLeftRadius = 18 + 'px'
+                            fff1.style.borderTopLeftRadius = 18 + 'px'
+                            fff0.style.borderRadius = 18 + 'px'
+
+                            fff.style.flexShrink = 0
+                            fff1.src = '/men.jpg'
+                            fff2.textContent = 'fffffff'
+                            fff22.textContent = 'fffffff'
+                            fff0.display = 'flex'
+                            fff0.style.width = (105 * a) + 'px'
+                            fff0.style.height = (110 * a) + 'px'
+                            fff.style.width = (75 * a) + 'px'
+                            fff.style.height = (130 * a) + 'px'
+                            //   fff0.style.marginTop = (-1 * a) + 'px'
+                            fff.style.marginLeft = (0 * a) + 'px'
+                            fff.style.marginTop = (0 * a) + 'px'
+                            fff1.style.width = (75 * a) + 'px'
+                            fff1.style.height = (110 * a) + 'px'
+                            fff2.style.marginTop = (2 * a) + 'px'
+                            fff2.style.marginLeft = (10 * a) + 'px'
+                            fff2.style.fontSize = (14 * a) + 'px'
+
+                            fff22.style.fontSize = (14 * a) + 'px'
+                            fff22.style.marginLeft = (80 * a) + 'px'
+                            // meno.appendChild(fff0)
+
+                            ffpar0.appendChild(fff0)
+                            fff0.appendChild(fff)
+                            fff0.appendChild(fff22)
+                            fff.appendChild(fff1)
+                            fff.appendChild(fff2)
+                        }
+
+
+
+
+                                    menobar.style.marginTop = (5 * a) + 'px'
+
+                                    menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
+
+                                    meno.style.height = (150 * a) + 'px'
+                                    meno.style.width = (470 * a) + 'px'
+                                
+                    }
+                     else if (tp4) {
+                        tp4 = false
+                        const re3 = document.querySelectorAll('.menobar,.meno');
+                        re3.forEach(re1 => re1.classList.add('an'));
+                        setTimeout(() => {
+                            re3.forEach(re => { re.remove() });
+                        }, 300)
+                    }
+                })
+            }
+                    if (i == 4) {
+                            im.addEventListener('click', () => {
+                            if (!tp4) {
+                                tp4 = true
+                                const bar = document.createElement('div')
+                                bar.className = 'bar'
+                                bar.style.height = window.innerHeight - 50 + 'px'
+                                col.appendChild(bar)
+                                const menobar = document.createElement('div')
+                                const meno = document.createElement('div')
+
+                                menobar.className = 'menobar'
+                                meno.className = 'meno'
+
+                                col.appendChild(menobar)
+                                col.appendChild(meno)
+
+                                bar.appendChild(menobar)
+                                bar.appendChild(meno)
+                                bar.style.width = (520 * a) + 'px'
+
+
+                                menobar.style.backgroundImage = `url("/${i + 1}h.png")`
+                                menobar.style.backgroundPosition = 'center'
+
+                                setTimeout(() => {
+                                    menobar.classList.add('show');
+                                    meno.classList.add('show');
+                                }, i * 350)
+                                meno.style.overflowX = 'auto'
+                                meno.style.display = 'flex'
+                        meno.style.overflowX = 'auto'
+                        //    meno.style.display = 'flex'
+                        meno.style.alignItems = 'center'
+                        meno.scrollWidth = 900
+
+                        const ffchn = 13
+                        const ffpar = document.createElement('div')
+                        meno.appendChild(ffpar)
+                        ffpar.style.flexWrap = 'nowrap'
+                        ffpar.style.display = 'flex'
+
+                        ffpar.style.width = (140 * a * ffchn) + 'px'
+                        ffpar.style.height = (110 * a) + 'px'
+
+                        for (let g = 0; g < ffchn; g++) {
+
+
+                            const ff = document.createElement('div')
+                            const ff1 = document.createElement('img')
+                            const ff2 = document.createElement('span')
+                            ff.classList.add('gks')
+                            ff1.classList.add('acss')
+                            ff2.classList.add('mtns')
+                            //       ff.style.display = 'flex'
+
+                            ff.style.flexShrink = 0
+                            ff1.src = '/men.jpg'
+                            ff2.textContent = 'fffff'
+                            ff.style.width = (100 * a) + 'px'
+                            ff.style.height = (100 * a) + 'px'
+                            ff.style.marginTop = (14 * a) + 'px'
+                            ff.style.marginLeft = (8 * a) + 'px'
+                            ff1.style.width = (70 * a) + 'px'
+                            ff1.style.height = (100 * a) + 'px'
+                            //   ff2.style.marginTop = (12 * a) + 'px'
+                            ff2.style.marginLeft = (5 * a) + 'px'
+                            ff2.style.fontSize = (13 * a) + 'px'
+                            ffpar.appendChild(ff)
+                            ff.appendChild(ff1)
+                            ff.appendChild(ff2)
+
+                        }
+
+
+                                    menobar.style.marginTop = (5 * a) + 'px'
+
+                                    menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
+
+                                    meno.style.height = (150 * a) + 'px'
+                                    meno.style.width = (470 * a) + 'px'
+                                                   
+                   
+                    } else if (tp4) {
+                                    tp4 = false
+                                    const re3 = document.querySelectorAll('.menobar,.meno');
+                                    re3.forEach(re1 => re1.classList.add('an'));
+                                    setTimeout(() => {
+                                        re3.forEach(re => { re.remove() });
+                                    }, 300)
+                                }
+                            })}
+                    if (i == 5) {
+                        im.addEventListener('click', () => {
+                            if (!tp4) {
+                                tp4 = true
+                                const bar = document.createElement('div')
+                                bar.className = 'bar'
+                                bar.style.height = window.innerHeight - 50 + 'px'
+                                col.appendChild(bar)
+                                const menobar = document.createElement('div')
+                                const meno = document.createElement('div')
+
+                                menobar.className = 'menobar'
+                                meno.className = 'meno'
+
+                                col.appendChild(menobar)
+                                col.appendChild(meno)
+
+                                bar.appendChild(menobar)
+                                bar.appendChild(meno)
+                                bar.style.width = (520 * a) + 'px'
+
+
+                                menobar.style.backgroundImage = `url("/${i + 1}h.png")`
+                                menobar.style.backgroundPosition = 'center'
+
+                                setTimeout(() => {
+                                    menobar.classList.add('show');
+                                    meno.classList.add('show');
+                                }, i * 350)
+                        const prof = document.createElement('img')
+
+                        const name = document.createElement('span')
+                        const file = document.createElement('input')
+                        file.type = 'file'
+                        prof.addEventListener('click', () => {
+                            file.click();
+                        })
+                        file.addEventListener('change', () => {
+                            const f = file.files[0];
+                            if (!file) return;
+
+                            const url = URL.createObjectURL(f)
+                            prof.src = url;
+
+                        })
+
+                        prof.style.width = (80 * a) + 'px'
+                        prof.style.height = (80 * a) + 'px'
+                        prof.style.marginTop = (15 * a) + 'px'
+                        prof.style.marginLeft = (15 * a) + 'px'
+                        name.style.marginTop = (110 * a) + 'px'
+                        name.style.marginLeft = (22 * a) + 'px'
+                        name.style.fontSize = (14 * a) + 'px'
+                        name.textContent = 'exaplename'
+                        prof.classList.add('prof')
+                        name.style.display = 'inline-block'
+                        name.style.position = 'fixed'
+
+                        meno.appendChild(prof)
+
+                        meno.appendChild(name)
+
+                        const gmail = document.createElement('div')
+                        const phoag = document.createElement('img')
+                        const gt = document.createElement('span')
+                        gmail.style.width = (180 * a) + 'px'
+                        gmail.style.height = (20 * a) + 'px'
+                        gmail.style.marginTop = (15) + 'px'
+                        gmail.style.marginLeft = (110 * a) + 'px'
+                        gmail.classList.add('prof')
+
+                        phoag.style.height = (15 * a) + 'px'
+                        phoag.style.width = (15 * a) + 'px'
+                        phoag.style.marginLeft = (10 * a) + 'px'
+                        phoag.style.marginTop = (2 * a) + 'px'
+                        phoag.src = '/1h.png'
+                        phoag.style.display = 'inline-block'
+                        phoag.style.position = 'fixed'
+
+                        gt.textContent = 'google@gmail.com'
+                        gt.style.color = 'white'
+                        gt.style.fontSize = (12 * a) + 'px'
+                        gt.style.marginLeft = (30 * a) + 'px'
+                        gt.style.marginTop = (2 * a) + 'px'
+
+                        gt.style.display = 'inline-block'
+                        gt.style.position = 'fixed'
+
+
+                        meno.appendChild(gmail)
+
+                        gmail.appendChild(gt)
+                        gmail.appendChild(phoag)
+                        const adress = document.createElement('div')
+                        const phoa = document.createElement('img')
+                        const ta = document.createElement('span')
+                        adress.style.width = (180 * a) + 'px'
+                        adress.style.height = (20 * a) + 'px'
+                        adress.style.marginTop = (35 * a) + 'px'
+                        adress.style.marginLeft = (110 * a) + 'px'
+                        adress.classList.add('prof')
+
+
+                        phoa.style.height = (15 * a) + 'px'
+                        phoa.style.width = (15 * a) + 'px'
+                        phoa.style.marginLeft = (10 * a) + 'px'
+                        phoa.style.marginTop = (2 * a) + 'px'
+                        phoa.src = '/1h.png'
+                        phoa.style.display = 'inline-block'
+                        phoa.style.position = 'fixed'
+
+                        ta.textContent = '---flowstreta-landan-emereka'
+                        gmail.style.overflow = 'auto'
+                        ta.style.color = 'white'
+                        ta.style.fontSize = (12 * a) + 'px'
+                        ta.style.marginLeft = (30 * a) + 'px'
+                        ta.style.marginTop = (3 * a) + 'px'
+
+                        ta.style.display = 'inline-block'
+                        ta.style.position = 'fixed'
+
+
+                        meno.appendChild(adress)
+
+                        adress.appendChild(phoa)
+                        adress.appendChild(ta)
+
+                        const addf = document.createElement('div')
+                        const addff = document.createElement('div')
+                        const phof = document.createElement('img')
+                        const tad = document.createElement('span')
+                        addf.style.display = 'flex'
+                        addf.style.flexWrap = 'wrap'
+                        addff.style.position = 'relative'
+
+                        addff.addEventListener('click', () => {
+                            if (addf.children.length <= 11) {
+                                const ff = document.createElement('div')
+                                const ff1 = document.createElement('img')
+                                const ff2 = document.createElement('span')
+                                ff.classList.add('prof')
+                                ff.style.position = 'relative'
+                                ff.style.background = `rgba(${2}37, ${1}37, ${1}37, 0.655)`
+
+                                ff.style.width = (80 * a) + 'px'
+                                ff.style.height = (20 * a) + 'px'
+                                ff.style.marginTop = (4 * a) + 'px'
+                                ff.style.marginLeft = (4 * a) + 'px'
+
+                                addf.appendChild(ff)
+                                ff.appendChild(ff1)
+                                ff.appendChild(ff2)
+                            }
+                        })
+                        addf.style.width = (340 * a) + 'px'
+                        addf.style.height = (85 * a) + 'px'
+                        addf.style.marginTop = (60 * a) + 'px'
+                        addf.style.marginLeft = (110 * a) + 'px'
+                        addf.style.position = 'fixed'
+                        addff.classList.add('prof')
+
+                        addff.style.width = (70 * a) + 'px'
+                        addff.style.height = (20 * a) + 'px'
+                        addff.style.marginTop = (4 * a) + 'px'
+                        addff.style.marginLeft = (5 * a) + 'px'
+
+
+                        meno.appendChild(addf)
+                        addf.appendChild(addff)
+                        addff.appendChild(phof)
+                        addff.appendChild(tad)
+
+                        const coment = document.createElement('div')
+                        const phoc = document.createElement('img')
+                        const tc = document.createElement('span')
+                        coment.style.width = (80 * a) + 'px'
+                        coment.style.height = (45 * a) + 'px'
+                        coment.style.marginTop = (10 * a) + 'px'
+                        coment.style.marginLeft = (295 * a) + 'px'
+                        coment.classList.add('prof')
+                        phoc.classList.add('prof')
+                        tc.classList.add('prof')
+
+                        meno.appendChild(coment)
+
+                        coment.appendChild(phoc)
+                        coment.appendChild(tc)
+
+                        const me = document.createElement('div')
+                        const phom = document.createElement('img')
+                        const tm = document.createElement('span')
+                        me.style.width = (80 * a) + 'px'
+                        me.style.height = (45 * a) + 'px'
+                        me.style.marginTop = (10 * a) + 'px'
+                        me.style.marginLeft = (380 * a) + 'px'
+                        me.classList.add('prof')
+                        phom.classList.add('prof')
+                        tm.classList.add('prof')
+
+                        meno.appendChild(me)
+                        me.appendChild(phom)
+                        me.appendChild(tm)
+
+                        
+                            menobar.style.marginTop = (5 * a) + 'px'
+
+                            menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
+
+                            meno.style.height = (150 * a) + 'px'
+                            meno.style.width = (470 * a) + 'px'
+                        
+
+                    } else if (tp4) {
+                        tp4 = false
+                        const re3 = document.querySelectorAll('.menobar,.meno');
+                        re3.forEach(re1 => re1.classList.add('an'));
+                        setTimeout(() => {
+                            re3.forEach(re => { re.remove() });
+                        }, 300)
+                    }
+                })}
+                  
+                }
+            } else {
+
+                win = false
+            }
+
+            if (win == true) {
+
+                console.log('111')
+            }
+
+
+</script>
+</html>

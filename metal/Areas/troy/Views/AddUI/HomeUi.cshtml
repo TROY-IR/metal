@@ -23,6 +23,9 @@
                         <div class="form">
                             <div class="form-body">
                                 <div class="row">
+
+
+
                                     <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
                                         <fieldset class="form-group">
                                             <label for="basicInput">نام ویو </label>
@@ -50,21 +53,21 @@
 
                                     <br class="clear" />
 
-                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
-                                        <fieldset class="form-group">
-                                            <label for="basicInput">دسته بندی </label>
 
-                                            <select class="form-control" id="Category" asp-items="@ViewBag.Categories"></select>
-                                        </fieldset>
-                                    </div>
-                                    <div class="radif">
-                                        <div class="gk1">
-                                            <div class="gkk">
-                                                <img src="/men.jpg" class="acsk mah" alt="">
-                                                <h4 class="mtnk0">superstars</h4>
-                                            </div>
-                                            <h4 class="mtnk">superstar</h4>
+                                   
+                                        <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                            <fieldset class="form-group">
+                                                <label for="basicInput">دسته بندی </label>
+
+                                                <select class="form-control" id="Category" asp-items="@ViewBag.Categories"></select>
+                                            </fieldset>
                                         </div>
+
+
+
+
+                                    <div class="radif">
+
                                     </div>
 
 
@@ -115,20 +118,20 @@
                                     <div class="col-xl-2 col-lg-6 col-md-12 mb-1">
                                         <fieldset class="form-group">
                                             <label for="basicInput"> نام متن </label>
-                                            <input type="text" class="form-control" id="txtDisplayName" placeholder="نام متن" />
+                                            <input type="text" class="form-control" id="txtDisplayName1" placeholder="نام متن" />
                                         </fieldset>
                                     </div>
 
                                     <div class="col-xl-2 col-lg-6 col-md-12 mb-1">
                                         <fieldset class="form-group">
                                             <label for="basicInput"> متن </label>
-                                            <input type="text" class="form-control" id="txtValue" placeholder="متن" />
+                                            <input type="text" class="form-control" id="txtValue1" placeholder="متن" />
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-2 col-lg-6 col-md-12 mb-1">
                                         <fieldset class="form-group">
                                             <br />
-                                            <a class="btn btn-success" id="btnAddFeatures">افزودن</a>
+                                            <a class="btn btn-success" id="btnAddFeatures1">افزودن</a>
                                         </fieldset>
                                     </div>
 
@@ -163,15 +166,20 @@
                                     <div class="col-xl-2 col-lg-6 col-md-12 mb-1">
                                         <fieldset class="form-group">
                                             <label for="basicInput"> نام عکس </label>
-                                            <input type="text" class="form-control" id="txtDisplayName" placeholder="نام ویژگی" />
+                                            <input type="text" class="form-control" id="txtDisplayName2" placeholder="نام ویژگی" />
                                         </fieldset>
                                     </div>
-
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">تصاویر </label>
+                                            <input type="file" multiple class="form-control" accept="image/*" id="Images">
+                                        </fieldset>
+                                    </div>
 
                                     <div class="col-xl-2 col-lg-6 col-md-12 mb-1">
                                         <fieldset class="form-group">
                                             <br />
-                                            <a class="btn btn-success" id="btnAddFeatures">افزودن</a>
+                                            <a class="btn btn-success" id="btnAddFeatures2">افزودن</a>
                                         </fieldset>
                                     </div>
 
@@ -222,10 +230,12 @@
 <style>
     .radif {
         width: 100%;
-        height: 130px;
+        height: 170px;
         margin-top: 5px;
         overflow: auto;
         white-space: nowrap;
+        background-color:black;
+        align-items:center;
     }
 
         .radif::-webkit-scrollbar {
@@ -250,9 +260,9 @@
 
 
     .gk1 {
-        width: 90px;
-        height: 80px;
-        margin-left: 13px;
+        width: 110px;
+        height: 130px;
+        margin-left: 18px;
         margin-top: 18px;
         border-radius: 18px;
         background: rgba(255, 255, 255, 0.08);
@@ -262,8 +272,8 @@
     }
 
     .gkk {
-        width: 60px;
-        height: 100px;
+        width: 90px;
+        height: 150px;
         flex-wrap: wrap;
         border-radius: 18px;
         box-shadow: 0 0px 15px #626262;
@@ -277,9 +287,9 @@
         color: #ffffff;
         /*  transform: rotate(90deg);*/
 
-        margin-left: 15px;
+        margin-right:0px;
         margin-top: -20px;
-        font-size: 100%;
+        font-size: 80%;
         display: flex;
     }
 
@@ -287,7 +297,7 @@
         color: #ffffff;
         /*  transform: rotate(90deg);*/
         writing-mode: sideways-lr;
-        margin-left: 3px;
+        margin-right: 0px;
         margin-top: 12px;
         font-size: 100%;
         position: absolute;
@@ -295,9 +305,9 @@
     }
 
     .acsk {
-        width: 60px;
-        height: 80px;
-        border-top-left-radius: 18px;
+        width: 90px;
+        height: 130px;
+        border-top-left-radius: 15px;
     }
 </style>
 @section UiScripts
@@ -306,7 +316,24 @@
     <link href="~/Sweetalert2/sweetalert2.min.css" rel="stylesheet" />
     <script src="~/Sweetalert2/sweetalert2.min.js"></script>
 
+    <script>
+        var select = document.getElementById('Category');
+        var radif = document.querySelector('.radif');
 
+        select.addEventListener('change',async function(e){
+
+           const val = parseInt(e.target.value,10)
+           const res = await fetch(`/troy/AddUI/getcat?catid=${val}`)
+
+           const html = await res.text();
+
+           radif.innerHTML = html
+
+        })
+
+
+
+    </script>
     <script>
 
         $("#btnAddFeatures").on("click", function () {
@@ -322,13 +349,65 @@
                 );
             }
             else {
-                $('#tbl_Features tbody').append('<tr> <td>' + txtDisplayName + '</td>  <td>' + txtValue + '</td> <td> <a class="idFeatures btnDelete btn btn-danger"> حذف </a> </td> </tr>');
+                $('#tbl_products tbody').append('<tr> <td>' + txtDisplayName + '</td>  <td>' + txtValue + '</td> <td> <a class="idFeatures btnDelete btn btn-danger"> حذف </a> </td> </tr>');
                 $("#txtDisplayName").val('');
                 $("#txtValue").val('');
             }
         });
 
-        $("#tbl_Features").on('click', '.idFeatures', function () {
+        $("#tbl_products").on('click', '.idFeatures', function () {
+            $(this).closest('tr').remove();
+        });
+
+
+
+
+
+        $("#btnAddFeatures1").on("click", function() {
+
+            var txtDisplayName1 = $("#txtDisplayName1").val();
+            var txtValue1 = $("#txtValue1").val();
+
+            if (txtDisplayName1 == "" || txtValue1 == "") {
+                swal.fire(
+                    'هشدار!',
+                    "نام و مقدار را باید وارد کنید",
+                    'warning'
+                );
+            }
+            else {
+                $('#tbl_text tbody').append('<tr> <td>' + txtDisplayName1 + '</td>  <td>' + txtValue1 + '</td> <td> <a class="idFeatures1 btnDelete btn btn-danger"> حذف </a> </td> </tr>');
+                $("#txtDisplayName1").val('');
+                $("#txtValue1").val('');
+            }
+        });
+
+        $("#tbl_text").on('click', '.idFeatures1', function() {
+            $(this).closest('tr').remove();
+        });
+
+
+
+
+
+        $("#btnAddFeatures2").on("click", function() {
+
+            var txtDisplayName2 = $("#txtDisplayName2").val();
+
+            if (txtDisplayName2 == "") {
+                swal.fire(
+                    'هشدار!',
+                    "نام و مقدار را باید وارد کنید",
+                    'warning'
+                );
+            }
+            else {
+                $('#tbl_images tbody').append('<tr> <td>' + txtDisplayName2 + '</td> <td> <a class="idFeatures2 btnDelete btn btn-danger"> حذف </a> </td> </tr>');
+                $("#txtDisplayName2").val('');
+            }
+        });
+
+        $("#tbl_images").on('click', '.idFeatures2', function() {
             $(this).closest('tr').remove();
         });
 
@@ -340,7 +419,60 @@
 
             //دریافت مقادیر از تکس باکس ها و....
             data.append("Name", $("#Name").val());
-            data.append("CName", $("#CName").val());
+            data.append("pName", $("#CName").val());
+
+
+
+
+
+            var dataFeaturesViewModel = $('#tbl_text tr:gt(0)').map(function () {
+                return {
+                    DisplayName: $(this.cells[0]).text(),
+                    Value: $(this.cells[1]).text(),
+                };
+            }).get();
+
+            $.each(dataFeaturesViewModel, function (i, val) {
+                data.append('[' + i + '].TName', val.DisplayName);
+                data.append('[' + i + '].Text', val.Value);
+
+            });
+
+
+
+
+
+
+
+            var dataFeaturesViewModel1 = $('#tbl_images tr:gt(0)').map(function () {
+                return {
+                    DisplayName: $(this.cells[0]).text(),
+
+                };
+            }).get();
+
+            $.each(dataFeaturesViewModel1, function (i, val) {
+                data.append('[' + i + '].IName', val.DisplayName);
+
+
+            });
+
+
+
+
+            //دریافت ویژگی های محصول از جدول
+            var dataFeaturesViewModel2 = $('#tbl_products tr:gt(0)').map(function () {
+                return {
+                    DisplayName: $(this.cells[0]).text(),
+                    Value: $(this.cells[1]).text(),
+                };
+            }).get();
+
+            $.each(dataFeaturesViewModel2, function (i, val) {
+                data.append('[' + i + '].Name', val.DisplayName);
+                data.append('[' + i + '].CName', val.Value);
+
+            });
 
 
 
@@ -353,53 +485,13 @@
                 }
             }
 
-            //دریافت ویژگی های محصول از جدول
-            var dataFeaturesViewModel = $('#tbl_products tr:gt(0)').map(function () {
-                return {
-                    DisplayName: $(this.cells[0]).text(),
-                    Value: $(this.cells[1]).text(),
-                };
-            }).get();
-
-            $.each(dataFeaturesViewModel, function (i, val) {
-                data.append('[' + i + '].DisplayName', val.DisplayName);
-                data.append('[' + i + '].Value', val.Value);
-
-            });
 
 
-            var dataFeaturesViewModel = $('#tbl_text tr:gt(0)').map(function () {
-                return {
-                    DisplayName: $(this.cells[0]).text(),
-                    Value: $(this.cells[1]).text(),
-                };
-            }).get();
-
-            $.each(dataFeaturesViewModel, function (i, val) {
-                data.append('[' + i + '].DisplayName', val.DisplayName);
-                data.append('[' + i + '].Value', val.Value);
-
-            });
-
-
-
-            var dataFeaturesViewModel = $('#tbl_images tr:gt(0)').map(function () {
-                return {
-                    DisplayName: $(this.cells[0]).text(),
-                    Value: $(this.cells[1]).text(),
-                };
-            }).get();
-
-            $.each(dataFeaturesViewModel, function (i, val) {
-                data.append('[' + i + '].DisplayName', val.DisplayName);
-                data.append('[' + i + '].Value', val.Value);
-
-            });
 
             // ارسال اطلاعات بع کنترلر
             var ajaxRequest = $.ajax({
                 type: "POST",
-                url: "AddNewProduct",
+                url: "HomeUi",
                 contentType: false,
                 processData: false,
                 data: data,
