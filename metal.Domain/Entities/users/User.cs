@@ -1,4 +1,5 @@
 ﻿using metal.Domain.Entities.commons;
+using metal.Domain.Entities.Orders;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,6 +18,7 @@ namespace metal.Domain.Entities.users
         public int? PostCode { get; set; }
         public bool isactive { get; set; }
         public ICollection<Userinrole> Userinrole { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
     }
 }

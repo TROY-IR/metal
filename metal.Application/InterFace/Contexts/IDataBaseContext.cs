@@ -4,10 +4,12 @@ using metal.Domain.Entities.Media;
 using metal.Domain.Entities.Products;
 using metal.Domain.Entities.users;
 using Microsoft.EntityFrameworkCore;
+using metal.Domain.Entities.Finance;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using metal.Domain.Entities.Orders;
 
 namespace metal.Application.InterFace.Contexts
 {
@@ -29,6 +31,10 @@ namespace metal.Application.InterFace.Contexts
         public DbSet<MediaProducts> MediaProducts { get; set; }
         public DbSet<Cart> carts { get; set; }
         public DbSet<CartItem> cartItems { get; set; }
+        public DbSet<RequestPay> RequestPays { get; set; }
+        public DbSet<Order> orders { get; set; }
+        public DbSet<OrderDetail> orderDetails { get; set; }
+
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();

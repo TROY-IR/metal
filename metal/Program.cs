@@ -4,7 +4,12 @@ using metal.Application.InterFace.FacadPaerns;
 using metal.Application.service.Carts;
 using metal.Application.service.Common.Quereis.GetCategory;
 using metal.Application.service.Common.Quereis.GetSlider;
+using metal.Application.service.Finance.Command.AddRequestPay;
+using metal.Application.service.Finance.Quary;
+using metal.Application.service.Finance.Quary.GetRequestPay;
 using metal.Application.service.HomePages;
+using metal.Application.service.Orders.Commands.AddNewOrder;
+using metal.Application.service.Orders.Commands.Quary.GetUserOrder;
 using metal.Application.service.Products.Facadpatern;
 using metal.Application.service.Products.Quary.GetProductForSearch;
 using metal.Application.service.UI.DaynamicUi.Command.AddMediaUi;
@@ -17,6 +22,7 @@ using metal.Application.service.users.command.UserStatusChange;
 using metal.Application.service.users.quary.get;
 using metal.Application.service.users.quary.getrole;
 using metal.Application.Services.Users.Commands.RgegisterUser;
+using metal.Common.Bugeto_Store.Common.Roles;
 using metal.persistance.Contexts;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
@@ -49,8 +55,20 @@ builder.Services.AddScoped<IGetSliderService, GetSliderService>();
 builder.Services.AddScoped<IGetMedia, GetMedia>();
 builder.Services.AddScoped<IAddMediaUiService, AddMediaUiService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IAddRequestPayService, AddRequestPayService>();
+builder.Services.AddScoped<IGetRequestPayService, GetRequestPayService>();
+builder.Services.AddScoped<IAddNewOrderService, AddNewOrderService>();
+builder.Services.AddScoped<IGetUserOrdersService, GetUserOrdersService>();
 
 
+
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(UserRoles.Admin, policy => policy.RequireRole(UserRoles.Admin));
+    options.AddPolicy(UserRoles.Customer, policy => policy.RequireRole(UserRoles.Customer));
+    options.AddPolicy(UserRoles.Operator, policy => policy.RequireRole(UserRoles.Operator));
+});
 
 
 
@@ -81,6 +99,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();

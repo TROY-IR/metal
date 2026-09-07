@@ -3,42 +3,59 @@
     ViewData["Title"] = "ثبت نام کاربر جدید";
     //  Layout = "~/Areas/troy/Views/Shared/_troylay.cshtml";
 }
-<div class="d1">
-    <img class="db" id="d1" src="~/sitetemplate/assets/image/otherimg/sh.gif">
-
-
-
+<div class="d1" id="d1">
     <div class="d">
 
         <h1 class="h1">Sign up</h1>
+
 
         <div id="d2" class="d2">
 
 
 
-            <label id="iin" class="in1">full Name</label>
-            <input id="in" type="text" class="Name" placeholder="Ahmadreza" name="fullname">
+            <label id="inp" class="in1">First Name</label>
+            <div class="di">
+                <img class="fimg" src="/images/1h.png" alt="">
+                <input id="in" type="text" class="Name" placeholder="Ahmadreza" name="firstname">
+            </div>
 
-            <label id="in" class="ina">Age</label>
-            <input id="in1" type="number" class="Age" placeholder="18" name="age">
 
-            <button onclick="Registeruser()" class="su">Sign up</button>
+            <label id="inp" class="ina">Age</label>
+            <div class="di">
+                <img class="fimg" src="/images/1h.png" alt="">
+                <input id="in1" type="number " class="Age" placeholder="18" name="age">
+            </div>
+
+            
+            <select name="typemember" id="se" class="se1">
+                <option value="Personal" class="op"> type memaber </option>
+                <option value="Corporate" class="op"> Coroporate</option>
+                <option value="Corporate" class="op"> Personal</option>
+            </select>
+
+            <button type="submit" class="su">Sign up</button>
         </div>
-
 
         <div class="ch">
 
-            <label id="iin2" class="in2">Email</label>
-            <input id="in2" type="text" class="Last" placeholder="Amjadpoor" name="Email">
+            <label id="inp">Last Name</label>
+            <div class="di">
+                <img class="fimg" src="/images/1h.png" alt="">
+                <input id="in2" type="text" class="Last" placeholder="Amjadpoor" name="lastname">
+            </div>
 
-            <label id="in2" class="in2">Number</label>
-            <input id="in4" class="Number" placeholder="09123456789" name="number">
 
-            <label for="se"></label>
-            <select name="typeactivity" id="se" class="se"> </select>
+            <label id="inp">Number</label>
+            <div class="di">
+                <img class="fimg" src="/images/1h.png" alt="">
+                <input id="in4" class="Number" placeholder="09123456789" name="number">
+            </div>
 
-            <label for="rols" class="ro1" id="ro">
+
+
+            <label class="ro1" id="ro">
                 <input type="checkbox" id="ro" class="ro">
+                <span class="switch"></span>
                 I Accsep All Rols
             </label>
 
@@ -46,8 +63,8 @@
 
         </div>
     </div>
+    <img class="simg" src="/images/sh3.gif" alt="">
 
-    <a class="link" href="www.digikala.com">www.digikala.com</a>
 </div>
 
 

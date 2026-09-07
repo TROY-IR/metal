@@ -1,8 +1,10 @@
 ﻿using metal.Application.InterFace.Contexts;
 using metal.Common.Bugeto_Store.Common.Roles;
 using metal.Domain.Entities.Carts;
+using metal.Domain.Entities.Finance;
 using metal.Domain.Entities.HomePages;
 using metal.Domain.Entities.Media;
+using metal.Domain.Entities.Orders;
 using metal.Domain.Entities.posters;
 using metal.Domain.Entities.Products;
 using metal.Domain.Entities.users;
@@ -42,13 +44,32 @@ namespace metal.persistance.Contexts
         public DbSet<MediaProducts> MediaProducts { get; set; }
         public DbSet<Cart> carts { get; set; }
         public DbSet<CartItem> cartItems { get; set; }
+        public DbSet<RequestPay> RequestPays { get; set; }
+        public DbSet<Order> orders { get; set; }
+        public DbSet<OrderDetail> orderDetails { get; set; }
+
+
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<Order>()
+           .HasOne(p => p.User)
+            .WithMany(p => p.Orders)
+            .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(p => p.RequestPay)
+                .WithMany(p => p.Orders)
+                .OnDelete(DeleteBehavior.NoAction);
+
+
 
             //Seed Data
             SeedData(modelBuilder);
 
-
+           
             // اعمال ایندکس بر روی فیلد ایمیل
             // اعمال عدم تکراری بودن ایمیل
             modelBuilder.Entity<User>().HasIndex(u => u.EmailAdress).IsUnique();
@@ -75,6 +96,9 @@ namespace metal.persistance.Contexts
             modelBuilder.Entity<Slider>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Cart>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<CartItem>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<RequestPay>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Order>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<OrderDetail>().HasQueryFilter(p => !p.IsRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)

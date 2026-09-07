@@ -1,11 +1,13 @@
-﻿using metal.Domain.Entities.users;
+﻿using metal.Domain.Entities.commons;
+using metal.Domain.Entities.Orders;
+using metal.Domain.Entities.users;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace metal.Domain.Entities.Finance
 {
-    internal class RequestPay
+    public class RequestPay : BaseEntity
     {
         public Guid Guid { get; set; }
         public virtual User User { get; set; }
@@ -16,5 +18,6 @@ namespace metal.Domain.Entities.Finance
         public DateTime? PayDate { get; set; }
         public string Authority { get; set; }
         public long RefId { get; set; } = 0;
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

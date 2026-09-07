@@ -74,10 +74,10 @@ namespace metal.Application.service.users.command.userlogin
             }
 
 
-            var roles = "";
+            List<string> roles = new List<string>();
             foreach (var item in user.Userinrole)
             {
-                roles += $"{item.Role.Name}";
+                roles.Add(item.Role.Name);
             }
 
 
@@ -100,7 +100,7 @@ namespace metal.Application.service.users.command.userlogin
     public class ResultUserloginDto
     {
         public long UserId { get; set; }
-        public string Roles { get; set; }
+        public List<string> Roles { get; set; }
         public string Name { get; set; }
     }
 }

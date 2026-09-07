@@ -99,6 +99,59 @@ namespace metal.persistance.Migrations
                     b.ToTable("cartItems");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.Finance.RequestPay", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Authority")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsPay")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("PayDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("RefId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RequestPays");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.HomePages.Slider", b =>
                 {
                     b.Property<long>("Id")
@@ -244,6 +297,97 @@ namespace metal.persistance.Migrations
                     b.HasIndex("Mediaid");
 
                     b.ToTable("MediaTexts");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Orders.Order", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("OrderState")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("RequestPayId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("SoshialAdress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SoshialName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RequestPayId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("orders");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Orders.OrderDetail", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<long>("OrderId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("orderDetails");
                 });
 
             modelBuilder.Entity("metal.Domain.Entities.Products.Category", b =>
@@ -622,6 +766,17 @@ namespace metal.persistance.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.Finance.RequestPay", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.Media.MediaImages", b =>
                 {
                     b.HasOne("metal.Domain.Entities.Media.Media", "Media")
@@ -653,6 +808,44 @@ namespace metal.persistance.Migrations
                         .IsRequired();
 
                     b.Navigation("Media");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Orders.Order", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.Finance.RequestPay", "RequestPay")
+                        .WithMany("Orders")
+                        .HasForeignKey("RequestPayId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("metal.Domain.Entities.users.User", "User")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("RequestPay");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Orders.OrderDetail", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.Orders.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("metal.Domain.Entities.Products.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("metal.Domain.Entities.Products.Category", b =>
@@ -732,6 +925,11 @@ namespace metal.persistance.Migrations
                     b.Navigation("CartItems");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.Finance.RequestPay", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.Media.Media", b =>
                 {
                     b.Navigation("MImages");
@@ -765,6 +963,8 @@ namespace metal.persistance.Migrations
 
             modelBuilder.Entity("metal.Domain.Entities.users.User", b =>
                 {
+                    b.Navigation("Orders");
+
                     b.Navigation("Userinrole");
                 });
 #pragma warning restore 612, 618

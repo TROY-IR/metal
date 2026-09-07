@@ -204,30 +204,34 @@
     <style>
  * {
     margin: 0;
+    padding: 0;
  }
 
 .hea{
     width: 100%;
-    height: 170px;
+    height: 270px;
     position: absolute;
-    margin-top: -70px;
+    margin-top: -100px;
+
     z-index: -2;
 
 }
 .he{
     width: 100%;
     height: 100%;
+
     background-position: center;
 background-size: cover;
 background-repeat: no-repeat;
 }
 .pardakht{
     width: 95%;
-    height: 25%;
+    height: 55%;
 
     margin-left: 2.5%;
     margin-top: 2.5%;
     border-radius: 14px;
+    display: flex;
 
     background-color: #b1b1b1;
 }
@@ -239,10 +243,10 @@ background-repeat: no-repeat;
 
 .shop{
 
-    width: 90%;
+    width: 100%;
 
-    margin-top: 70px;
-    margin-left: 5%;
+    margin-top: 100px;
+
 
     display: flex;
     flex-wrap: wrap;
@@ -251,15 +255,13 @@ background-repeat: no-repeat;
 }
 .po{
     background-color: rgb(26, 0, 31);
-    width: 100%;
+    width: 90%;
     margin-top: 14px;
-    height: 200px;
+    height: 210px;
     margin-left: 2.5%;
     border-radius: 24px;
 
-      background: rgba(78, 5, 72, 0.08);
-  backdrop-filter: blur(9px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
 
 position: relative;
 display: flex;
@@ -267,7 +269,36 @@ flex-shrink: 1;
 flex-wrap: nowrap;
   flex: 0 0 auto;
     box-shadow: 0 0px 10px #050505;
-overflow: hidden;    
+overflow: hidden;  
+
+            background: #202124;
+
+            box-shadow:
+                5px 5px 20px rgba(0, 0, 0, 0.65),
+                -5px -5px 20px rgba(255, 255, 255, 0.044),
+                inset 8px 8px 20px rgba(0, 0, 0, 0.15),
+                inset -8px -8px 20px rgba(255, 255, 255, 0.03);
+
+            position: relative;
+
+
+}
+
+.po::before{
+                content: "";
+
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: 18px;
+
+            box-shadow:
+                inset 8px 8px 15px rgba(0, 0, 0, 0.20),
+                inset -8px -8px 15px rgba(255, 255, 255, 0.035);
+
+            pointer-events: none;
 }
 
 .price0{
@@ -352,6 +383,15 @@ border-bottom-right-radius: 14px;
     border-radius: 50%;
     background: #86868624;
     color: #0095ff;
+                border-radius: 12px;
+
+
+            box-shadow:
+                3px 3px 10px rgba(0, 0, 0, 0.65),
+                -3px -3px 10px rgba(255, 255, 255, 0.04),
+
+                inset 7px 7px 15px rgba(0, 0, 0, 0.40),
+                inset -7px -7px 15px rgba(255, 255, 255, 0.04);
 }
 
 .quantity-button.quantity-up:hover{
@@ -373,6 +413,16 @@ border-bottom-right-radius: 14px;
     background: #86868624;
     color: #fb5454;
     transition: .2s;
+
+            border-radius: 12px;
+
+
+            box-shadow:
+                3px 3px 10px rgba(0, 0, 0, 0.65),
+                -3px -3px 10px rgba(255, 255, 255, 0.04),
+
+                inset 7px 7px 15px rgba(0, 0, 0, 0.40),
+                inset -7px -7px 15px rgba(255, 255, 255, 0.04);
   }
 
   .quantity-button.quantity-down:hover{
@@ -437,52 +487,107 @@ color: #b1b1b1;
 
 .val{
         width: 70%;
-    height: 25%;
-    margin-left: 1%;
+    height: 75%;
+    margin-left: 5%;
     display: flex;
     flex-wrap: nowrap;
       justify-content: center;
   align-items: center;
+  position: relative;
+  
+            border-radius: 12px;
+
+            background: #202124;
+
+            box-shadow:
+                3px 3px 10px rgba(0, 0, 0, 0.65),
+                -3px -3px 10px rgba(255, 255, 255, 0.04),
+
+                inset 7px 7px 15px rgba(0, 0, 0, 0.40),
+                inset -7px -7px 15px rgba(255, 255, 255, 0.04);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 
 }
 
+
+
+
 .v{
     width: 33%;
+    z-index:11 ;
 }
 
 .tt{
     color: #c5c4c4;
     text-align: center;
+    display: flex;
     width: 100%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
     font-size: 14px;
+    z-index: 1;
 }
 
 .t1{
-    width: 30%;
+    width: 20%;
+
+}
+
+.t1::before{
+    content: "";
+
+left: 0;
+
+    border-radius: 30px;
+    position: absolute;
+  
+    width: 1%;
+    height: 35%;
+    background-color: #ffffff;
+            box-shadow:
+     7px 0px 15px rgba(255, 255, 255, 0.255);
+
 
 }
 
 .selecter{
-    width: 22%;
-    height: 70%;
+    width: 34%;
+    height: 87%;
+
+    margin-bottom: 0.4%;
+    left: 2%;
+
     position: absolute;
         border-radius: 7px;
-
-
-  background: rgba(168, 168, 168, 0.089);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
 
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 
-  color: rgb(84, 84, 84);
+            border-radius: 12px;
+
+
+            box-shadow:
+                3px 3px 10px rgba(0, 0, 0, 0.65),
+                -3px -3px 10px rgba(255, 255, 255, 0.04),
+
+                inset 7px 7px 15px rgba(0, 0, 0, 0.40),
+                inset -7px -7px 15px rgba(255, 255, 255, 0.04);
+
+  background: rgba(78, 5, 72, 0.08);
+  backdrop-filter: blur(0px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+
   font-weight: 600;
-  transition: top 0.3s ease;
+  transition:  0.5s ease-in-out;
   z-index: 1000;
 }
+
 
 .psize{
 
@@ -506,9 +611,14 @@ color: #b1b1b1;
 }
 
 .body{
-flex-wrap: nowrap;
-width: 100%;
+flex-wrap: wrap;
+overflow-x: hidden;
+position: relative;
+display: flex;
 background-color: #232323;
+font-family: Arial, sans-serif;
+
+
 }
 
 .up{
@@ -808,7 +918,7 @@ z-index: 1;
 }
 .sabad::-webkit-scrollbar{
     height: 3px;
-
+    width: 3px;
 }
 .sabad::-webkit-scrollbar-track{
     background: none;
@@ -889,7 +999,7 @@ display: flex;
     }
 
 .poster::-webkit-scrollbar{
-    height: 3px;;
+    height: 3px;
 }
 .poster::-webkit-scrollbar-track{
     background: #4c4c4c;
@@ -1398,11 +1508,12 @@ background-image: url('/1h.png');
 }
 
 .sabad{
-    width: 97%;
+    width: 100%;
     height: 60%;
 
     flex-wrap: wrap;
     display: flex;
+    justify-content: center;
     overflow-y: auto;
 }
 
@@ -1466,9 +1577,9 @@ background-image: url('/1h.png');
 
 }
     </style>
-</body>
-<script>
-           const khodecore = document.querySelector('.khodecore');
+
+    <script>
+            const khodecore = document.querySelector('.khodecore');
             const body = document.querySelector('.body');
             const col = document.querySelector('.col0');
             const searchBar = document.querySelector('.search-bar');
@@ -1480,9 +1591,9 @@ background-image: url('/1h.png');
             const cr = document.querySelector('.t');
             const sabad = document.querySelector('.sabad');
             const shop = document.querySelector('.shop');
-    const input = document.querySelectorAll('.many');
-    const btnPlus = document.querySelectorAll('.quantity-up');
-    const btnMinus = document.querySelectorAll('.quantity-down');
+            const input = document.querySelectorAll('.many');
+            const btnPlus = document.querySelectorAll('.quantity-up');
+            const btnMinus = document.querySelectorAll('.quantity-down');
 
             //    const ba = document.getElementById('idaste');
             const base = searchBar.offsetWidth;
@@ -1492,69 +1603,69 @@ background-image: url('/1h.png');
             const ah = window.innerHeight / 420;
 
            
-            shop.style.height = (1.2 * window.innerHeight) + 'px' 
+            shop.style.height = (1.2 * window.innerHeight) + 'px'
 
             let cha = 0
             let win = true
 
-                let isnew = false
-                let tp = false
-                let tp1 = false
-                let tp2 = false
-                let tp3 = false
-                let tp4 = false
+            let isnew = false
+            let tp = false
+            let tp1 = false
+            let tp2 = false
+            let tp3 = false
+            let tp4 = false
 
 
-    document.addEventListener('DOMContentLoaded', () => {
-        Array.from(input).forEach((in1, ind) => {
-            in1.addEventListener('change', () => {
-                let min = parseInt(in1.min) || 0;
-                let max = parseInt(in1.max) || Infinity;
-                let val = parseInt(in1.value) || min;
+            document.addEventListener('DOMContentLoaded', () => {
+                Array.from(input).forEach((in1, ind) => {
+                    in1.addEventListener('change', () => {
+                        let min = parseInt(in1.min) || 0;
+                        let max = parseInt(in1.max) || Infinity;
+                        let val = parseInt(in1.value) || min;
 
-                if (val < min) in1.value = min;
-                if (val > max) in1.value = max;
+                        if (val < min) in1.value = min;
+                        if (val > max) in1.value = max;
 
+                    });
+
+                    btnPlus[ind].addEventListener('click', () => {
+                        input[ind].stepUp();
+                        input[ind].dispatchEvent(new Event('change', { bubbles: true }));
+                    });
+
+                    // کاهش مقدار
+                    btnMinus[ind].addEventListener('click', () => {
+                        input[ind].stepDown();
+                        input[ind].dispatchEvent(new Event('change', { bubbles: true }));
+                    });
+
+                    // جلوگیری از تایپ دستی مقادیر کمتر از min یا بیشتر از max
+                });
             });
+            function AddCount(CartItemId) {
+                //   window.location.replace('/cart/add?CartItemId=' + CartItemId);
+                var fet = fetch('/cart/add?CartItemId=' + CartItemId)
+            }
 
-            btnPlus[ind].addEventListener('click', () => {
-                input[ind].stepUp();
-                input[ind].dispatchEvent(new Event('change', { bubbles: true }));
-            });
+            function lowCount(CartItemId) {
+                //   window.location.replace('/cart/LowOff?CartItemId=' + CartItemId);
+                var fet1 = fetch('/cart/LowOff?CartItemId=' + CartItemId)
+            }
 
-            // کاهش مقدار
-            btnMinus[ind].addEventListener('click', () => {
-                input[ind].stepDown();
-                input[ind].dispatchEvent(new Event('change', { bubbles: true }));
-            });
-
-                // جلوگیری از تایپ دستی مقادیر کمتر از min یا بیشتر از max
-            });
-});
-    function AddCount(CartItemId) {
-     //   window.location.replace('/cart/add?CartItemId=' + CartItemId);
-        var fet = fetch('/cart/add?CartItemId=' + CartItemId)
-    }
-
-    function lowCount(CartItemId) {
-     //   window.location.replace('/cart/LowOff?CartItemId=' + CartItemId);
-        var fet1 = fetch('/cart/LowOff?CartItemId=' + CartItemId)
-    }
-  
             if (window.innerWidth / window.innerHeight >= 1.5) {
-                shop.style.height = (0.90 * window.innerHeight) + 'px' 
+                shop.style.height = (0.90 * window.innerHeight) + 'px'
                 const poo = document.querySelectorAll('.po');
                 const parda = document.querySelector('.pardakht');
                 const oth = document.querySelector('.oth');
                 poo.forEach((po) => {
-                po.style.width = 45 + '%'
+                    po.style.width = 45 + '%'
                 })
-               
+
                 sabad.style.height = 95 + '%'
                 parda.style.width = 25 + '%'
                 parda.style.height = 85 + '%'
-                
 
+                
                 sabad.style.width = 70 + '%'
 
 
@@ -1608,101 +1719,101 @@ background-image: url('/1h.png');
 
 
                     if (i == 1) {
-                            im.addEventListener('click', () => {
+                        im.addEventListener('click', () => {
                             if (!tp4) {
                                 tp4 = true
-                     const bar = document.createElement('div')
-                    bar.className = 'bar'
-                    bar.style.height = window.innerHeight - 50 + 'px'
-                    col.appendChild(bar)
-                        const menobar = document.createElement('div')
-                        const meno = document.createElement('div')
+                                const bar = document.createElement('div')
+                                bar.className = 'bar'
+                                bar.style.height = window.innerHeight - 50 + 'px'
+                                col.appendChild(bar)
+                                const menobar = document.createElement('div')
+                                const meno = document.createElement('div')
 
-                        menobar.className = 'menobar'
-                        meno.className = 'meno'
+                                menobar.className = 'menobar'
+                                meno.className = 'meno'
 
                
 
-                        bar.appendChild(menobar)
-                        bar.appendChild(meno)
-                        bar.style.width = (520 * a) + 'px'
+                                bar.appendChild(menobar)
+                                bar.appendChild(meno)
+                                bar.style.width = (520 * a) + 'px'
 
 
-                        menobar.style.backgroundImage = `url("/${i + 1}h.png")`
-                        menobar.style.backgroundPosition = 'center'
+                                menobar.style.backgroundImage = `url("/${i + 1}h.png")`
+                                menobar.style.backgroundPosition = 'center'
 
-                        setTimeout(() => {
-                            menobar.classList.add('show');
-                            meno.classList.add('show');
-                        }, i * 350)
+                                setTimeout(() => {
+                                    menobar.classList.add('show');
+                                    meno.classList.add('show');
+                                }, i * 350)
 
 
-                        const ord = document.createElement('div')
-                        const ord1 = document.createElement('img')
-                        const ord2 = document.createElement('input')
-                        const fb = document.createElement('img')
+                                const ord = document.createElement('div')
+                                const ord1 = document.createElement('img')
+                                const ord2 = document.createElement('input')
+                                const fb = document.createElement('img')
 
-                        fb.classList.add('fb')
-                        ord.classList.add('ord')
-                        ord1.classList.add('ord')
-                        ord2.classList.add('ord')
-                        ord.style.position = 'absolute'
-                        meno.appendChild(ord)
-                        ord.appendChild(ord1)
-                        ord.appendChild(ord2)
-                        meno.appendChild(fb)
-                        ord.style.marginTop = 2 + '%'
-                        ord.style.display = 'flex'
-                        fb.style.marginTop = (25) + '%'
-                        fb.style.marginLeft = (85) + '%'
-                        ord.style.marginLeft = 20 + 'px'
-                        ord.style.width = 37 + '%'
-                        ord.style.height = 90 + '%'
-                        ord1.style.width = 50 + '%'
-                        ord1.style.height = 90 + '%'
-                        ord1.style.marginLeft = 1 + '%'
-                        ord1.style.marginTop = 3 + '%'
-                        ord2.style.width = 42 + '%'
-                        ord2.style.height = 90 + '%'
-                        ord2.style.marginLeft = 3 + '%'
-                        ord2.style.marginTop = 3 + '%'
-                        const file = document.createElement('input')
-                        file.type = 'file'
-                        ord1.addEventListener('click', () => {
-                            file.click();
-                        })
-                        file.addEventListener('change', () => {
-                            const f = file.files[0];
-                            if (!file) return;
+                                fb.classList.add('fb')
+                                ord.classList.add('ord')
+                                ord1.classList.add('ord')
+                                ord2.classList.add('ord')
+                                ord.style.position = 'absolute'
+                                meno.appendChild(ord)
+                                ord.appendChild(ord1)
+                                ord.appendChild(ord2)
+                                meno.appendChild(fb)
+                                ord.style.marginTop = 2 + '%'
+                                ord.style.display = 'flex'
+                                fb.style.marginTop = (25) + '%'
+                                fb.style.marginLeft = (85) + '%'
+                                ord.style.marginLeft = 20 + 'px'
+                                ord.style.width = 37 + '%'
+                                ord.style.height = 90 + '%'
+                                ord1.style.width = 50 + '%'
+                                ord1.style.height = 90 + '%'
+                                ord1.style.marginLeft = 1 + '%'
+                                ord1.style.marginTop = 3 + '%'
+                                ord2.style.width = 42 + '%'
+                                ord2.style.height = 90 + '%'
+                                ord2.style.marginLeft = 3 + '%'
+                                ord2.style.marginTop = 3 + '%'
+                                const file = document.createElement('input')
+                                file.type = 'file'
+                                ord1.addEventListener('click', () => {
+                                    file.click();
+                                })
+                                file.addEventListener('change', () => {
+                                    const f = file.files[0];
+                                    if (!file) return;
 
-                            const url = URL.createObjectURL(f)
-                            ord1.src = url;
+                                    const url = URL.createObjectURL(f)
+                                    ord1.src = url;
 
-                        })
+                                })
+
                      
+                                menobar.style.marginTop = (60 * a) + 'px'
 
-                                    menobar.style.marginTop = (60 * a) + 'px'
+                                menobar.style.marginLeft = (60 * a) + 'px'
 
-                                    menobar.style.marginLeft = (60 * a) + 'px'
+                                meno.style.height = (150 * a) + 'px'
+                                meno.style.width = (470 * a) + 'px'
 
-                                    meno.style.height = (150 * a) + 'px'
-                                    meno.style.width = (470 * a) + 'px'
                                 
 
-                    
-                    }
-                     else if (tp4) {
-                        tp4 = false
-                        const re3 = document.querySelectorAll('.menobar,.meno');
-                        re3.forEach(re1 => re1.classList.add('an'));
-                        setTimeout(() => {
-                            re3.forEach(re => { re.remove() });
-                        }, 300)
-                    }
+                            }
+                            else if (tp4) {
+                                tp4 = false
+                                const re3 = document.querySelectorAll('.menobar,.meno');
+                                re3.forEach(re1 => re1.classList.add('an'));
+                                setTimeout(() => {
+                                    re3.forEach(re => { re.remove() });
+                                }, 300)
+                            }
+
                     
 
-
-                    } )
+                        })
                     }
                     if (i == 2) {
                         im.addEventListener('click', () => {
@@ -1733,135 +1844,138 @@ background-image: url('/1h.png');
                                     menobar.classList.add('show');
                                     meno.classList.add('show');
                                 }, i * 350)
-                        meno.style.overflowX = 'auto'
-                        meno.style.display = 'flex'
+                                meno.style.overflowX = 'auto'
+                                meno.style.display = 'flex'
 
 
-                        const ffpar = document.createElement('div')
-                        const ffpar0 = document.createElement('div')
+                                const ffpar = document.createElement('div')
+                                const ffpar0 = document.createElement('div')
 
-                        meno.appendChild(ffpar)
-                        ffpar.style.width = (460 * a) + 'px'
-                        ffpar.style.height = 95 + '%'
-                        ffpar0.style.display = 'flex'
-                        ffpar0.style.flexWrap = 'nowrap'
-                        ffpar.style.flexWrap = 'nowrap'
-                        ffpar.style.display = 'flex'
-                        ffpar.style.overflowX = 'auto'
+                                meno.appendChild(ffpar)
+                                ffpar.style.width = (460 * a) + 'px'
+                                ffpar.style.height = 95 + '%'
+                                ffpar0.style.display = 'flex'
+                                ffpar0.style.flexWrap = 'nowrap'
+                                ffpar.style.flexWrap = 'nowrap'
+                                ffpar.style.display = 'flex'
+                                ffpar.style.overflowX = 'auto'
 
-                        ffpar0.style.width = (140 * a * 10) + 'px'
-                        ffpar0.style.height = (97) + '%'
+                                ffpar0.style.width = (140 * a * 10) + 'px'
+                                ffpar0.style.height = (97) + '%'
 
-                        ffpar.classList.add('ppp')
-                        ffpar.appendChild(ffpar0)
-
-
-                        const fb = document.createElement('img')
-                        const fb1 = document.createElement('img')
-                        const fb2 = document.createElement('img')
-
-                        fb.classList.add('fb')
-                        fb1.classList.add('fb')
-                        fb2.classList.add('fb')
-
-                        meno.appendChild(fb)
-                        meno.appendChild(fb1)
-                        meno.appendChild(fb2)
-
-                        fb.style.marginTop = (-10) + '%'
-                        fb1.style.marginTop = (0) + '%'
-                        fb2.style.marginTop = (10) + '%'
-
-                        fb.style.marginLeft = (5) + '%'
-                        fb1.style.marginLeft = (5) + '%'
-                        fb2.style.marginLeft = (5) + '%'
-
-                        for (let i = 0; i < 10; i++) {
-
-                            meno.style.height = (165 * a) + 'px'
-                            const fff = document.createElement('div')
-                            const fff0 = document.createElement('div')
-                            const fff1 = document.createElement('img')
-                            const fs = document.createElement('img')
-
-                            const fff2 = document.createElement('span')
-                            const fff22 = document.createElement('h4')
-                            fs.addEventListener('click', () => {
-                                fff.remove()
-                                fff1.remove()
-                                fff2.remove()
-                                fs.remove()
-
-                            })
-
-                            fff.classList.add('gks')
-                            fff1.classList.add('acss')
-                            fff22.classList.add('mtn')
-                            fs.classList.add('fs')
+                                ffpar.classList.add('ppp')
+                                ffpar.appendChild(ffpar0)
 
 
-                            fff.appendChild(fs)
-                            fff0.classList.add('gk')
+                                const fb = document.createElement('img')
+                                const fb1 = document.createElement('img')
+                                const fb2 = document.createElement('img')
+
+                                fb.classList.add('fb')
+                                fb1.classList.add('fb')
+                                fb2.classList.add('fb')
+
+                                meno.appendChild(fb)
+                                meno.appendChild(fb1)
+                                meno.appendChild(fb2)
+
+                                fb.style.marginTop = (-10) + '%'
+                                fb1.style.marginTop = (0) + '%'
+                                fb2.style.marginTop = (10) + '%'
+
+                                fb.style.marginLeft = (5) + '%'
+                                fb1.style.marginLeft = (5) + '%'
+                                fb2.style.marginLeft = (5) + '%'
+
+                                for (let i = 0; i < 10; i++) {
+
+                                    meno.style.height = (165 * a) + 'px'
+                                    const fff = document.createElement('div')
+                                    const fff0 = document.createElement('div')
+                                    const fff1 = document.createElement('img')
+                                    const fs = document.createElement('img')
+
+                                    const fff2 = document.createElement('span')
+                                    const fff22 = document.createElement('h4')
+                                    fs.addEventListener('click', () => {
+                                        fff.remove()
+                                        fff1.remove()
+                                        fff2.remove()
+                                        fs.remove()
+
+                                    })
+
+                                    fff.classList.add('gks')
+                                    fff1.classList.add('acss')
+                                    fff22.classList.add('mtn')
+                                    fs.classList.add('fs')
 
 
-                            fff.style.display = 'flex'
-                            fff.style.flexWrap = 'wrap'
-                            fff0.style.display = 'flex'
-                            fff0.style.flexWrap = 'nowrap'
+                                    fff.appendChild(fs)
+                                    fff0.classList.add('gk')
 
 
-                            fs.src = '/2h.png'
-                            fs.style.borderTopLeftRadius = 18 + 'px'
-                            fff1.style.borderTopLeftRadius = 18 + 'px'
-                            fff0.style.borderRadius = 18 + 'px'
-
-                            fff.style.flexShrink = 0
-                            fff1.src = '/men.jpg'
-                            fff2.textContent = 'fffffff'
-                            fff22.textContent = 'fffffff'
-                            fff0.display = 'flex'
-                            fff0.style.width = (105 * a) + 'px'
-                            fff0.style.height = (110 * a) + 'px'
-                            fff.style.width = (75 * a) + 'px'
-                            fff.style.height = (130 * a) + 'px'
-                            //   fff0.style.marginTop = (-1 * a) + 'px'
-                            fff.style.marginLeft = (0 * a) + 'px'
-                            fff.style.marginTop = (0 * a) + 'px'
-                            fff1.style.width = (75 * a) + 'px'
-                            fff1.style.height = (110 * a) + 'px'
-                            fff2.style.marginTop = (2 * a) + 'px'
-                            fff2.style.marginLeft = (10 * a) + 'px'
-                            fff2.style.fontSize = (14 * a) + 'px'
-
-                            fff22.style.fontSize = (14 * a) + 'px'
-                            fff22.style.marginLeft = (80 * a) + 'px'
-                            // meno.appendChild(fff0)
-
-                            ffpar0.appendChild(fff0)
-                            fff0.appendChild(fff)
-                            fff0.appendChild(fff22)
-                            fff.appendChild(fff1)
-                            fff.appendChild(fff2)
-                        }
+                                    fff.style.display = 'flex'
+                                    fff.style.flexWrap = 'wrap'
+                                    fff0.style.display = 'flex'
+                                    fff0.style.flexWrap = 'nowrap'
 
 
+                                    fs.src = '/2h.png'
+                                    fs.style.borderTopLeftRadius = 18 + 'px'
+                                    fff1.style.borderTopLeftRadius = 18 + 'px'
+                                    fff0.style.borderRadius = 18 + 'px'
+
+                                    fff.style.flexShrink = 0
+                                    fff1.src = '/men.jpg'
+                                    fff2.textContent = 'fffffff'
+                                    fff22.textContent = 'fffffff'
+                                    fff0.display = 'flex'
+                                    fff0.style.width = (105 * a) + 'px'
+                                    fff0.style.height = (110 * a) + 'px'
+                                    fff.style.width = (75 * a) + 'px'
+                                    fff.style.height = (130 * a) + 'px'
+                                    //   fff0.style.marginTop = (-1 * a) + 'px'
+                                    fff.style.marginLeft = (0 * a) + 'px'
+                                    fff.style.marginTop = (0 * a) + 'px'
+                                    fff1.style.width = (75 * a) + 'px'
+                                    fff1.style.height = (110 * a) + 'px'
+                                    fff2.style.marginTop = (2 * a) + 'px'
+                                    fff2.style.marginLeft = (10 * a) + 'px'
+                                    fff2.style.fontSize = (14 * a) + 'px'
+
+                                    fff22.style.fontSize = (14 * a) + 'px'
+                                    fff22.style.marginLeft = (80 * a) + 'px'
+                                    // meno.appendChild(fff0)
+
+                                    ffpar0.appendChild(fff0)
+                                    fff0.appendChild(fff)
+                                    fff0.appendChild(fff22)
+                                    fff.appendChild(fff1)
+                                    fff.appendChild(fff2)
+                                }
 
 
-                                    menobar.style.marginTop = (5 * a) + 'px'
 
-                                    menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
 
-                                    meno.style.height = (150 * a) + 'px'
-                                    meno.style.width = (470 * a) + 'px'
-                                
+                                menobar.style.marginTop = (5 * a) + 'px'
+
+                                menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
+
+                                meno.style.height = (150 * a) + 'px'
+                                meno.style.width = (470 * a) + 'px'
+
+                            }
+                            else if (tp4) {
+                                tp4 = false
+                                const re3 = document.querySelectorAll('.menobar,.meno');
+                                re3.forEach(re1 => re1.classList.add('an'));
+                                setTimeout(() => {
+                                    re3.forEach(re => { re.remove() });
+                                }, 300)
+                            }
+                        })
                     }
-                                     else if (tp4) {
-                            tp4 = false
-                            const re3 = document.querySelectorAll('.menobar,.meno');
-                            re3.forEach(re1 => re1.classList.add('an'));
-                            setTimeout(() => {
-                                re3.forEach(re => { re.remove() });
-                            }, 300)}})}
 
 
                     if (i == 3) {
@@ -1897,136 +2011,136 @@ background-image: url('/1h.png');
                                 meno.style.display = 'flex'
 
 
-                        const ffpar = document.createElement('div')
-                        const ffpar0 = document.createElement('div')
+                                const ffpar = document.createElement('div')
+                                const ffpar0 = document.createElement('div')
 
-                        meno.appendChild(ffpar)
-                        ffpar.style.width = (460 * a) + 'px'
-                        ffpar.style.height = 95 + '%'
-                        ffpar0.style.display = 'flex'
-                        ffpar0.style.flexWrap = 'nowrap'
-                        ffpar.style.flexWrap = 'nowrap'
-                        ffpar.style.display = 'flex'
-                        ffpar.style.overflowX = 'auto'
+                                meno.appendChild(ffpar)
+                                ffpar.style.width = (460 * a) + 'px'
+                                ffpar.style.height = 95 + '%'
+                                ffpar0.style.display = 'flex'
+                                ffpar0.style.flexWrap = 'nowrap'
+                                ffpar.style.flexWrap = 'nowrap'
+                                ffpar.style.display = 'flex'
+                                ffpar.style.overflowX = 'auto'
 
-                        ffpar0.style.width = (140 * a * 10) + 'px'
-                        ffpar0.style.height = (97) + '%'
+                                ffpar0.style.width = (140 * a * 10) + 'px'
+                                ffpar0.style.height = (97) + '%'
 
-                        ffpar.classList.add('ppp')
-                        ffpar.appendChild(ffpar0)
-
-
-                        const fb = document.createElement('img')
-                        const fb1 = document.createElement('img')
-                        const fb2 = document.createElement('img')
-
-                        fb.classList.add('fb')
-                        fb1.classList.add('fb')
-                        fb2.classList.add('fb')
-
-                        meno.appendChild(fb)
-                        meno.appendChild(fb1)
-                        meno.appendChild(fb2)
-
-                        fb.style.marginTop = (-10) + '%'
-                        fb1.style.marginTop = (0) + '%'
-                        fb2.style.marginTop = (10) + '%'
-
-                        fb.style.marginLeft = (5) + '%'
-                        fb1.style.marginLeft = (5) + '%'
-                        fb2.style.marginLeft = (5) + '%'
-
-                        for (let i = 0; i < 10; i++) {
-
-                            meno.style.height = (165 * a) + 'px'
-                            const fff = document.createElement('div')
-                            const fff0 = document.createElement('div')
-                            const fff1 = document.createElement('img')
-                            const fs = document.createElement('img')
-
-                            const fff2 = document.createElement('span')
-                            const fff22 = document.createElement('h4')
-                            fs.addEventListener('click', () => {
-                                fff.remove()
-                                fff1.remove()
-                                fff2.remove()
-                                fs.remove()
-
-                            })
-
-                            fff.classList.add('gks')
-                            fff1.classList.add('acss')
-                            fff22.classList.add('mtn')
-                            fs.classList.add('fs')
+                                ffpar.classList.add('ppp')
+                                ffpar.appendChild(ffpar0)
 
 
-                            fff.appendChild(fs)
-                            fff0.classList.add('gk')
+                                const fb = document.createElement('img')
+                                const fb1 = document.createElement('img')
+                                const fb2 = document.createElement('img')
+
+                                fb.classList.add('fb')
+                                fb1.classList.add('fb')
+                                fb2.classList.add('fb')
+
+                                meno.appendChild(fb)
+                                meno.appendChild(fb1)
+                                meno.appendChild(fb2)
+
+                                fb.style.marginTop = (-10) + '%'
+                                fb1.style.marginTop = (0) + '%'
+                                fb2.style.marginTop = (10) + '%'
+
+                                fb.style.marginLeft = (5) + '%'
+                                fb1.style.marginLeft = (5) + '%'
+                                fb2.style.marginLeft = (5) + '%'
+
+                                for (let i = 0; i < 10; i++) {
+
+                                    meno.style.height = (165 * a) + 'px'
+                                    const fff = document.createElement('div')
+                                    const fff0 = document.createElement('div')
+                                    const fff1 = document.createElement('img')
+                                    const fs = document.createElement('img')
+
+                                    const fff2 = document.createElement('span')
+                                    const fff22 = document.createElement('h4')
+                                    fs.addEventListener('click', () => {
+                                        fff.remove()
+                                        fff1.remove()
+                                        fff2.remove()
+                                        fs.remove()
+
+                                    })
+
+                                    fff.classList.add('gks')
+                                    fff1.classList.add('acss')
+                                    fff22.classList.add('mtn')
+                                    fs.classList.add('fs')
 
 
-                            fff.style.display = 'flex'
-                            fff.style.flexWrap = 'wrap'
-                            fff0.style.display = 'flex'
-                            fff0.style.flexWrap = 'nowrap'
+                                    fff.appendChild(fs)
+                                    fff0.classList.add('gk')
 
 
-                            fs.src = '/2h.png'
-                            fs.style.borderTopLeftRadius = 18 + 'px'
-                            fff1.style.borderTopLeftRadius = 18 + 'px'
-                            fff0.style.borderRadius = 18 + 'px'
-
-                            fff.style.flexShrink = 0
-                            fff1.src = '/men.jpg'
-                            fff2.textContent = 'fffffff'
-                            fff22.textContent = 'fffffff'
-                            fff0.display = 'flex'
-                            fff0.style.width = (105 * a) + 'px'
-                            fff0.style.height = (110 * a) + 'px'
-                            fff.style.width = (75 * a) + 'px'
-                            fff.style.height = (130 * a) + 'px'
-                            //   fff0.style.marginTop = (-1 * a) + 'px'
-                            fff.style.marginLeft = (0 * a) + 'px'
-                            fff.style.marginTop = (0 * a) + 'px'
-                            fff1.style.width = (75 * a) + 'px'
-                            fff1.style.height = (110 * a) + 'px'
-                            fff2.style.marginTop = (2 * a) + 'px'
-                            fff2.style.marginLeft = (10 * a) + 'px'
-                            fff2.style.fontSize = (14 * a) + 'px'
-
-                            fff22.style.fontSize = (14 * a) + 'px'
-                            fff22.style.marginLeft = (80 * a) + 'px'
-                            // meno.appendChild(fff0)
-
-                            ffpar0.appendChild(fff0)
-                            fff0.appendChild(fff)
-                            fff0.appendChild(fff22)
-                            fff.appendChild(fff1)
-                            fff.appendChild(fff2)
-                        }
+                                    fff.style.display = 'flex'
+                                    fff.style.flexWrap = 'wrap'
+                                    fff0.style.display = 'flex'
+                                    fff0.style.flexWrap = 'nowrap'
 
 
+                                    fs.src = '/2h.png'
+                                    fs.style.borderTopLeftRadius = 18 + 'px'
+                                    fff1.style.borderTopLeftRadius = 18 + 'px'
+                                    fff0.style.borderRadius = 18 + 'px'
+
+                                    fff.style.flexShrink = 0
+                                    fff1.src = '/men.jpg'
+                                    fff2.textContent = 'fffffff'
+                                    fff22.textContent = 'fffffff'
+                                    fff0.display = 'flex'
+                                    fff0.style.width = (105 * a) + 'px'
+                                    fff0.style.height = (110 * a) + 'px'
+                                    fff.style.width = (75 * a) + 'px'
+                                    fff.style.height = (130 * a) + 'px'
+                                    //   fff0.style.marginTop = (-1 * a) + 'px'
+                                    fff.style.marginLeft = (0 * a) + 'px'
+                                    fff.style.marginTop = (0 * a) + 'px'
+                                    fff1.style.width = (75 * a) + 'px'
+                                    fff1.style.height = (110 * a) + 'px'
+                                    fff2.style.marginTop = (2 * a) + 'px'
+                                    fff2.style.marginLeft = (10 * a) + 'px'
+                                    fff2.style.fontSize = (14 * a) + 'px'
+
+                                    fff22.style.fontSize = (14 * a) + 'px'
+                                    fff22.style.marginLeft = (80 * a) + 'px'
+                                    // meno.appendChild(fff0)
+
+                                    ffpar0.appendChild(fff0)
+                                    fff0.appendChild(fff)
+                                    fff0.appendChild(fff22)
+                                    fff.appendChild(fff1)
+                                    fff.appendChild(fff2)
+                                }
 
 
-                                    menobar.style.marginTop = (5 * a) + 'px'
 
-                                    menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
 
-                                    meno.style.height = (150 * a) + 'px'
-                                    meno.style.width = (470 * a) + 'px'
-                                
+                                menobar.style.marginTop = (5 * a) + 'px'
+
+                                menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
+
+                                meno.style.height = (150 * a) + 'px'
+                                meno.style.width = (470 * a) + 'px'
+
+                            }
+                            else if (tp4) {
+                                tp4 = false
+                                const re3 = document.querySelectorAll('.menobar,.meno');
+                                re3.forEach(re1 => re1.classList.add('an'));
+                                setTimeout(() => {
+                                    re3.forEach(re => { re.remove() });
+                                }, 300)
+                            }
+                        })
                     }
-                     else if (tp4) {
-                        tp4 = false
-                        const re3 = document.querySelectorAll('.menobar,.meno');
-                        re3.forEach(re1 => re1.classList.add('an'));
-                        setTimeout(() => {
-                            re3.forEach(re => { re.remove() });
-                        }, 300)
-                    }
-                })
-            }
                     if (i == 4) {
-                            im.addEventListener('click', () => {
+                        im.addEventListener('click', () => {
                             if (!tp4) {
                                 tp4 = true
                                 const bar = document.createElement('div')
@@ -2056,67 +2170,68 @@ background-image: url('/1h.png');
                                 }, i * 350)
                                 meno.style.overflowX = 'auto'
                                 meno.style.display = 'flex'
-                        meno.style.overflowX = 'auto'
-                        //    meno.style.display = 'flex'
-                        meno.style.alignItems = 'center'
-                        meno.scrollWidth = 900
+                                meno.style.overflowX = 'auto'
+                                //    meno.style.display = 'flex'
+                                meno.style.alignItems = 'center'
+                                meno.scrollWidth = 900
 
-                        const ffchn = 13
-                        const ffpar = document.createElement('div')
-                        meno.appendChild(ffpar)
-                        ffpar.style.flexWrap = 'nowrap'
-                        ffpar.style.display = 'flex'
+                                const ffchn = 13
+                                const ffpar = document.createElement('div')
+                                meno.appendChild(ffpar)
+                                ffpar.style.flexWrap = 'nowrap'
+                                ffpar.style.display = 'flex'
 
-                        ffpar.style.width = (140 * a * ffchn) + 'px'
-                        ffpar.style.height = (110 * a) + 'px'
+                                ffpar.style.width = (140 * a * ffchn) + 'px'
+                                ffpar.style.height = (110 * a) + 'px'
 
-                        for (let g = 0; g < ffchn; g++) {
-
-
-                            const ff = document.createElement('div')
-                            const ff1 = document.createElement('img')
-                            const ff2 = document.createElement('span')
-                            ff.classList.add('gks')
-                            ff1.classList.add('acss')
-                            ff2.classList.add('mtns')
-                            //       ff.style.display = 'flex'
-
-                            ff.style.flexShrink = 0
-                            ff1.src = '/men.jpg'
-                            ff2.textContent = 'fffff'
-                            ff.style.width = (100 * a) + 'px'
-                            ff.style.height = (100 * a) + 'px'
-                            ff.style.marginTop = (14 * a) + 'px'
-                            ff.style.marginLeft = (8 * a) + 'px'
-                            ff1.style.width = (70 * a) + 'px'
-                            ff1.style.height = (100 * a) + 'px'
-                            //   ff2.style.marginTop = (12 * a) + 'px'
-                            ff2.style.marginLeft = (5 * a) + 'px'
-                            ff2.style.fontSize = (13 * a) + 'px'
-                            ffpar.appendChild(ff)
-                            ff.appendChild(ff1)
-                            ff.appendChild(ff2)
-
-                        }
+                                for (let g = 0; g < ffchn; g++) {
 
 
-                                    menobar.style.marginTop = (5 * a) + 'px'
+                                    const ff = document.createElement('div')
+                                    const ff1 = document.createElement('img')
+                                    const ff2 = document.createElement('span')
+                                    ff.classList.add('gks')
+                                    ff1.classList.add('acss')
+                                    ff2.classList.add('mtns')
+                                    //       ff.style.display = 'flex'
 
-                                    menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
+                                    ff.style.flexShrink = 0
+                                    ff1.src = '/men.jpg'
+                                    ff2.textContent = 'fffff'
+                                    ff.style.width = (100 * a) + 'px'
+                                    ff.style.height = (100 * a) + 'px'
+                                    ff.style.marginTop = (14 * a) + 'px'
+                                    ff.style.marginLeft = (8 * a) + 'px'
+                                    ff1.style.width = (70 * a) + 'px'
+                                    ff1.style.height = (100 * a) + 'px'
+                                    //   ff2.style.marginTop = (12 * a) + 'px'
+                                    ff2.style.marginLeft = (5 * a) + 'px'
+                                    ff2.style.fontSize = (13 * a) + 'px'
+                                    ffpar.appendChild(ff)
+                                    ff.appendChild(ff1)
+                                    ff.appendChild(ff2)
 
-                                    meno.style.height = (150 * a) + 'px'
-                                    meno.style.width = (470 * a) + 'px'
-                                                   
-                   
-                    } else if (tp4) {
-                                    tp4 = false
-                                    const re3 = document.querySelectorAll('.menobar,.meno');
-                                    re3.forEach(re1 => re1.classList.add('an'));
-                                    setTimeout(() => {
-                                        re3.forEach(re => { re.remove() });
-                                    }, 300)
                                 }
-                            })}
+
+
+                                menobar.style.marginTop = (5 * a) + 'px'
+
+                                menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
+
+                                meno.style.height = (150 * a) + 'px'
+                                meno.style.width = (470 * a) + 'px'
+
+                                                   
+                            } else if (tp4) {
+                                tp4 = false
+                                const re3 = document.querySelectorAll('.menobar,.meno');
+                                re3.forEach(re1 => re1.classList.add('an'));
+                                setTimeout(() => {
+                                    re3.forEach(re => { re.remove() });
+                                }, 300)
+                            }
+                        })
+                    }
                     if (i == 5) {
                         im.addEventListener('click', () => {
                             if (!tp4) {
@@ -2146,199 +2261,200 @@ background-image: url('/1h.png');
                                     menobar.classList.add('show');
                                     meno.classList.add('show');
                                 }, i * 350)
-                        const prof = document.createElement('img')
+                                const prof = document.createElement('img')
 
-                        const name = document.createElement('span')
-                        const file = document.createElement('input')
-                        file.type = 'file'
-                        prof.addEventListener('click', () => {
-                            file.click();
-                        })
-                        file.addEventListener('change', () => {
-                            const f = file.files[0];
-                            if (!file) return;
+                                const name = document.createElement('span')
+                                const file = document.createElement('input')
+                                file.type = 'file'
+                                prof.addEventListener('click', () => {
+                                    file.click();
+                                })
+                                file.addEventListener('change', () => {
+                                    const f = file.files[0];
+                                    if (!file) return;
 
-                            const url = URL.createObjectURL(f)
-                            prof.src = url;
+                                    const url = URL.createObjectURL(f)
+                                    prof.src = url;
 
-                        })
+                                })
 
-                        prof.style.width = (80 * a) + 'px'
-                        prof.style.height = (80 * a) + 'px'
-                        prof.style.marginTop = (15 * a) + 'px'
-                        prof.style.marginLeft = (15 * a) + 'px'
-                        name.style.marginTop = (110 * a) + 'px'
-                        name.style.marginLeft = (22 * a) + 'px'
-                        name.style.fontSize = (14 * a) + 'px'
-                        name.textContent = 'exaplename'
-                        prof.classList.add('prof')
-                        name.style.display = 'inline-block'
-                        name.style.position = 'fixed'
+                                prof.style.width = (80 * a) + 'px'
+                                prof.style.height = (80 * a) + 'px'
+                                prof.style.marginTop = (15 * a) + 'px'
+                                prof.style.marginLeft = (15 * a) + 'px'
+                                name.style.marginTop = (110 * a) + 'px'
+                                name.style.marginLeft = (22 * a) + 'px'
+                                name.style.fontSize = (14 * a) + 'px'
+                                name.textContent = 'exaplename'
+                                prof.classList.add('prof')
+                                name.style.display = 'inline-block'
+                                name.style.position = 'fixed'
 
-                        meno.appendChild(prof)
+                                meno.appendChild(prof)
 
-                        meno.appendChild(name)
+                                meno.appendChild(name)
 
-                        const gmail = document.createElement('div')
-                        const phoag = document.createElement('img')
-                        const gt = document.createElement('span')
-                        gmail.style.width = (180 * a) + 'px'
-                        gmail.style.height = (20 * a) + 'px'
-                        gmail.style.marginTop = (15) + 'px'
-                        gmail.style.marginLeft = (110 * a) + 'px'
-                        gmail.classList.add('prof')
+                                const gmail = document.createElement('div')
+                                const phoag = document.createElement('img')
+                                const gt = document.createElement('span')
+                                gmail.style.width = (180 * a) + 'px'
+                                gmail.style.height = (20 * a) + 'px'
+                                gmail.style.marginTop = (15) + 'px'
+                                gmail.style.marginLeft = (110 * a) + 'px'
+                                gmail.classList.add('prof')
 
-                        phoag.style.height = (15 * a) + 'px'
-                        phoag.style.width = (15 * a) + 'px'
-                        phoag.style.marginLeft = (10 * a) + 'px'
-                        phoag.style.marginTop = (2 * a) + 'px'
-                        phoag.src = '/1h.png'
-                        phoag.style.display = 'inline-block'
-                        phoag.style.position = 'fixed'
+                                phoag.style.height = (15 * a) + 'px'
+                                phoag.style.width = (15 * a) + 'px'
+                                phoag.style.marginLeft = (10 * a) + 'px'
+                                phoag.style.marginTop = (2 * a) + 'px'
+                                phoag.src = '/1h.png'
+                                phoag.style.display = 'inline-block'
+                                phoag.style.position = 'fixed'
 
-                        gt.textContent = 'google@gmail.com'
-                        gt.style.color = 'white'
-                        gt.style.fontSize = (12 * a) + 'px'
-                        gt.style.marginLeft = (30 * a) + 'px'
-                        gt.style.marginTop = (2 * a) + 'px'
+                                gt.textContent = 'google@gmail.com'
+                                gt.style.color = 'white'
+                                gt.style.fontSize = (12 * a) + 'px'
+                                gt.style.marginLeft = (30 * a) + 'px'
+                                gt.style.marginTop = (2 * a) + 'px'
 
-                        gt.style.display = 'inline-block'
-                        gt.style.position = 'fixed'
-
-
-                        meno.appendChild(gmail)
-
-                        gmail.appendChild(gt)
-                        gmail.appendChild(phoag)
-                        const adress = document.createElement('div')
-                        const phoa = document.createElement('img')
-                        const ta = document.createElement('span')
-                        adress.style.width = (180 * a) + 'px'
-                        adress.style.height = (20 * a) + 'px'
-                        adress.style.marginTop = (35 * a) + 'px'
-                        adress.style.marginLeft = (110 * a) + 'px'
-                        adress.classList.add('prof')
+                                gt.style.display = 'inline-block'
+                                gt.style.position = 'fixed'
 
 
-                        phoa.style.height = (15 * a) + 'px'
-                        phoa.style.width = (15 * a) + 'px'
-                        phoa.style.marginLeft = (10 * a) + 'px'
-                        phoa.style.marginTop = (2 * a) + 'px'
-                        phoa.src = '/1h.png'
-                        phoa.style.display = 'inline-block'
-                        phoa.style.position = 'fixed'
+                                meno.appendChild(gmail)
 
-                        ta.textContent = '---flowstreta-landan-emereka'
-                        gmail.style.overflow = 'auto'
-                        ta.style.color = 'white'
-                        ta.style.fontSize = (12 * a) + 'px'
-                        ta.style.marginLeft = (30 * a) + 'px'
-                        ta.style.marginTop = (3 * a) + 'px'
-
-                        ta.style.display = 'inline-block'
-                        ta.style.position = 'fixed'
+                                gmail.appendChild(gt)
+                                gmail.appendChild(phoag)
+                                const adress = document.createElement('div')
+                                const phoa = document.createElement('img')
+                                const ta = document.createElement('span')
+                                adress.style.width = (180 * a) + 'px'
+                                adress.style.height = (20 * a) + 'px'
+                                adress.style.marginTop = (35 * a) + 'px'
+                                adress.style.marginLeft = (110 * a) + 'px'
+                                adress.classList.add('prof')
 
 
-                        meno.appendChild(adress)
+                                phoa.style.height = (15 * a) + 'px'
+                                phoa.style.width = (15 * a) + 'px'
+                                phoa.style.marginLeft = (10 * a) + 'px'
+                                phoa.style.marginTop = (2 * a) + 'px'
+                                phoa.src = '/1h.png'
+                                phoa.style.display = 'inline-block'
+                                phoa.style.position = 'fixed'
 
-                        adress.appendChild(phoa)
-                        adress.appendChild(ta)
+                                ta.textContent = '---flowstreta-landan-emereka'
+                                gmail.style.overflow = 'auto'
+                                ta.style.color = 'white'
+                                ta.style.fontSize = (12 * a) + 'px'
+                                ta.style.marginLeft = (30 * a) + 'px'
+                                ta.style.marginTop = (3 * a) + 'px'
 
-                        const addf = document.createElement('div')
-                        const addff = document.createElement('div')
-                        const phof = document.createElement('img')
-                        const tad = document.createElement('span')
-                        addf.style.display = 'flex'
-                        addf.style.flexWrap = 'wrap'
-                        addff.style.position = 'relative'
+                                ta.style.display = 'inline-block'
+                                ta.style.position = 'fixed'
 
-                        addff.addEventListener('click', () => {
-                            if (addf.children.length <= 11) {
-                                const ff = document.createElement('div')
-                                const ff1 = document.createElement('img')
-                                const ff2 = document.createElement('span')
-                                ff.classList.add('prof')
-                                ff.style.position = 'relative'
-                                ff.style.background = `rgba(${2}37, ${1}37, ${1}37, 0.655)`
 
-                                ff.style.width = (80 * a) + 'px'
-                                ff.style.height = (20 * a) + 'px'
-                                ff.style.marginTop = (4 * a) + 'px'
-                                ff.style.marginLeft = (4 * a) + 'px'
+                                meno.appendChild(adress)
 
-                                addf.appendChild(ff)
-                                ff.appendChild(ff1)
-                                ff.appendChild(ff2)
+                                adress.appendChild(phoa)
+                                adress.appendChild(ta)
+
+                                const addf = document.createElement('div')
+                                const addff = document.createElement('div')
+                                const phof = document.createElement('img')
+                                const tad = document.createElement('span')
+                                addf.style.display = 'flex'
+                                addf.style.flexWrap = 'wrap'
+                                addff.style.position = 'relative'
+
+                                addff.addEventListener('click', () => {
+                                    if (addf.children.length <= 11) {
+                                        const ff = document.createElement('div')
+                                        const ff1 = document.createElement('img')
+                                        const ff2 = document.createElement('span')
+                                        ff.classList.add('prof')
+                                        ff.style.position = 'relative'
+                                        ff.style.background = `rgba(${2}37, ${1}37, ${1}37, 0.655)`
+
+                                        ff.style.width = (80 * a) + 'px'
+                                        ff.style.height = (20 * a) + 'px'
+                                        ff.style.marginTop = (4 * a) + 'px'
+                                        ff.style.marginLeft = (4 * a) + 'px'
+
+                                        addf.appendChild(ff)
+                                        ff.appendChild(ff1)
+                                        ff.appendChild(ff2)
+                                    }
+                                })
+                                addf.style.width = (340 * a) + 'px'
+                                addf.style.height = (85 * a) + 'px'
+                                addf.style.marginTop = (60 * a) + 'px'
+                                addf.style.marginLeft = (110 * a) + 'px'
+                                addf.style.position = 'fixed'
+                                addff.classList.add('prof')
+
+                                addff.style.width = (70 * a) + 'px'
+                                addff.style.height = (20 * a) + 'px'
+                                addff.style.marginTop = (4 * a) + 'px'
+                                addff.style.marginLeft = (5 * a) + 'px'
+
+
+                                meno.appendChild(addf)
+                                addf.appendChild(addff)
+                                addff.appendChild(phof)
+                                addff.appendChild(tad)
+
+                                const coment = document.createElement('div')
+                                const phoc = document.createElement('img')
+                                const tc = document.createElement('span')
+                                coment.style.width = (80 * a) + 'px'
+                                coment.style.height = (45 * a) + 'px'
+                                coment.style.marginTop = (10 * a) + 'px'
+                                coment.style.marginLeft = (295 * a) + 'px'
+                                coment.classList.add('prof')
+                                phoc.classList.add('prof')
+                                tc.classList.add('prof')
+
+                                meno.appendChild(coment)
+
+                                coment.appendChild(phoc)
+                                coment.appendChild(tc)
+
+                                const me = document.createElement('div')
+                                const phom = document.createElement('img')
+                                const tm = document.createElement('span')
+                                me.style.width = (80 * a) + 'px'
+                                me.style.height = (45 * a) + 'px'
+                                me.style.marginTop = (10 * a) + 'px'
+                                me.style.marginLeft = (380 * a) + 'px'
+                                me.classList.add('prof')
+                                phom.classList.add('prof')
+                                tm.classList.add('prof')
+
+                                meno.appendChild(me)
+                                me.appendChild(phom)
+                                me.appendChild(tm)
+
+                        
+                                menobar.style.marginTop = (5 * a) + 'px'
+
+                                menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
+
+                                meno.style.height = (150 * a) + 'px'
+                                meno.style.width = (470 * a) + 'px'
+
+                        
+                            } else if (tp4) {
+                                tp4 = false
+                                const re3 = document.querySelectorAll('.menobar,.meno');
+                                re3.forEach(re1 => re1.classList.add('an'));
+                                setTimeout(() => {
+                                    re3.forEach(re => { re.remove() });
+                                }, 300)
                             }
                         })
-                        addf.style.width = (340 * a) + 'px'
-                        addf.style.height = (85 * a) + 'px'
-                        addf.style.marginTop = (60 * a) + 'px'
-                        addf.style.marginLeft = (110 * a) + 'px'
-                        addf.style.position = 'fixed'
-                        addff.classList.add('prof')
-
-                        addff.style.width = (70 * a) + 'px'
-                        addff.style.height = (20 * a) + 'px'
-                        addff.style.marginTop = (4 * a) + 'px'
-                        addff.style.marginLeft = (5 * a) + 'px'
-
-
-                        meno.appendChild(addf)
-                        addf.appendChild(addff)
-                        addff.appendChild(phof)
-                        addff.appendChild(tad)
-
-                        const coment = document.createElement('div')
-                        const phoc = document.createElement('img')
-                        const tc = document.createElement('span')
-                        coment.style.width = (80 * a) + 'px'
-                        coment.style.height = (45 * a) + 'px'
-                        coment.style.marginTop = (10 * a) + 'px'
-                        coment.style.marginLeft = (295 * a) + 'px'
-                        coment.classList.add('prof')
-                        phoc.classList.add('prof')
-                        tc.classList.add('prof')
-
-                        meno.appendChild(coment)
-
-                        coment.appendChild(phoc)
-                        coment.appendChild(tc)
-
-                        const me = document.createElement('div')
-                        const phom = document.createElement('img')
-                        const tm = document.createElement('span')
-                        me.style.width = (80 * a) + 'px'
-                        me.style.height = (45 * a) + 'px'
-                        me.style.marginTop = (10 * a) + 'px'
-                        me.style.marginLeft = (380 * a) + 'px'
-                        me.classList.add('prof')
-                        phom.classList.add('prof')
-                        tm.classList.add('prof')
-
-                        meno.appendChild(me)
-                        me.appendChild(phom)
-                        me.appendChild(tm)
-
-                        
-                            menobar.style.marginTop = (5 * a) + 'px'
-
-                            menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
-
-                            meno.style.height = (150 * a) + 'px'
-                            meno.style.width = (470 * a) + 'px'
-                        
-
-                    } else if (tp4) {
-                        tp4 = false
-                        const re3 = document.querySelectorAll('.menobar,.meno');
-                        re3.forEach(re1 => re1.classList.add('an'));
-                        setTimeout(() => {
-                            re3.forEach(re => { re.remove() });
-                        }, 300)
                     }
-                })}
-                  
+
                 }
             } else {
 
@@ -2351,5 +2467,7 @@ background-image: url('/1h.png');
             }
 
 
-</script>
+    </script>
+
+    </body>
 </html>
