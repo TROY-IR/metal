@@ -1,11 +1,13 @@
 ﻿using Azure.Core;
 using metal.Application.InterFace.FacadPaerns;
 using metal.Application.service.Products.Command.AddNewProduct;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace metal.Areas.troy.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("troy")]
     public class ProductsController : Controller
     {

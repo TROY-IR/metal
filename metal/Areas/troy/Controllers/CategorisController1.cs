@@ -1,10 +1,12 @@
 ﻿using metal.Application.InterFace.FacadPaerns;
 using metal.Application.service.Products.Command.AddNewProduct;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static metal.Application.service.Products.Command.AddNewCategory.AddNewCategoryService;
 
 namespace metal.Areas.troy.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("troy")]
     public class CategoriesController : Controller
     {

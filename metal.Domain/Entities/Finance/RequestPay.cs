@@ -11,13 +11,13 @@ namespace metal.Domain.Entities.Finance
     {
         public Guid Guid { get; set; }
         public virtual User User { get; set; }
-        public string type { get; set; }
+        public string? type { get; set; }
         public long UserId { get; set; }
         public int Amount { get; set; }
         public bool IsPay { get; set; }
         public DateTime? PayDate { get; set; }
-        public string Authority { get; set; }
-        public long RefId { get; set; } = 0;
-        public virtual ICollection<Order> Orders { get; set; }
+        public string? Authority { get; set; }
+        public long? RefId { get; set; } = 0;
+        public virtual ICollection<Order>? Orders { get; set; }
     }
 }

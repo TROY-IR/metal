@@ -34,8 +34,8 @@ namespace metal.Application.InterFace.Contexts
         public DbSet<RequestPay> RequestPays { get; set; }
         public DbSet<Order> orders { get; set; }
         public DbSet<OrderDetail> orderDetails { get; set; }
-
-
+        public DbSet<Defav> Defavs { get; set; }
+        public DbSet<Adresse> Adresses { get; set; }
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();
         Task<int> SaveChangeAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = new CancellationToken());

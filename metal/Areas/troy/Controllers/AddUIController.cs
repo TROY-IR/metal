@@ -1,9 +1,11 @@
 ﻿using metal.Application.service.UI.DaynamicUi.Command.AddMediaUi;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace metal.Areas.troy.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("troy")]
     public class AddUIController : Controller
     {

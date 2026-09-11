@@ -80,6 +80,7 @@ namespace metal.Application.service.users.command
                     EmailAdress = request.Email,
                     fullName = request.FullName,
                     Password = request.Password,
+                    Age = request.age
                 };
 
                 List<Userinrole> userInRoles = new List<Userinrole>();
@@ -136,7 +137,7 @@ namespace metal.Application.service.users.command
         public string Email { get; set; }
         public string Password { get; set; }
         public string RePasword { get; set; }
-
+        public int age { get; set; }
 
         public List<RolesInRgegisterUserDto> roles { get; set; }
     }

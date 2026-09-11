@@ -54,6 +54,6 @@ namespace metal.Application.service.Finance.Quary.GetRequsetPeyForAdmin
         public bool IsPay { get; set; }
         public DateTime? PayDate { get; set; }
         public string Authority { get; set; }
-        public long RefId { get; set; } = 0;
+        public long? RefId { get; set; } = 0;
     }
 }

@@ -1,0 +1,452 @@
+﻿@using metal.Application.service.Finance.Quary.GetRequestPay
+@using metal.Application.service.Orders.Commands.Quary.GetUserOrder
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using metal.Domain.Entities.HomePages
+
+
+@model List<OrdersDto>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="~/AdminTemplate/app-assets/css/OrderDet.css" />
+  </head>
+
+  <body class="body">
+
+<div class="body1 displaynone">
+    <div class="selectf">
+        <button class="botf f1">botton</button>
+        <button class="botf f2">botton</button>
+        <button class="botf f3">botton</button>
+        <button class="botf f4">botton</button>
+        <button class="botf f5">botton</button>
+        <button class="botf f6">botton</button>
+        <button class="botf f7">botton</button>
+        <button class="botf f8">botton</button>
+        <button class="botf f9">botton</button>
+        <button class="botf f10">botton</button>
+        <button class="botf f11">botton</button>
+        <button class="botf f12">botton</button>
+    </div>
+</div>
+
+
+<div class="col0">
+
+
+    <div class="pr">
+        <div class="head">
+            <div class="info">
+                <div class="hea">
+                    <img src="back.jpg" class="he" />
+                </div>
+
+                <img class="prof0" src="" />
+
+                <div class="gmail">
+                    <p class="g">&nbsp;&nbsp; ffffffffffffffff &nbsp;&nbsp;</p>
+                </div>
+                <div class="adress">
+                    <p class="a">&nbsp;&nbsp; ffffffffffffffff &nbsp;&nbsp;</p>
+                </div>
+                <span class="namemn">ahmadreza</span>
+                <div class="favrate">
+                    <button class="add"></button>
+                </div>
+            </div>
+            <div class="parts">
+                <button class="b1">cheking</button>
+                <button class="b2">in progress</button>
+                <button class="b3">geved</button>
+            </div>
+        </div>
+
+        <div class="detail">
+            <div class="detail1">
+
+                @if(Model != null)
+                {
+
+                    @foreach(var item in Model)
+                    {
+                        <div class="card">
+
+                            <button class="moreinfo">
+                                <a class="infolink" href="http://localhost:7016/troy/pay/Paydet?Rpayid=@item.RequestPay.RpayId"></a>
+                            </button>
+
+                            <div class="dorder">
+                                <div class="oadress">
+                                    <div class="tadress p1"><span class="dt">Adress</span></div>
+                                    <div class="vadress v1 p1">
+                                        <div class="cadress">
+                                            <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress">@item.Address</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="oadress">
+                                    <div class="tadress p2"><span class="dt">PostCode</span></div>
+                                    <div class="vadress v1 p2">
+                                        <div class="cadress">
+                                            <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress">@(item.postcode == 0 ? "Undefinde" : item.postcode)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="oadress">
+                                    <div class="tadress p4"><span class="dt">Media Conetoin</span></div>
+                                    <div class="vadress p4">
+                                        <div class="cadress cmedia t1">
+                                            <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">@(item.SoshialName == null ? "Undefinde" : item.SoshialName)</span>
+                                        </div>
+                                        <div class="cadress cmedia t2">
+                                            <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">@(item.SoshialAdress == null ? "Undefinde" : item.SoshialAdress)</span>
+                                        </div>
+                                        <div class="cadress cmedia t3">
+                                            <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">@(item.OrderState == 0 ? "Undefinde" : item.OrderState)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="oadress">
+                                    <div class="tadress p4"><span class="dt">Order Detail</span></div>
+                                    <div class="vadress p4">
+                                        <div class="cadress cmedia t1">
+                                            <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">@(item.RequestPay.Amount == 0 ? "Undefinde" : item.RequestPay.Amount)&nbsp;&nbsp;X @item.OrderDetails.Count() </span>
+                                        </div>
+                                        <div class="cadress cmedia t2">
+                                            <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">@(item.RequestPay.type == null ? "Undefinde" : item.RequestPay.type)</span>
+                                        </div>
+                                        <div class="cadress cmedia t3">
+                                            <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">@(item.RequestPay.IsPay == null ? "Undefinde" : item.RequestPay.IsPay)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lcat">
+                                    <div class="clcat">
+                                        @foreach(var prod in item.OrderDetails)
+                                        {
+                                            <span class="gbrand">@prod.Product.Category.Name</span>
+                                        }
+                                        <span class="gbrand">@(item.InsetTime == null ? "Undefinde" : item.InsetTime)</span>
+                                        <span class="gbrand">@(item.UpdateTime == null ? "Undefinde" : item.UpdateTime)</span>
+                                            <span class="gbrand">@(item.RequestPay.RpayId == 0 ? "Undefinde" : item.RequestPay.RpayId)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="morder">
+                                @foreach (var (ind, prod) in item.OrderDetails.Index())
+                                {
+                                    if(ind == 0)
+                                    {
+                                        <div class="gk1">
+                                            <div class="gkk">
+                                                <img src="@prod.Product?.ProductImages?.FirstOrDefault()?.Src" class="acsk mah" alt="" />
+                                                <h4 class="mtnk0">@prod.Product.ProductFeatures.FirstOrDefault().Value</h4>
+                                            </div>
+                                            <h4 class="mtnk">@prod.Product.Name</h4>
+                                        </div>
+                                    }
+                                    else if(ind == 1)
+                                    {
+                                        <div class="gk1 g2">
+                                            <div class="gkk">
+                                                <img src="/po.jpg" class="acsk mah" alt="" />
+                                                <h4 class="mtnk0">superstars</h4>
+                                            </div>
+                                            <h4 class="mtnk">superstar</h4>
+                                        </div>
+                                    }
+                                }
+
+
+                            </div>
+                        </div>
+
+                    }
+
+                    
+                }
+ 
+                <div class="card">
+
+                    <button class="moreinfo">
+                        <a class="infolink" href="http://localhost:7016/troy/pay/Paydet?Rpayid="></a>
+                    </button>
+
+                    <div class="dorder">
+                        <div class="oadress">
+                            <div class="tadress p1"><span class="dt">Adress</span></div>
+                            <div class="vadress v1 p1">
+                                <div class="cadress">
+                                    <img src="/ko.png" alt="" class="micon" /><span class="dt kadress">adresssssssssssssssss</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="oadress">
+                            <div class="tadress p2"><span class="dt">Adress</span></div>
+                            <div class="vadress v1 p2">
+                                <div class="cadress">
+                                    <img src="/ko.png" alt="" class="micon" /><span class="dt kadress">adresssssssssssssssss</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="oadress">
+                            <div class="tadress p3"><span class="dt">Adress</span></div>
+                            <div class="vadress p3">
+                                <div class="cadress cmedia">
+                                    <img src="/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                </div>
+                                <div class="cadress mcadress">
+                                    <span class="dt kadress madress">adresssssssssssssssss</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="oadress">
+                            <div class="tadress p4"><span class="dt">Adress</span></div>
+                            <div class="vadress p4">
+                                <div class="cadress cmedia">
+                                    <img src="/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                </div>
+                                <div class="cadress mcadress">
+                                    <span class="dt kadress madress">adresssssssssssssssss</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lcat">
+                            <div class="clcat">
+                                <span class="gbrand">abrandpos</span>
+                                <span class="gbrand">abrandpos</span>
+                                <span class="gbrand">abrandpos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="morder">
+                        <div class="gk1">
+                            <div class="gkk">
+                                <img src="/men.jpg" class="acsk mah" alt="" />
+                                <h4 class="mtnk0">superstars</h4>
+                            </div>
+                            <h4 class="mtnk">superstar</h4>
+                        </div>
+
+                        <div class="gk1 g2">
+                            <div class="gkk">
+                                <img src="/po.jpg" class="acsk mah" alt="" />
+                                <h4 class="mtnk0">superstars</h4>
+                            </div>
+                            <h4 class="mtnk">superstar</h4>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="fo"></div>
+            </div>
+
+            <div class="detail2">
+                <div class="prog">
+                    <div class="right">
+                        <div class="progdet">
+                            <div class="oadress1">
+                                <div class="tadress p3"><span class="dt">Adress</span></div>
+                                <div class="vadress p3">
+                                    <div class="cadress cmedia">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                    </div>
+                                    <div class="cadress mcadress">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress madress">adresssssssssssssssss</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oadress1">
+                                <div class="tadress p4"><span class="dt">Adress</span></div>
+                                <div class="vadress p4">
+                                    <div class="cadress cmedia t1">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                    </div>
+                                    <div class="cadress cmedia t2">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                    </div>
+                                    <div class="cadress cmedia t3">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sections">
+                            <div class="dier">
+                                <span class="part1 dpart">part 1</span>
+                            </div>
+                            <div class="dier1">
+                                <span class="part1 dpart1">part 2</span>
+                            </div>
+                            <div class="parts1">
+                                <span class="apart npart1 displaynone">part1</span>
+                                <span class="apart npart2 displaynone">part2</span>
+                                <span class="apart npart3">part3</span>
+                                <span class="apart npart4">part4</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="left">
+                        <div class="orddet">
+                            <img class="ordimg" src="/images/ma.png" />
+                            <span class="tozih">
+                                yyyyyyyyy yyyyyyyyyyyyyyyyy yyyyyyyyyyyy
+                            </span>
+                            <button class="send">Send</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="prog">
+                    <div class="right">
+                        <div class="progdet">
+                            <div class="oadress1">
+                                <div class="tadress p3"><span class="dt">Adress</span></div>
+                                <div class="vadress p3">
+                                    <div class="cadress cmedia">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                    </div>
+                                    <div class="cadress mcadress">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress madress">adresssssssssssssssss</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oadress1">
+                                <div class="tadress p4"><span class="dt">Adress</span></div>
+                                <div class="vadress p4">
+                                    <div class="cadress cmedia t1">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                    </div>
+                                    <div class="cadress cmedia t2">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                    </div>
+                                    <div class="cadress cmedia t3">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sections">
+                            <div class="dier">
+                                <span class="part1 dpart">part 1</span>
+                            </div>
+                            <div class="dier1">
+                                <span class="part1 dpart1">part 2</span>
+                            </div>
+                            <div class="parts1">
+                                <span class="apart npart1 displaynone">part1</span>
+                                <span class="apart npart2 displaynone">part2</span>
+                                <span class="apart npart3">part3</span>
+                                <span class="apart npart4">part4</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="left">
+                        <div class="orddet">
+                            <img class="ordimg" src="/images/ma.png" />
+                            <span class="tozih">
+                                yyyyyyyyy yyyyyyyyyyyyyyyyy yyyyyyyyyyyy
+                            </span>
+                            <button class="send">Send</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fo"></div>
+            </div>
+
+            <div class="detail3">
+
+                <div class="prog">
+
+
+
+
+                    <div class="right1">
+                        <div class="progdet">
+                            <div class="oadress1">
+                                <div class="tadress p3"><span class="dt">Adress</span></div>
+                                <div class="vadress p3">
+                                    <div class="cadress cmedia">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                    </div>
+                                    <div class="cadress mcadress">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress madress">adresssssssssssssssss</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oadress1">
+                                <div class="tadress p4"><span class="dt">Adress</span></div>
+                                <div class="vadress p4">
+                                    <div class="cadress cmedia t1">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                    </div>
+                                    <div class="cadress cmedia t2">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                    </div>
+                                    <div class="cadress cmedia t3">
+                                        <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress mname">adresssssssssssss</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prodet">
+                            <ul class="prodet1">
+                                <li class="lit">
+                                    hhhhhhhhhhhhhhhhhhhhhhhhh
+                                </li>
+                                <li class="lit">
+                                    hhhhhhhhhhhhhhhhhhhhhhhhh
+                                </li>
+                                <li class="lit">
+                                    hhhhhhhhhhhhhhhhhhhhhhhhhh
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+
+                    </div>
+
+
+                    <div class="leftend">
+                        <div class="orddet">
+                            <img class="ordimg" src="/images/ma.png" />
+                            <span class="tozih">
+                                yyyyyyyyy yyyyyyyyyyyyyyyyy yyyyyyyyyyyy
+                            </span>
+                            <button class="send">Send</button>
+                        </div>
+                    </div>
+                    <div class="leftend">
+                        <div class="orddet">
+                            <img class="ordimg" src="/images/ma.png" />
+                            <span class="tozih">
+                                yyyyyyyyy yyyyyyyyyyyyyyyyy yyyyyyyyyyyy
+                            </span>
+                            <button class="send">Send</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="~/AdminTemplate/app-assets/js/pay.js"></script>
+
+</html>

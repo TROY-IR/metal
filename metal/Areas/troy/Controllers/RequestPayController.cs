@@ -12,6 +12,7 @@ using ZarinPal.Class;
 
 namespace metal.Areas.troy.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("troy")]
     public class RequestPayController : Controller
     {
@@ -21,6 +22,10 @@ namespace metal.Areas.troy.Controllers
             _getRequestPayForAdminService = getRequestPayForAdminService;
         }
         public IActionResult Index()
+        {
+            return View(_getRequestPayForAdminService.Execute().Data);
+        }
+        public IActionResult Paydet(int Rpeyid)
         {
             return View(_getRequestPayForAdminService.Execute().Data);
         }

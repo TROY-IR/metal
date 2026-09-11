@@ -29,6 +29,7 @@ namespace metal.Application.service.Finance.Quary.GetRequestPay
                     Data = new RequestPayDto()
                     {
                         Amount = requestPay.Amount,
+                        Id = requestPay.Id,
                     }
                 };
             }
@@ -42,6 +43,7 @@ namespace metal.Application.service.Finance.Quary.GetRequestPay
     public class RequestPayDto
     {
         public int Amount { get; set; }
+        public long Id { get; set; }
 
     }
 }

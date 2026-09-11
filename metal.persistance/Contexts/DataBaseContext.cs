@@ -47,6 +47,8 @@ namespace metal.persistance.Contexts
         public DbSet<RequestPay> RequestPays { get; set; }
         public DbSet<Order> orders { get; set; }
         public DbSet<OrderDetail> orderDetails { get; set; }
+        public DbSet<Defav> Defavs { get; set; }
+        public DbSet<Adresse> Adresses { get; set; }
 
 
 
@@ -86,8 +88,8 @@ namespace metal.persistance.Contexts
         private void ApplyQueryFilter(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasQueryFilter(p => !p.IsRemoved);
-            modelBuilder.Entity<Role>().HasQueryFilter(p => !p.IsRemoved);
-            modelBuilder.Entity<Userinrole>().HasQueryFilter(p => !p.IsRemoved);
+     //       modelBuilder.Entity<Role>().HasQueryFilter(p => !p.IsRemoved);
+      //      modelBuilder.Entity<Userinrole>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Category>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<CategoryImages>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Product>().HasQueryFilter(p => !p.IsRemoved);
@@ -99,6 +101,7 @@ namespace metal.persistance.Contexts
             modelBuilder.Entity<RequestPay>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Order>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<OrderDetail>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Adresse>().HasQueryFilter(p => !p.IsRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)

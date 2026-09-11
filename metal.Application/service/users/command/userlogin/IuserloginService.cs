@@ -5,15 +5,16 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
 
 namespace metal.Application.service.users.command.userlogin
 {
-    public interface IUserLoginService
+    public interface IGetRolesService
     {
         ResultDto<ResultUserloginDto> Execute(string Username, string Password);
     }
 
-    public class UserLoginService : IUserLoginService
+    public class UserLoginService : IGetRolesService
     {
         private readonly IDataBaseContext _context;
         public UserLoginService(IDataBaseContext context)
@@ -43,7 +44,7 @@ namespace metal.Application.service.users.command.userlogin
                 .ThenInclude(p => p.Role)
                 .Where(p => p.EmailAdress.Equals(Username)
             && p.isactive == true)
-            .FirstOrDefault();
+           .FirstOrDefault();
 
             if (user == null)
             {
@@ -58,9 +59,14 @@ namespace metal.Application.service.users.command.userlogin
                 };
             }
 
+         //   string jbog = JsonSerializer.Serialize(user, opt);
+            
+
+        //    Console.WriteLine(jbog);
+
    //         var passwordHasher = new PasswordHasher();
   //          bool resultVerifyPassword = passwordHasher.VerifyPassword(,);
-            if (user.Password ==  Password)
+            if (user.Password !=  Password)
             {
                 return new ResultDto<ResultUserloginDto>()
                 {
@@ -75,10 +81,6 @@ namespace metal.Application.service.users.command.userlogin
 
 
             List<string> roles = new List<string>();
-            foreach (var item in user.Userinrole)
-            {
-                roles.Add(item.Role.Name);
-            }
 
 
             return new ResultDto<ResultUserloginDto>()

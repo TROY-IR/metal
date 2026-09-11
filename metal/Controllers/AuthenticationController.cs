@@ -1,10 +1,12 @@
 ﻿using metal.Application.service.users.command;
 using metal.Application.service.users.command.userlogin;
+using metal.Application.Services.Users.Commands.RgegisterUser;
 using metal.Areas.troy.Models.Authen;
 using metal.Common;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
 
@@ -15,17 +17,24 @@ namespace metal.Controllers
 
 
         private readonly IRgegisterUserService _registerUserService;
-        private readonly IUserLoginService _userLoginService;
+        private readonly IGetRolesService _userLoginService;
+        private readonly igetroleservice _getRolesService;
 
-        public AuthenticationController(IRgegisterUserService registerUserService, IUserLoginService userLoginService)
+        public AuthenticationController(
+            IRgegisterUserService registerUserService,
+            IGetRolesService userLoginService,
+            igetroleservice getRolesService
+            )
         {
             _registerUserService = registerUserService;
             _userLoginService = userLoginService;
+            _getRolesService = getRolesService;
         }
 
         [HttpGet]
         public IActionResult Signup()
         {
+            ViewBag.Roles = new SelectList(_getRolesService.Execute().Data, "Id", "Name");
             return View();
         }
 
@@ -68,6 +77,7 @@ namespace metal.Controllers
                 FullName = request.FullName,
                 Password = request.Password,
                 RePasword = request.RePassword,
+                age = request.age,
                 roles = new List<RolesInRgegisterUserDto>()
                 {
                      new RolesInRgegisterUserDto { Id = 3},

@@ -13,42 +13,40 @@
 
 
 
-            <label id="inp" class="in1">First Name</label>
+            <label id="inp" class="in1">Full Name</label>
             <div class="di">
-                <img class="fimg" src="/images/1h.png" alt="">
-                <input id="in" type="text" class="Name" placeholder="Ahmadreza" name="firstname">
+                <img class="fimg" src="/sitetemplate/assets/image/otherimg/ko1.png" alt="">
+                <input id="in" type="text" class="Name" placeholder="Ahmadreza" name="fullname">
             </div>
 
 
             <label id="inp" class="ina">Age</label>
             <div class="di">
-                <img class="fimg" src="/images/1h.png" alt="">
-                <input id="in1" type="number " class="Age" placeholder="18" name="age">
+                <img class="fimg" src="/sitetemplate/assets/image/otherimg/ko1.png" alt="">
+                <input id="in1" type="number" class="Age" placeholder="18" name="age">
             </div>
 
             
-            <select name="typemember" id="se" class="se1">
-                <option value="Personal" class="op"> type memaber </option>
-                <option value="Corporate" class="op"> Coroporate</option>
-                <option value="Corporate" class="op"> Personal</option>
-            </select>
+     <!--       <select name="typemember" id="se" class="se1" asp-items="@ViewBag.Roles">
 
-            <button type="submit" class="su">Sign up</button>
+            </select>
+-->
+            <button type="submit" onclick="Registeruser()" class="su">Sign up</button>
         </div>
 
         <div class="ch">
 
-            <label id="inp">Last Name</label>
+            <label id="inp">Gmail Adress</label>
             <div class="di">
-                <img class="fimg" src="/images/1h.png" alt="">
-                <input id="in2" type="text" class="Last" placeholder="Amjadpoor" name="lastname">
+                <img class="fimg" src="/sitetemplate/assets/image/otherimg/ko1.png" alt="">
+                <input id="in2" type="text" class="Last" placeholder="Amjadpoor@gmail.com" name="gmail">
             </div>
 
 
-            <label id="inp">Number</label>
+            <label id="inp">Password</label>
             <div class="di">
-                <img class="fimg" src="/images/1h.png" alt="">
-                <input id="in4" class="Number" placeholder="09123456789" name="number">
+                <img class="fimg" src="/sitetemplate/assets/image/otherimg/ko1.png" alt="">
+                <input id="in4" class="Number" placeholder="A20978@j" name="password">
             </div>
 
 
@@ -63,7 +61,7 @@
 
         </div>
     </div>
-    <img class="simg" src="/images/sh3.gif" alt="">
+    <img class="simg" src="/sitetemplate/assets/image/otherimg/sh3.gif" alt="">
 
 </div>
 
@@ -90,6 +88,7 @@
             if (result.value) {
 
                 var fullname = $("#in").val();
+                var age = $("#in1").val();
                 var email = $("#in2").val();
                 var Password = $("#in4").val();
                 var RePassword = $("#in4").val();
@@ -99,6 +98,7 @@
                     'email': email,
                     'Password': Password,
                     'RePassword': RePassword,
+                    'age':age
                 };
 
                 $.ajax({

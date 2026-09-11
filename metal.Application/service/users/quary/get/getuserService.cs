@@ -24,7 +24,7 @@ namespace metal.Application.service.users.quary.get
             {
                 EmailAdress = p.EmailAdress,
                 fullName = p.fullName,
-                Adress = p.Adress,
+           //     Adress = p.Adress,
                 Cuntry = p.Cuntry,
                 Id = p.Id,
                 isactive = p.isactive

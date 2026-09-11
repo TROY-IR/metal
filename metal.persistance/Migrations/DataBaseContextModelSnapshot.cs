@@ -36,7 +36,7 @@ namespace metal.persistance.Migrations
                     b.Property<bool>("Finished")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime?>("InsertTime")
+                    b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
@@ -72,7 +72,7 @@ namespace metal.persistance.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("InsertTime")
+                    b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
@@ -111,13 +111,12 @@ namespace metal.persistance.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Authority")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("Guid")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("InsertTime")
+                    b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsPay")
@@ -129,7 +128,7 @@ namespace metal.persistance.Migrations
                     b.Property<DateTime?>("PayDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("RefId")
+                    b.Property<long?>("RefId")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("RemoveTime")
@@ -142,7 +141,6 @@ namespace metal.persistance.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("type")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -163,7 +161,7 @@ namespace metal.persistance.Migrations
                     b.Property<int>("Click")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("InsertTime")
+                    b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
@@ -311,7 +309,7 @@ namespace metal.persistance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("InsertTime")
+                    b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
@@ -340,6 +338,15 @@ namespace metal.persistance.Migrations
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("ordimgdetail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ordimgsrc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("postcode")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id");
 
                     b.HasIndex("RequestPayId");
@@ -360,7 +367,7 @@ namespace metal.persistance.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("InsertTime")
+                    b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
@@ -401,7 +408,7 @@ namespace metal.persistance.Migrations
                     b.Property<long>("Imsrc")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime?>("InsertTime")
+                    b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
@@ -441,7 +448,7 @@ namespace metal.persistance.Migrations
                     b.Property<long>("CategoryId")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime?>("InsertTime")
+                    b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
@@ -482,7 +489,7 @@ namespace metal.persistance.Migrations
                     b.Property<bool>("Displayed")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime?>("InsertTime")
+                    b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Inventory")
@@ -524,7 +531,7 @@ namespace metal.persistance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("InsertTime")
+                    b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
@@ -558,7 +565,7 @@ namespace metal.persistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<DateTime?>("InsertTime")
+                    b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
@@ -626,6 +633,71 @@ namespace metal.persistance.Migrations
                     b.ToTable("element2");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.users.Adresse", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Adress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<long?>("PostCode")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("UsersId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("Adresses");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.users.Defav", b =>
+                {
+                    b.Property<long>("Id")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name5")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Defavs");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.users.Role", b =>
                 {
                     b.Property<long>("Id")
@@ -635,7 +707,6 @@ namespace metal.persistance.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -668,31 +739,26 @@ namespace metal.persistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<long?>("Adress")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("Age")
+                    b.Property<int?>("Age")
                         .HasColumnType("int");
 
                     b.Property<string>("Cuntry")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmailAdress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime?>("InsertTime")
+                    b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PostCode")
-                        .HasColumnType("int");
+                    b.Property<string>("Psrc")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("RemoveTime")
                         .HasColumnType("datetime2");
@@ -701,7 +767,6 @@ namespace metal.persistance.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("fullName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("isactive")
@@ -710,7 +775,8 @@ namespace metal.persistance.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EmailAdress")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[EmailAdress] IS NOT NULL");
 
                     b.ToTable("Users");
                 });
@@ -832,7 +898,7 @@ namespace metal.persistance.Migrations
             modelBuilder.Entity("metal.Domain.Entities.Orders.OrderDetail", b =>
                 {
                     b.HasOne("metal.Domain.Entities.Orders.Order", "Order")
-                        .WithMany()
+                        .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -901,6 +967,28 @@ namespace metal.persistance.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.users.Adresse", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.users.User", "Users")
+                        .WithMany("adresses")
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.users.Defav", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.users.User", "Users")
+                        .WithOne("Defavs")
+                        .HasForeignKey("metal.Domain.Entities.users.Defav", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Users");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.users.Userinrole", b =>
                 {
                     b.HasOne("metal.Domain.Entities.users.Role", "Role")
@@ -939,6 +1027,11 @@ namespace metal.persistance.Migrations
                     b.Navigation("MTexts");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.Orders.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.Products.Category", b =>
                 {
                     b.Navigation("CategoryImages");
@@ -963,9 +1056,13 @@ namespace metal.persistance.Migrations
 
             modelBuilder.Entity("metal.Domain.Entities.users.User", b =>
                 {
+                    b.Navigation("Defavs");
+
                     b.Navigation("Orders");
 
                     b.Navigation("Userinrole");
+
+                    b.Navigation("adresses");
                 });
 #pragma warning restore 612, 618
         }

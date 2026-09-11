@@ -31,6 +31,8 @@ namespace metal.Application.service.Orders.Commands.AddNewOrder
 
             requestPay.IsPay = true;
             requestPay.PayDate = DateTime.Now;
+            requestPay.Authority = request.authority;
+
 
             cart.Finished = true;
 
@@ -75,6 +77,7 @@ namespace metal.Application.service.Orders.Commands.AddNewOrder
         public long CartId { get; set; }
         public long RequestPayId { get; set; }
         public long UserId { get; set; }
+        public string? authority { get; set; }
 
     }
 }

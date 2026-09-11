@@ -99,9 +99,9 @@ namespace metal.Application.service.Carts
                     {
                         Data = new CartDto()
                         {
-                            CartItems = new List<CartItemDto>()
+                            CartItems = new List<CartItemDto>(),
+
                         },
-                        IsSuccess = false,
                     };
                 }
 
@@ -112,14 +112,13 @@ namespace metal.Application.service.Carts
                     _context.SaveChanges();
                 }
 
-
-
                 return new ResultDto<CartDto>()
                 {
                     Data = new CartDto()
                     {
                         ProductCount = cart.CartItems.Count(),
                         SumAmount = cart.CartItems.Sum(p => p.Price * p.Count),
+                        CartId = cart.Id,
                         CartItems = cart.CartItems.Select(p => new CartItemDto
                         {
                             Count = p.Count,
@@ -188,6 +187,7 @@ namespace metal.Application.service.Carts
 
     public class CartDto
     {
+        public long CartId { get; set; }
         public int ProductCount { get; set; }
         public int SumAmount { get; set; }
         public List<CartItemDto> CartItems { get; set; }

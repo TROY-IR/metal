@@ -2,6 +2,9 @@
 using metal.Application.service.Carts;
 using metal.Application.service.Finance.Command.AddRequestPay;
 using metal.Application.service.Finance.Quary.GetRequestPay;
+using metal.Application.service.Orders.Commands.AddNewOrder;
+using metal.Domain.Entities.users;
+using metal.persistance.Migrations;
 using metal.Utilities;
 using metal.wwwroot.Utilities;
 using Microsoft.AspNetCore.Authorization;
@@ -20,6 +23,7 @@ namespace metal.Controllers
         private readonly Authority _authority;
         private readonly Transactions _transactions;
         private readonly IGetRequestPayService _getRequestPayService;
+        private readonly IAddNewOrderService _addNewOrderService;
         public PayController(IAddRequestPayService addRequestPayService, ICartService cartService
             , IGetRequestPayService getRequestPayService
 
@@ -45,16 +49,18 @@ namespace metal.Controllers
                 var requestPay = _addRequestPayService.Execute(cart.Data.SumAmount, UserId.Value);
                 // ارسال در گاه پرداخت
 
+
+
                 var result = await _payment.Request(new DtoRequest()
                 {
                     Mobile = "09121112222",
-                    CallbackUrl = $"https://localhost:44339/Pay/Verify?guid={requestPay.Data.guid}",
+                    CallbackUrl = $"https://localhost:7016/Pay/Verify?guid={requestPay.Data.guid}",
                     Description = "پرداخت فاکتور شماره:" + requestPay.Data.RequestPayId,
                    Email = requestPay.Data.Email,
                     Amount = requestPay.Data.Amount,
                     MerchantId = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
                 }, ZarinPal.Class.Payment.Mode.sandbox);
-                return Redirect($"https://sandbox.zarinpal.com/pg/StartPay/{result.Authority}");
+                return Redirect($"https://sandbox.zarinpal.com/pg/v4/payment/{result.Authority}");
 
 
             }
@@ -77,9 +83,23 @@ namespace metal.Controllers
                 Authority = authority
             }, Payment.Mode.sandbox);
 
+            long? UserId = ClaimUtility.GetUserId(User);
+            var cart = _cartService.GetMyCart(_cookiesManeger.GetBrowserId(HttpContext), UserId);
+
+
+
             if (verification.Status == 100)
             {
+                _addNewOrderService.Execute(new RequestAddNewOrderSericeDto
+                {
+                    CartId = cart.Data.CartId,
+                    UserId = UserId.Value,
+                    RequestPayId = requestPay.Data.Id,
+                    authority = authority
+                });
 
+                //redirect to orders
+                return RedirectToAction("Index", "Orders");
             }
             else
             {

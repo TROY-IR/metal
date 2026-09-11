@@ -1,9 +1,11 @@
 ﻿using metal.Application.service.HomePages;
 using metal.Application.service.HomePages.AddHomePageImages;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace metal.Areas.troy.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("troy")]
     public class SliderController : Controller
     {

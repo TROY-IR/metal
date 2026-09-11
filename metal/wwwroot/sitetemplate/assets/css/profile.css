@@ -284,6 +284,7 @@
 
 .apart {
     height: 70%;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -312,14 +313,14 @@
 }
 
 .npart4 {
-    margin-left: 82%;
+    margin-left: 85%;
 }
 
 .apart::before {
     width: 90%;
     height: 5%;
     z-index: 100;
-    top: 0;
+    bottom: 0;
     border-radius: 10px;
     content: "";
     position: absolute;
@@ -327,50 +328,103 @@
     background-color: #ffffff;
 }
 
+
 .dier {
-    width: 150px;
-    height: 150px;
+    width: 17%;
+    aspect-ratio: 1 / 1;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 5.9%;
     margin-left: 8.9%;
     border-radius: 50%;
-    background: rgb(228, 227, 227);
-    box-shadow: inset 7px 7px 15px rgba(0, 0, 0, 0.40), inset -7px -7px 15px rgba(255, 255, 255, 0.04), 7px 7px 15px rgba(0, 0, 0, 0.40), -7px -7px 15px rgba(255, 255, 255, 0.04);
     position: absolute;
 }
 
 .dier1 {
-    width: 150px;
-    height: 150px;
+    width: 17%;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 5.9%;
     margin-left: 32.4%;
-    background: rgb(31, 30, 30);
-    box-shadow: inset 7px 7px 15px rgba(0, 0, 0, 0.40), inset -7px -7px 15px rgb(26, 26, 26), 7px 7px 15px rgba(0, 0, 0, 0.40), -7px -7px 15px rgba(255, 255, 255, 0.04);
     position: absolute;
 }
 
-.dier::before {
+.dier2 {
+    width: 17%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5.9%;
+    margin-left: 55.9%;
+    position: absolute;
+}
+
+.dier3 {
+    width: 17%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5.9%;
+    margin-left: 79.4%;
+    position: absolute;
+}
+
+.dhead {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    box-shadow: inset 7px 7px 15px rgba(4, 241, 67, 0.636), inset -7px -7px 15px rgba(7, 231, 78, 0.386), 7px 7px 15px rgba(0, 0, 0, 0.40), -7px -7px 15px rgba(255, 255, 255, 0.03);
+}
+
+.dhead1 {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    box-shadow: inset 7px 7px 15px rgba(221, 224, 222, 0.636), inset -7px -7px 15px rgba(239, 240, 239, 0.386), 7px 7px 15px rgba(0, 0, 0, 0.40), -7px -7px 15px rgba(255, 255, 255, 0.03);
+}
+
+.dheads {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.dhad::before {
     content: "";
-    width: 140px;
-    height: 140px;
+    width: 113%;
+    aspect-ratio: 1 / 1;
     margin-top: 0px;
     border-radius: 50%;
     display: flex;
     position: absolute;
     z-index: 10;
-    border-top: 2px solid #0b0b0b;
+    border-top: 2px solid #009620;
 }
 
-.dier1::before {
+.dheads::before {
     content: "";
-    width: 140px;
-    height: 140px;
+    width: 113%;
+    aspect-ratio: 1 / 1;
     margin-top: 0px;
     border-radius: 50%;
     display: flex;
@@ -378,6 +432,7 @@
     z-index: 10;
     border-top: 2px solid #e8e8e8;
 }
+
 
 .part1 {
     display: flex;
@@ -388,7 +443,7 @@
 }
 
 .dpart {
-    color: rgb(31, 30, 30);
+    color: rgb(250, 249, 249);
 }
 
 .prog::before {

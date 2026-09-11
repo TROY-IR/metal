@@ -19,7 +19,11 @@ namespace metal.Domain.Entities.Orders
 
         public OrderState OrderState { get; set; }
 
+        public string? ordimgsrc { get; set; }
+        public string? ordimgdetail { get; set; }
+
         public string Address { get; set; }
+        public long postcode { get; set; }
         public string SoshialName { get; set; }
         public string SoshialAdress { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
@@ -40,12 +44,18 @@ namespace metal.Domain.Entities.Orders
 
     public enum OrderState
     {
-        [Display(Name = "در حالی پردازش")]
-        Processing = 0,
         [Display(Name = "لغو شده")]
         Canceled = 1,
+        [Display(Name = "در حالی پردازش")]
+        Processing = 2,
+        [Display(Name = "در حال ساخت")]
+        created = 3,
+        [Display(Name = "در حال ارسال")]
+        sending = 4,
+        [Display(Name = "در حال تحویل")]
+        Delivering = 5,
         [Display(Name = "تحویل شده")]
-        Delivered = 2,
+        Delivered = 6,
     }
 
 }

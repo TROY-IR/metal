@@ -7,11 +7,13 @@ using metal.Application.service.Common.Quereis.GetSlider;
 using metal.Application.service.Finance.Command.AddRequestPay;
 using metal.Application.service.Finance.Quary;
 using metal.Application.service.Finance.Quary.GetRequestPay;
+using metal.Application.service.Finance.Quary.GetRequsetPeyForAdmin;
 using metal.Application.service.HomePages;
 using metal.Application.service.Orders.Commands.AddNewOrder;
 using metal.Application.service.Orders.Commands.Quary.GetUserOrder;
 using metal.Application.service.Products.Facadpatern;
 using metal.Application.service.Products.Quary.GetProductForSearch;
+using metal.Application.service.Profile.ProfileDetail.Quarys.GetProfileDetail;
 using metal.Application.service.UI.DaynamicUi.Command.AddMediaUi;
 using metal.Application.service.UI.DaynamicUi.Quary.Getmedia;
 using metal.Application.service.users.command;
@@ -43,7 +45,7 @@ builder.Services.AddScoped<IRgegisterUserService, RgegisterUserService>();
 builder.Services.AddScoped<IRemoveUserService, RemoveUserService>();
 builder.Services.AddScoped<IUserSatusChangeService, UserSatusChangeService>();
 builder.Services.AddScoped<IEditUserService, EditUserService>();
-builder.Services.AddScoped<IUserLoginService, UserLoginService>();
+builder.Services.AddScoped<IGetRolesService, UserLoginService>();
 
 builder.Services.AddScoped<IProductFacad, ProductFacad>();
 
@@ -59,6 +61,9 @@ builder.Services.AddScoped<IAddRequestPayService, AddRequestPayService>();
 builder.Services.AddScoped<IGetRequestPayService, GetRequestPayService>();
 builder.Services.AddScoped<IAddNewOrderService, AddNewOrderService>();
 builder.Services.AddScoped<IGetUserOrdersService, GetUserOrdersService>();
+builder.Services.AddScoped<IGetOrdersForAdminService, GetOrdersForAdminService>();
+builder.Services.AddScoped<IGetRequestPayForAdminService, GetRequestPayForAdminService>();
+builder.Services.AddScoped<IGetProfileDetailService, GetProfileDetailService>();
 
 
 

@@ -3,22 +3,40 @@
     ViewData["Title"] = "ثبت نام کاربر جدید";
     //  Layout = "~/Areas/troy/Views/Shared/_troylay.cshtml";
 }
-<div class="d1">
-    <img class="db" id="d1" src="~/sitetemplate/assets/image/otherimg/sh.gif">
-
-
-
+<div class="d1" id="d1">
     <div class="d">
 
+        <h1 class="h1">Sign up</h1>
 
+
+        <div id="d2" class="d2">
+
+
+
+            <label id="inp" class="in1">Gmail Adress</label>
+            <div class="di">
+                <img class="fimg" src="/sitetemplate/assets/image/otherimg/ko1.png" alt="">
+                <input id="in" type="text" class="Name" placeholder="Ahmadreza@gmail.com" name="Gmail">
+            </div>
+
+
+            <button type="submit" onclick="Registeruser()" class="su">Sign up</button>
+        </div>
 
         <div class="ch">
 
-            <label id="iin2" class="in2">Email</label>
-            <input id="in2" type="text" class="Last" placeholder="Amjadpoor" name="Email">
 
-            <label for="rols" class="ro1" id="ro">
+            <label id="inp">Password</label>
+            <div class="di">
+                <img class="fimg" src="/sitetemplate/assets/image/otherimg/ko1.png" alt="">
+                <input id="in4" class="Number" placeholder="" name="Password">
+            </div>
+
+
+
+            <label class="ro1" id="ro">
                 <input type="checkbox" id="ro" class="ro">
+                <span class="switch"></span>
                 I Accsep All Rols
             </label>
 
@@ -26,27 +44,12 @@
 
         </div>
     </div>
-        <div id="d2" class="d2">
+    <img class="simg" src="/sitetemplate/assets/image/otherimg/sh3.gif" alt="">
 
-
-
-
-
-            <label id="in" class="ina">password</label>
-            <input id="in1" type="number" class="Age" placeholder="18jbbh$A" name="password">
-
-
-            <button onclick="Registeruser()" class="su">Sign up</button>
-        </div>
-
-
-
-
-    <a class="link" href="www.digikala.com">www.digikala.com</a>
 </div>
 
 
-<link rel="stylesheet" type="text/css" href="~/sitetemplate/assets/css/sigin.css">
+<link rel="stylesheet" type="text/css" href="~/sitetemplate/assets/css/login.css">
 
 
 <link href="~/Sweetalert2/sweetalert2.min.css" rel="stylesheet" />
@@ -58,9 +61,9 @@
     function Registeruser() {
 
    //     var FullName = $("#FullName").val();
-        var Email = $("#in2").val();
-        var Password = $("#number").val();
-        var RePassword = $("#number").val();
+        var Email = $("#in").val();
+        var Password = $("#in4").val();
+        var RePassword = $("#in4").val();
 
         var postData = {
    //         'FullName': FullName,

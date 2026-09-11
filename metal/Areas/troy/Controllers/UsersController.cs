@@ -7,11 +7,13 @@ using metal.Application.service.users.quary.get;
 using metal.Application.service.users.quary.getrole;
 using metal.Application.Services.Users.Commands.RgegisterUser;
 using metal.Common.Bugeto_Store.Common.Roles;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace metal.Areas.troy.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("troy")]
     public class UsersController : Controller
     {
@@ -47,7 +49,7 @@ namespace metal.Areas.troy.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-
+            ViewBag.Roles = new SelectList(_getRolesService.Execute().Data, "Id", "Name");
             return View();
 
         }
