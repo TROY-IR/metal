@@ -473,20 +473,21 @@ value="ZM">🇿🇲 Zambia</option>
         } 
         
         console.log(pey)
-      const res = fetch("/Pay/Index",{
+      const res = await fetch("/Pay/Index",{
         method:'POST',
         headers:{
           'Content-Type':'application/json'
         },
         body: JSON.stringify(pey)
       })
-      const d = res.json();
+      const d = await res.json();
 
-      if(res.issuccess){
+      if(d.issuccess){
 window.location.replace(d.redier)
 
 }else{
-   alert("error in redirect to pay")
+
+   alert(`${res.issuccess}:error in redirect to pay`)
 }
     });
 
