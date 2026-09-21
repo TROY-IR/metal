@@ -9,7 +9,7 @@ namespace metal.Application.service.Finance.Command.AddRequestPay
 {
     public interface IAddRequestPayService
     {
-        ResultDto<ResultRequestPayDto> Execute(int Amount, long UserId);
+        ResultDto<ResultRequestPayDto> Execute(int Amount, long UserId, string peytype, string stype, string? amuntf, string? cuntry);
     }
 
 
@@ -20,7 +20,7 @@ namespace metal.Application.service.Finance.Command.AddRequestPay
         {
             _context = context;
         }
-        public ResultDto<ResultRequestPayDto> Execute(int Amount, long UserId)
+        public ResultDto<ResultRequestPayDto> Execute(int Amount, long UserId, string peytype,string stype , string? amuntf, string? cuntry)
         {
             var user = _context.Users.Find(UserId);
             RequestPay requestPay = new RequestPay()
@@ -29,6 +29,9 @@ namespace metal.Application.service.Finance.Command.AddRequestPay
                 Guid = Guid.NewGuid(),
                 IsPay = false,
                 User = user,
+           //     SendType = int.Parse(stype),
+                type = peytype,
+                cuntry = cuntry,
 
             };
             _context.RequestPays.Add(requestPay);

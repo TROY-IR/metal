@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using static metal.Application.service.Profile.ProfileDetail.Quarys.GetProfileDetail.GetProfileDetailService;
 
 namespace metal.Application.service.Orders.Commands.Quary.GetUserOrder
 {
@@ -49,8 +50,8 @@ namespace metal.Application.service.Orders.Commands.Quary.GetUserOrder
                      OrderState = (AOrderState)p.OrderState,
                      ordimgsrc = p.ordimgsrc,
                      ordimgdetail = p.ordimgdetail,
-                     Address = p.Address,
-                     postcode = p.postcode,
+                     Adresse = p.User.adresses.Select(p => new AdressDto { Adress = p.Adress, PostCode = p.PostCode }).FirstOrDefault(),
+                     postcode = p.User.adresses.FirstOrDefault().PostCode,
                      SoshialName = p.SoshialName,
                      SoshialAdress = p.SoshialAdress,
                      OrderDetails = p.OrderDetails.Select( p => new AOrderDetail
@@ -82,8 +83,8 @@ namespace metal.Application.service.Orders.Commands.Quary.GetUserOrder
         public string? ordimgsrc { get; set; }
         public string? ordimgdetail { get; set; }
 
-        public string Address { get; set; }
-        public long postcode { get; set; }
+        public AdressDto Adresse { get; set; }
+        public long? postcode { get; set; }
         public string SoshialName { get; set; }
         public string SoshialAdress { get; set; }
         public virtual List<AOrderDetail> OrderDetails { get; set; }
@@ -129,7 +130,11 @@ namespace metal.Application.service.Orders.Commands.Quary.GetUserOrder
         public DateTime? PayDate { get; set; }
     }
 
-
+    public class AdressDto
+    {
+        public string? Adress { get; set; }
+        public long? PostCode { get; set; }
+    }
 
 
 }

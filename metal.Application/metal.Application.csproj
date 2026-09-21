@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <Folder Include="service\Common\Cammands\" />
-    <Folder Include="service\Profile\ProfileDetail\Commands\" />
+    <Folder Include="service\Profile\ProfileDetail\Commands\CopmProfile\" />
   </ItemGroup>
 
 </Project>

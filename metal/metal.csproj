@@ -30,7 +30,6 @@
   <ItemGroup>
     <Folder Include="Areas\troy\Data\" />
     <Folder Include="Areas\troy\Views\Orders\" />
-    <Folder Include="Views\Profile\" />
     <Folder Include="Views\Search\" />
     <Folder Include="wwwroot\Cart\" />
     <Folder Include="wwwroot\sitetemplate\assets\fonts\" />

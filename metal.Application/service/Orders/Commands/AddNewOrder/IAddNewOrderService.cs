@@ -1,6 +1,8 @@
 ﻿using metal.Application.InterFace.Contexts;
 using metal.Common;
+using metal.Domain.Entities.Finance;
 using metal.Domain.Entities.Orders;
+using metal.Domain.Entities.users;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -25,9 +27,12 @@ namespace metal.Application.service.Orders.Commands.AddNewOrder
         {
             var user = _context.Users.Find(request.UserId);
             var requestPay = _context.RequestPays.Find(request.RequestPayId);
-            var cart = _context.carts.Include(p => p.CartItems)
+            var cadress = _context.Adresses.Find(long.Parse(request.Address));
+            var cart = _context.carts
+                .Include(p => p.CartItems)
                 .ThenInclude(p => p.Product)
-                .Where(p => p.Id == request.CartId).FirstOrDefault();
+                .Where(p => p.Id == request.CartId)
+                .FirstOrDefault();
 
             requestPay.IsPay = true;
             requestPay.PayDate = DateTime.Now;
@@ -36,15 +41,23 @@ namespace metal.Application.service.Orders.Commands.AddNewOrder
 
             cart.Finished = true;
 
+
+
+
+
             Order order = new Order()
             {
-                Address = "",
+                Address = cadress.Adress,
+                postcode = cadress.PostCode,
                 OrderState = OrderState.Processing,
                 RequestPay = requestPay,
                 User = user,
+                SoshialName = request.SoshialName,
+                SoshialAdress = request.SoshialAdress,
+                RequestPayId = requestPay.Id
 
             };
-            _context.orders.Add(order);
+
 
             List<OrderDetail> orderDetails = new List<OrderDetail>();
             foreach (var item in cart.CartItems)
@@ -56,10 +69,14 @@ namespace metal.Application.service.Orders.Commands.AddNewOrder
                     Order = order,
                     Price = item.Product.Price,
                     Product = item.Product,
+                    OrderId = user.Id,
+                    ProductId = item.ProductId,
                 };
                 orderDetails.Add(orderDetail);
             }
 
+            order.OrderDetails = orderDetails;
+            _context.orders.Add(order);
 
             _context.orderDetails.AddRange(orderDetails);
 
@@ -78,6 +95,10 @@ namespace metal.Application.service.Orders.Commands.AddNewOrder
         public long RequestPayId { get; set; }
         public long UserId { get; set; }
         public string? authority { get; set; }
+        public string Address { get; set; }
+        public long? postcode { get; set; }
+        public string SoshialName { get; set; }
+        public string SoshialAdress { get; set; }
 
     }
 }

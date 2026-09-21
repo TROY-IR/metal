@@ -5,6 +5,7 @@ using metal.Application.service.Carts;
 using metal.Application.service.Common.Quereis.GetCategory;
 using metal.Application.service.Common.Quereis.GetSlider;
 using metal.Application.service.Finance.Command.AddRequestPay;
+using metal.Application.service.Finance.httpRequast;
 using metal.Application.service.Finance.Quary;
 using metal.Application.service.Finance.Quary.GetRequestPay;
 using metal.Application.service.Finance.Quary.GetRequsetPeyForAdmin;
@@ -65,7 +66,7 @@ builder.Services.AddScoped<IGetOrdersForAdminService, GetOrdersForAdminService>(
 builder.Services.AddScoped<IGetRequestPayForAdminService, GetRequestPayForAdminService>();
 builder.Services.AddScoped<IGetProfileDetailService, GetProfileDetailService>();
 
-
+builder.Services.AddHttpClient<IZarinPalService, ZarinPalService>();
 
 
 builder.Services.AddAuthorization(options =>

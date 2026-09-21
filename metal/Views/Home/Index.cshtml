@@ -5,9 +5,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<style>
-    @@import url("/sitetemplate/assets/css/site.css");
-</style>
+
 
 <span class="glass-text"></span>
 
@@ -2245,5 +2243,97 @@
         <h4 class="mtnL">superstars</h4>
     </div>
 </footer>
+
+@section src{
+
+    <script type="module" src="~/sitetemplate/assets/js/site.js"> </script>
+    <script>
+        const player = document.querySelector(".photo");
+
+        const videos = [];
+        const images = [];
+
+        let currentIndex = 0;
+        let pausedAt5 = false;
+
+        async function getVideo() {
+            const respon = await fetch('/Home/Slider')
+
+            const data = await respon.json();
+
+            data.forEach(it => {
+                videos.push(it.vSrc)
+                images.push(it.imSrc)
+            })
+
+
+            playVideo(currentIndex);
+        }
+
+        
+
+        function playVideo(index) {
+            if (index >= videos.length) {
+                currentIndex = 0; // شروع دوباره از اول
+            }
+
+            pausedAt5 = false;
+
+            player.src = videos[currentIndex];
+            player.load();
+
+            player.onloadedmetadata = () => {
+                player.play();
+            };
+        }
+
+        player.addEventListener("timeupdate", () => {
+
+
+            if (!pausedAt5 && player.currentTime >= 5) {
+
+                const core = document.querySelector('.core')
+
+                const hpo = document.createElement('img')
+
+
+                core.appendChild(hpo)
+
+
+                hpo.classList.add('hpo')
+                hpo.src = images[currentIndex]
+                hpo.style.width = (ww * 0.1) + 'px'
+                hpo.style.height = (ww * 0.15) + 'px'
+
+                setTimeout(() => {
+                    hpo.classList.add('show')
+                }, 350)
+                pausedAt5 = true;
+                player.pause();
+
+
+                setTimeout(() => {
+                    const hpo1 = document.querySelector('.hpo')
+                    if (hpo1 != null) {
+                        hpo1.remove()
+                    }
+                    currentIndex++;
+
+                    if (currentIndex >= videos.length) {
+                        currentIndex = 0;
+                    }
+
+                    playVideo(currentIndex);
+
+
+                }, 4000); // مکث 4 ثانیه‌ای
+
+
+            }
+        });
+
+        getVideo();
+    </script>
+}
 
 

@@ -134,11 +134,21 @@ namespace metal.persistance.Migrations
                     b.Property<DateTime?>("RemoveTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("SendType")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
+
+                    b.Property<string>("cuntry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("fee")
+                        .HasColumnType("int");
 
                     b.Property<string>("type")
                         .HasColumnType("nvarchar(max)");
@@ -338,13 +348,19 @@ namespace metal.persistance.Migrations
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("cimgdetail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("cimgsrc")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ordimgdetail")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ordimgsrc")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("postcode")
+                    b.Property<long?>("postcode")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
@@ -651,6 +667,9 @@ namespace metal.persistance.Migrations
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
 
+                    b.Property<bool?>("Isactive")
+                        .HasColumnType("bit");
+
                     b.Property<long?>("PostCode")
                         .HasColumnType("bigint");
 
@@ -675,23 +694,23 @@ namespace metal.persistance.Migrations
                     b.Property<long>("Id")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool?>("Name")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Name1")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool?>("Name1")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Name2")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool?>("Name2")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Name3")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool?>("Name3")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Name4")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool?>("Name4")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Name5")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool?>("Name5")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

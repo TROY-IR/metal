@@ -84,7 +84,7 @@
                                     <div class="tadress p1"><span class="dt">Adress</span></div>
                                     <div class="vadress v1 p1">
                                         <div class="cadress">
-                                            <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress">@item.Address</span>
+                                            <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress">@item.Adresse.Adress</span>
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@
                                     <div class="tadress p2"><span class="dt">PostCode</span></div>
                                     <div class="vadress v1 p2">
                                         <div class="cadress">
-                                            <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress">@(item.postcode == 0 ? "Undefinde" : item.postcode)</span>
+                                            <img src="/images/ko.png" alt="" class="micon" /><span class="dt kadress">@(item.Adresse == null && item.Adresse.PostCode == null ? "Undefinde" : item.Adresse.PostCode)</span>
                                         </div>
                                     </div>
                                 </div>

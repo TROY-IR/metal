@@ -20,9 +20,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="/sitetemplate/assets/css/shop.css" />
 </head>
-<body class="body">
-   
-        <div class="col0">
 
             <div class="hea">
                 <img src="back.jpg" class="he">
@@ -88,7 +85,9 @@
                 </div>
 
                 <div class="pardakht">
-                    <form class="pardakhtf" asp-action="Index" asp-controller="Pay" method="post">
+            <!--
+                 <form class="pardakhtf" asp-action="Index" asp-controller="Pay" method="post">
+            -->      
 
                         <div class="head1 ph1">
                             <span name="cuntry" class="Cuntry" id="cuntry">
@@ -108,20 +107,25 @@
                             
                             <span class="cuntname">fee Cuntry</span>
                         </div>
+
                         <div class="head1 ph2">
-                            <span name="cuntry" class="Cuntry" id="cuntry">
-102 $
-                            </span>
-                            <span class="cuntname">Cuntry</span>
-                        </div>
+          <select name="Adress" class="selectAd Cuntry peytype" id="cuntry">
+
+            <option value="AF" calss="opti">🇦🇫 Afghanistan</option>
+            <option value="AL">🇦🇱 Albania</option>
+            <option value="DZ">🇩🇿 Algeria</option>
+            <option value="AD">🇦🇩 Andorra</option>
+          </select>
+          <span class="cuntname">Cuntry</span>
+        </div>
                         <div class="head1 ph4">
-                        <div class="ph4ch">
+                        <div class="ph4ch" data-type="first">
                             <span name="cuntry" class="Cuntry" id="cuntry">
 102 $
                             </span>
                             <span class="cuntname">Cuntry</span>
                         </div>
-                        <div class="ph4ch">
+                        <div class="ph4ch" data-type="late">
                             <span name="cuntry" class="Cuntry" id="cuntry">
 102 $
                             </span>
@@ -133,7 +137,7 @@
 
                     <div class="parfoot">
                         <div class="foot2">
-                            <select name="cuntry" class="Cuntry" id="cuntry">
+                            <select name="cuntry" class="Cuntry Cuntryn" id="cuntry">
                                 <option value="AF">🇦🇫 Afghanistan</option> <option value="AL">🇦🇱 Albania</option> <option value="DZ">🇩🇿 Algeria</option> <option value="AD">🇦🇩 Andorra</option> <option value="AO">🇦🇴 Angola</option> <option value="AG">🇦🇬 Antigua and Barbuda</option> <option value="AR">🇦🇷 Argentina</option> <option value="AM">🇦🇲 Armenia</option> <option value="AU">🇦🇺 Australia</option> <option value="AT">🇦🇹 Austria</option> <option value="AZ">🇦🇿 Azerbaijan</option> <option value="BS">🇧🇸 Bahamas</option> <option value="BH">🇧🇭 Bahrain</option> <option value="BD">🇧🇩 Bangladesh</option> <option value="BB">🇧🇧 Barbados</option> <option value="BY">🇧🇾 Belarus</option> <option value="BE">🇧🇪 Belgium</option> <option value="BZ">🇧🇿 Belize</option> <option value="BJ">🇧🇯 Benin</option> <option value="BT">🇧🇹 Bhutan</option> <option value="BO">🇧🇴 Bolivia</option> <option value="BA">🇧🇦 Bosnia and Herzegovina</option> <option value="BW">🇧🇼 Botswana</option> <option value="BR">🇧🇷 Brazil</option> <option value="BN">🇧🇳 Brunei</option> <option value="BG">🇧🇬 Bulgaria</option> <option value="BF">🇧🇫 Burkina Faso</option> <option value="BI">🇧🇮 Burundi</option> <option value="CV">🇨🇻 Cabo Verde</option> <option value="KH">🇰🇭 Cambodia</option> <option value="CM">🇨🇲 Cameroon</option> <option value="CA">🇨🇦 Canada</option> <option value="CF">🇨🇫 Central African Republic</option> <option value="TD">🇹🇩 Chad</option> <option value="CL">🇨🇱 Chile</option> <option value="CN">🇨🇳 China</option> <option value="CO">🇨🇴 Colombia</option> <option value="KM">🇰🇲 Comoros</option> <option value="CG">🇨🇬 Congo</option> <option value="CD">🇨🇩 Democratic Republic of the Congo</option> <option value="CR">🇨🇷 Costa Rica</option> <option value="CI">🇨🇮 Côte d'Ivoire</option> <option value="HR">🇭🇷 Croatia</option> <option value="CU">🇨🇺 Cuba</option> <option value="CY">🇨🇾 Cyprus</option> <option value="CZ">🇨🇿 Czechia</option> <option value="DK">🇩🇰 Denmark</option> <option value="DJ">🇩🇯 Djibouti</option> <option value="DM">🇩🇲 Dominica</option> <option value="DO">🇩🇴 Dominican Republic</option> <option value="EC">🇪🇨 Ecuador</option> <option value="EG">🇪🇬 Egypt</option> <option value="SV">🇸🇻 El Salvador</option> <option value="GQ">🇬🇶 Equatorial Guinea</option> <option value="ER">🇪🇷 Eritrea</option> <option value="EE">🇪🇪 Estonia</option> <option value="SZ">🇸🇿 Eswatini</option> <option value="ET">🇪🇹 Ethiopia</option> <option value="FJ">🇫🇯 Fiji</option> <option value="FI">🇫🇮 Finland</option> <option value="FR">🇫🇷 France</option> <option value="GA">🇬🇦 Gabon</option> <option value="GM">🇬🇲 Gambia</option> <option value="GE">🇬🇪 Georgia</option> <option value="DE">🇩🇪 Germany</option> <option value="GH">🇬🇭 Ghana</option> <option value="GR">🇬🇷 Greece</option> <option value="GD">🇬🇩 Grenada</option> <option value="GT">🇬🇹 Guatemala</option> <option value="GN">🇬🇳 Guinea</option> <option value="GW">🇬🇼 Guinea-Bissau</option> <option value="GY">🇬🇾 Guyana</option> <option value="HT">🇭🇹 Haiti</option> <option value="HN">🇭🇳 Honduras</option> <option value="HU">🇭🇺 Hungary</option> <option value="IS">🇮🇸 Iceland</option> <option value="IN">🇮🇳 India</option> <option value="ID">🇮🇩 Indonesia</option> <option value="IR">🇮🇷 Iran</option> <option value="IQ">🇮🇶 Iraq</option> <option value="IE">🇮🇪 Ireland</option> <option value="IL">🇮🇱 Israel</option> <option value="IT">🇮🇹 Italy</option> <option value="JM">🇯🇲 Jamaica</option> <option value="JP">🇯🇵 Japan</option> <option value="JO">🇯🇴 Jordan</option> <option value="KZ">🇰🇿 Kazakhstan</option> <option value="KE">🇰🇪 Kenya</option> <option value="KI">🇰🇮 Kiribati</option> <option value="KP">🇰🇵 North Korea</option> <option value="KR">🇰🇷 South Korea</option> <option value="KW">🇰🇼 Kuwait</option> <option value="KG">🇰🇬 Kyrgyzstan</option> <option value="LA">🇱🇦 Laos</option> <option value="LV">🇱🇻 Latvia</option> <option value="LB">🇱🇧 Lebanon</option> <option value="LS">🇱🇸 Lesotho</option> <option
 value="LR">🇱🇷 Liberia</option>
  <option value="LY">🇱🇾 Libya</option>
@@ -155,7 +159,9 @@ value="ZM">🇿🇲 Zambia</option>
                         </div>
                         <button type="submit" class="submitbut">Submit</button>
                     </div>
-                  </form>
+               <!--
+                   </form>
+               -->  
                 </div>
             </div>
 
@@ -268,41 +274,33 @@ value="ZM">🇿🇲 Zambia</option>
 
 
     <script>
-            const khodecore = document.querySelector('.khodecore');
-            const body = document.querySelector('.body');
-            const col = document.querySelector('.col0');
-            const searchBar = document.querySelector('.search-bar');
-            const search = document.getElementById('.search');
-            const m_daste = document.querySelectorAll('.t,.khodecore,.matn,.matn1,.m_daste,.day');
-            const bo = document.querySelector(".bu")
-            const bo1 = document.querySelector(".bu1")
-            const serinp = document.querySelector(".serinp")
-            const cr = document.querySelector('.t');
-            const sabad = document.querySelector('.sabad');
+     //       const khodecore = document.querySelector('.khodecore');
+     //       const body = document.querySelector('.body');
+     //       const col = document.querySelector('.col0');
+      //      const searchBar = document.querySelector('.search-bar');
+      //      const search = document.getElementById('.search');
+      //      const m_daste = document.querySelectorAll('.t,.khodecore,.matn,.matn1,.m_daste,.day');
+      //      const bo = document.querySelector(".bu")
+      //      const bo1 = document.querySelector(".bu1")
+      //      const serinp = document.querySelector(".serinp")
+      //      const cr = document.querySelector('.t');
+            const sabad2 = document.querySelector('.sabad');
             const shop = document.querySelector('.shop');
             const input = document.querySelectorAll('.many');
             const btnPlus = document.querySelectorAll('.quantity-up');
             const btnMinus = document.querySelectorAll('.quantity-down');
                 const val = document.querySelectorAll('.val');
             //    const ba = document.getElementById('idaste');
-            const base = searchBar.offsetWidth;
-            const a = window.innerWidth / 520;
-            const a0 = window.innerHeight / window.innerWidth;
-            const ax = window.innerWidth / 420;
-            const ah = window.innerHeight / 420;
+        //    const base = searchBar.offsetWidth;
+       //     const a = window.innerWidth / 520;
+       //     const a0 = window.innerHeight / window.innerWidth;
+       //     const ax = window.innerWidth / 420;
+       //     const ah = window.innerHeight / 420;
 
            
             shop.style.height = (1.2 * window.innerHeight) + 'px'
 
-            let cha = 0
-            let win = true
-
-            let isnew = false
-            let tp = false
-            let tp1 = false
-            let tp2 = false
-            let tp3 = false
-            let tp4 = false
+         //   let cha = 0
 
 
           Array.from(val).forEach((v) => {
@@ -375,12 +373,14 @@ value="ZM">🇿🇲 Zambia</option>
                     po.style.width = 45 + '%'
                 })
 
-                sabad.style.height = 95 + '%'
+                sabad2.style.height = 95 + '%'
                 parda.style.width = 25 + '%'
                 parda.style.height = 100 + '%'
 
                 
-                sabad.style.width = 70 + '%'
+                sabad2.style.width =70 + '%'
+                console.log(sabad2.style.width )
+                console.log(sabad2.style.height )
 
 
               
@@ -390,9 +390,9 @@ value="ZM">🇿🇲 Zambia</option>
 
 
 
-                cha = 1
-                serinp.style.width = 45 + '%'
-                serinp.style.marginLeft = 52 + '%'
+   //             cha = 1
+   //             serinp.style.width = 45 + '%'
+  //              serinp.style.marginLeft = 52 + '%'
 
 
                 //    bo1.style.width = 20 + '%'
@@ -401,787 +401,95 @@ value="ZM">🇿🇲 Zambia</option>
 
                 console.log(window.innerWidth / window.innerHeight)
 
-                cr.src = '/ko2.png'
+       //         cr.src = '/ko2.png'
                 //  cr.style.marginLeft = -420 + 'px'
 
-                for (let i = 1; i < 7; i++) {
+} else {
 
-                    const im = document.createElement('img')
-                    im.className = 'im'
-
-
-                    searchBar.appendChild(im);
-
-                    im.src = '/' + i + 'h.png'
-                    searchBar.append(im);
-
-                    im.style.width = 30 + 'px'
-                    im.style.height = 30 + 'px'
-
-
-                    if (i == 1) {
-                        im.style.marginLeft = 10 + '%';
-                    }
-                    else {
-                        im.style.marginLeft = 4 + '%'
-                    }
-                    setTimeout(() => {
-                        im.classList.add('show');
-
-                    }, i * 150)
-
-
-
-                    if (i == 1) {
-                        im.addEventListener('click', () => {
-                            if (!tp4) {
-                                tp4 = true
-                                const bar = document.createElement('div')
-                                bar.className = 'bar'
-                                bar.style.height = window.innerHeight - 50 + 'px'
-                                col.appendChild(bar)
-                                const menobar = document.createElement('div')
-                                const meno = document.createElement('div')
-
-                                menobar.className = 'menobar'
-                                meno.className = 'meno'
-
-               
-
-                                bar.appendChild(menobar)
-                                bar.appendChild(meno)
-                                bar.style.width = (520 * a) + 'px'
-
-
-                                menobar.style.backgroundImage = `url("/${i + 1}h.png")`
-                                menobar.style.backgroundPosition = 'center'
-
-                                setTimeout(() => {
-                                    menobar.classList.add('show');
-                                    meno.classList.add('show');
-                                }, i * 350)
-
-
-                                const ord = document.createElement('div')
-                                const ord1 = document.createElement('img')
-                                const ord2 = document.createElement('input')
-                                const fb = document.createElement('img')
-
-                                fb.classList.add('fb')
-                                ord.classList.add('ord')
-                                ord1.classList.add('ord')
-                                ord2.classList.add('ord')
-                                ord.style.position = 'absolute'
-                                meno.appendChild(ord)
-                                ord.appendChild(ord1)
-                                ord.appendChild(ord2)
-                                meno.appendChild(fb)
-                                ord.style.marginTop = 2 + '%'
-                                ord.style.display = 'flex'
-                                fb.style.marginTop = (25) + '%'
-                                fb.style.marginLeft = (85) + '%'
-                                ord.style.marginLeft = 20 + 'px'
-                                ord.style.width = 37 + '%'
-                                ord.style.height = 90 + '%'
-                                ord1.style.width = 50 + '%'
-                                ord1.style.height = 90 + '%'
-                                ord1.style.marginLeft = 1 + '%'
-                                ord1.style.marginTop = 3 + '%'
-                                ord2.style.width = 42 + '%'
-                                ord2.style.height = 90 + '%'
-                                ord2.style.marginLeft = 3 + '%'
-                                ord2.style.marginTop = 3 + '%'
-                                const file = document.createElement('input')
-                                file.type = 'file'
-                                ord1.addEventListener('click', () => {
-                                    file.click();
-                                })
-                                file.addEventListener('change', () => {
-                                    const f = file.files[0];
-                                    if (!file) return;
-
-                                    const url = URL.createObjectURL(f)
-                                    ord1.src = url;
-
-                                })
-
-                     
-                                menobar.style.marginTop = (60 * a) + 'px'
-
-                                menobar.style.marginLeft = (60 * a) + 'px'
-
-                                meno.style.height = (150 * a) + 'px'
-                                meno.style.width = (470 * a) + 'px'
-
-                                
-
-                            }
-                            else if (tp4) {
-                                tp4 = false
-                                const re3 = document.querySelectorAll('.menobar,.meno');
-                                re3.forEach(re1 => re1.classList.add('an'));
-                                setTimeout(() => {
-                                    re3.forEach(re => { re.remove() });
-                                }, 300)
-                            }
-
-                    
-
-                        })
-                    }
-                    if (i == 2) {
-                        im.addEventListener('click', () => {
-                            if (!tp4) {
-                                tp4 = true
-                                const bar = document.createElement('div')
-                                bar.className = 'bar'
-                                bar.style.height = window.innerHeight - 50 + 'px'
-                                col.appendChild(bar)
-                                const menobar = document.createElement('div')
-                                const meno = document.createElement('div')
-
-                                menobar.className = 'menobar'
-                                meno.className = 'meno'
-
-                                col.appendChild(menobar)
-                                col.appendChild(meno)
-
-                                bar.appendChild(menobar)
-                                bar.appendChild(meno)
-                                bar.style.width = (520 * a) + 'px'
-
-
-                                menobar.style.backgroundImage = `url("/${i + 1}h.png")`
-                                menobar.style.backgroundPosition = 'center'
-
-                                setTimeout(() => {
-                                    menobar.classList.add('show');
-                                    meno.classList.add('show');
-                                }, i * 350)
-                                meno.style.overflowX = 'auto'
-                                meno.style.display = 'flex'
-
-
-                                const ffpar = document.createElement('div')
-                                const ffpar0 = document.createElement('div')
-
-                                meno.appendChild(ffpar)
-                                ffpar.style.width = (460 * a) + 'px'
-                                ffpar.style.height = 95 + '%'
-                                ffpar0.style.display = 'flex'
-                                ffpar0.style.flexWrap = 'nowrap'
-                                ffpar.style.flexWrap = 'nowrap'
-                                ffpar.style.display = 'flex'
-                                ffpar.style.overflowX = 'auto'
-
-                                ffpar0.style.width = (140 * a * 10) + 'px'
-                                ffpar0.style.height = (97) + '%'
-
-                                ffpar.classList.add('ppp')
-                                ffpar.appendChild(ffpar0)
-
-
-                                const fb = document.createElement('img')
-                                const fb1 = document.createElement('img')
-                                const fb2 = document.createElement('img')
-
-                                fb.classList.add('fb')
-                                fb1.classList.add('fb')
-                                fb2.classList.add('fb')
-
-                                meno.appendChild(fb)
-                                meno.appendChild(fb1)
-                                meno.appendChild(fb2)
-
-                                fb.style.marginTop = (-10) + '%'
-                                fb1.style.marginTop = (0) + '%'
-                                fb2.style.marginTop = (10) + '%'
-
-                                fb.style.marginLeft = (5) + '%'
-                                fb1.style.marginLeft = (5) + '%'
-                                fb2.style.marginLeft = (5) + '%'
-
-                                for (let i = 0; i < 10; i++) {
-
-                                    meno.style.height = (165 * a) + 'px'
-                                    const fff = document.createElement('div')
-                                    const fff0 = document.createElement('div')
-                                    const fff1 = document.createElement('img')
-                                    const fs = document.createElement('img')
-
-                                    const fff2 = document.createElement('span')
-                                    const fff22 = document.createElement('h4')
-                                    fs.addEventListener('click', () => {
-                                        fff.remove()
-                                        fff1.remove()
-                                        fff2.remove()
-                                        fs.remove()
-
-                                    })
-
-                                    fff.classList.add('gks')
-                                    fff1.classList.add('acss')
-                                    fff22.classList.add('mtn')
-                                    fs.classList.add('fs')
-
-
-                                    fff.appendChild(fs)
-                                    fff0.classList.add('gk')
-
-
-                                    fff.style.display = 'flex'
-                                    fff.style.flexWrap = 'wrap'
-                                    fff0.style.display = 'flex'
-                                    fff0.style.flexWrap = 'nowrap'
-
-
-                                    fs.src = '/2h.png'
-                                    fs.style.borderTopLeftRadius = 18 + 'px'
-                                    fff1.style.borderTopLeftRadius = 18 + 'px'
-                                    fff0.style.borderRadius = 18 + 'px'
-
-                                    fff.style.flexShrink = 0
-                                    fff1.src = '/men.jpg'
-                                    fff2.textContent = 'fffffff'
-                                    fff22.textContent = 'fffffff'
-                                    fff0.display = 'flex'
-                                    fff0.style.width = (105 * a) + 'px'
-                                    fff0.style.height = (110 * a) + 'px'
-                                    fff.style.width = (75 * a) + 'px'
-                                    fff.style.height = (130 * a) + 'px'
-                                    //   fff0.style.marginTop = (-1 * a) + 'px'
-                                    fff.style.marginLeft = (0 * a) + 'px'
-                                    fff.style.marginTop = (0 * a) + 'px'
-                                    fff1.style.width = (75 * a) + 'px'
-                                    fff1.style.height = (110 * a) + 'px'
-                                    fff2.style.marginTop = (2 * a) + 'px'
-                                    fff2.style.marginLeft = (10 * a) + 'px'
-                                    fff2.style.fontSize = (14 * a) + 'px'
-
-                                    fff22.style.fontSize = (14 * a) + 'px'
-                                    fff22.style.marginLeft = (80 * a) + 'px'
-                                    // meno.appendChild(fff0)
-
-                                    ffpar0.appendChild(fff0)
-                                    fff0.appendChild(fff)
-                                    fff0.appendChild(fff22)
-                                    fff.appendChild(fff1)
-                                    fff.appendChild(fff2)
-                                }
-
-
-
-
-                                menobar.style.marginTop = (5 * a) + 'px'
-
-                                menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
-
-                                meno.style.height = (150 * a) + 'px'
-                                meno.style.width = (470 * a) + 'px'
-
-                            }
-                            else if (tp4) {
-                                tp4 = false
-                                const re3 = document.querySelectorAll('.menobar,.meno');
-                                re3.forEach(re1 => re1.classList.add('an'));
-                                setTimeout(() => {
-                                    re3.forEach(re => { re.remove() });
-                                }, 300)
-                            }
-                        })
-                    }
-
-
-                    if (i == 3) {
-                        im.addEventListener('click', () => {
-                            if (!tp4) {
-                                tp4 = true
-                                const bar = document.createElement('div')
-                                bar.className = 'bar'
-                                bar.style.height = window.innerHeight - 50 + 'px'
-                                col.appendChild(bar)
-                                const menobar = document.createElement('div')
-                                const meno = document.createElement('div')
-
-                                menobar.className = 'menobar'
-                                meno.className = 'meno'
-
-                                col.appendChild(menobar)
-                                col.appendChild(meno)
-
-                                bar.appendChild(menobar)
-                                bar.appendChild(meno)
-                                bar.style.width = (520 * a) + 'px'
-
-
-                                menobar.style.backgroundImage = `url("/${i + 1}h.png")`
-                                menobar.style.backgroundPosition = 'center'
-
-                                setTimeout(() => {
-                                    menobar.classList.add('show');
-                                    meno.classList.add('show');
-                                }, i * 350)
-                                meno.style.overflowX = 'auto'
-                                meno.style.display = 'flex'
-
-
-                                const ffpar = document.createElement('div')
-                                const ffpar0 = document.createElement('div')
-
-                                meno.appendChild(ffpar)
-                                ffpar.style.width = (460 * a) + 'px'
-                                ffpar.style.height = 95 + '%'
-                                ffpar0.style.display = 'flex'
-                                ffpar0.style.flexWrap = 'nowrap'
-                                ffpar.style.flexWrap = 'nowrap'
-                                ffpar.style.display = 'flex'
-                                ffpar.style.overflowX = 'auto'
-
-                                ffpar0.style.width = (140 * a * 10) + 'px'
-                                ffpar0.style.height = (97) + '%'
-
-                                ffpar.classList.add('ppp')
-                                ffpar.appendChild(ffpar0)
-
-
-                                const fb = document.createElement('img')
-                                const fb1 = document.createElement('img')
-                                const fb2 = document.createElement('img')
-
-                                fb.classList.add('fb')
-                                fb1.classList.add('fb')
-                                fb2.classList.add('fb')
-
-                                meno.appendChild(fb)
-                                meno.appendChild(fb1)
-                                meno.appendChild(fb2)
-
-                                fb.style.marginTop = (-10) + '%'
-                                fb1.style.marginTop = (0) + '%'
-                                fb2.style.marginTop = (10) + '%'
-
-                                fb.style.marginLeft = (5) + '%'
-                                fb1.style.marginLeft = (5) + '%'
-                                fb2.style.marginLeft = (5) + '%'
-
-                                for (let i = 0; i < 10; i++) {
-
-                                    meno.style.height = (165 * a) + 'px'
-                                    const fff = document.createElement('div')
-                                    const fff0 = document.createElement('div')
-                                    const fff1 = document.createElement('img')
-                                    const fs = document.createElement('img')
-
-                                    const fff2 = document.createElement('span')
-                                    const fff22 = document.createElement('h4')
-                                    fs.addEventListener('click', () => {
-                                        fff.remove()
-                                        fff1.remove()
-                                        fff2.remove()
-                                        fs.remove()
-
-                                    })
-
-                                    fff.classList.add('gks')
-                                    fff1.classList.add('acss')
-                                    fff22.classList.add('mtn')
-                                    fs.classList.add('fs')
-
-
-                                    fff.appendChild(fs)
-                                    fff0.classList.add('gk')
-
-
-                                    fff.style.display = 'flex'
-                                    fff.style.flexWrap = 'wrap'
-                                    fff0.style.display = 'flex'
-                                    fff0.style.flexWrap = 'nowrap'
-
-
-                                    fs.src = '/2h.png'
-                                    fs.style.borderTopLeftRadius = 18 + 'px'
-                                    fff1.style.borderTopLeftRadius = 18 + 'px'
-                                    fff0.style.borderRadius = 18 + 'px'
-
-                                    fff.style.flexShrink = 0
-                                    fff1.src = '/men.jpg'
-                                    fff2.textContent = 'fffffff'
-                                    fff22.textContent = 'fffffff'
-                                    fff0.display = 'flex'
-                                    fff0.style.width = (105 * a) + 'px'
-                                    fff0.style.height = (110 * a) + 'px'
-                                    fff.style.width = (75 * a) + 'px'
-                                    fff.style.height = (130 * a) + 'px'
-                                    //   fff0.style.marginTop = (-1 * a) + 'px'
-                                    fff.style.marginLeft = (0 * a) + 'px'
-                                    fff.style.marginTop = (0 * a) + 'px'
-                                    fff1.style.width = (75 * a) + 'px'
-                                    fff1.style.height = (110 * a) + 'px'
-                                    fff2.style.marginTop = (2 * a) + 'px'
-                                    fff2.style.marginLeft = (10 * a) + 'px'
-                                    fff2.style.fontSize = (14 * a) + 'px'
-
-                                    fff22.style.fontSize = (14 * a) + 'px'
-                                    fff22.style.marginLeft = (80 * a) + 'px'
-                                    // meno.appendChild(fff0)
-
-                                    ffpar0.appendChild(fff0)
-                                    fff0.appendChild(fff)
-                                    fff0.appendChild(fff22)
-                                    fff.appendChild(fff1)
-                                    fff.appendChild(fff2)
-                                }
-
-
-
-
-                                menobar.style.marginTop = (5 * a) + 'px'
-
-                                menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
-
-                                meno.style.height = (150 * a) + 'px'
-                                meno.style.width = (470 * a) + 'px'
-
-                            }
-                            else if (tp4) {
-                                tp4 = false
-                                const re3 = document.querySelectorAll('.menobar,.meno');
-                                re3.forEach(re1 => re1.classList.add('an'));
-                                setTimeout(() => {
-                                    re3.forEach(re => { re.remove() });
-                                }, 300)
-                            }
-                        })
-                    }
-                    if (i == 4) {
-                        im.addEventListener('click', () => {
-                            if (!tp4) {
-                                tp4 = true
-                                const bar = document.createElement('div')
-                                bar.className = 'bar'
-                                bar.style.height = window.innerHeight - 50 + 'px'
-                                col.appendChild(bar)
-                                const menobar = document.createElement('div')
-                                const meno = document.createElement('div')
-
-                                menobar.className = 'menobar'
-                                meno.className = 'meno'
-
-                                col.appendChild(menobar)
-                                col.appendChild(meno)
-
-                                bar.appendChild(menobar)
-                                bar.appendChild(meno)
-                                bar.style.width = (520 * a) + 'px'
-
-
-                                menobar.style.backgroundImage = `url("/${i + 1}h.png")`
-                                menobar.style.backgroundPosition = 'center'
-
-                                setTimeout(() => {
-                                    menobar.classList.add('show');
-                                    meno.classList.add('show');
-                                }, i * 350)
-                                meno.style.overflowX = 'auto'
-                                meno.style.display = 'flex'
-                                meno.style.overflowX = 'auto'
-                                //    meno.style.display = 'flex'
-                                meno.style.alignItems = 'center'
-                                meno.scrollWidth = 900
-
-                                const ffchn = 13
-                                const ffpar = document.createElement('div')
-                                meno.appendChild(ffpar)
-                                ffpar.style.flexWrap = 'nowrap'
-                                ffpar.style.display = 'flex'
-
-                                ffpar.style.width = (140 * a * ffchn) + 'px'
-                                ffpar.style.height = (110 * a) + 'px'
-
-                                for (let g = 0; g < ffchn; g++) {
-
-
-                                    const ff = document.createElement('div')
-                                    const ff1 = document.createElement('img')
-                                    const ff2 = document.createElement('span')
-                                    ff.classList.add('gks')
-                                    ff1.classList.add('acss')
-                                    ff2.classList.add('mtns')
-                                    //       ff.style.display = 'flex'
-
-                                    ff.style.flexShrink = 0
-                                    ff1.src = '/men.jpg'
-                                    ff2.textContent = 'fffff'
-                                    ff.style.width = (100 * a) + 'px'
-                                    ff.style.height = (100 * a) + 'px'
-                                    ff.style.marginTop = (14 * a) + 'px'
-                                    ff.style.marginLeft = (8 * a) + 'px'
-                                    ff1.style.width = (70 * a) + 'px'
-                                    ff1.style.height = (100 * a) + 'px'
-                                    //   ff2.style.marginTop = (12 * a) + 'px'
-                                    ff2.style.marginLeft = (5 * a) + 'px'
-                                    ff2.style.fontSize = (13 * a) + 'px'
-                                    ffpar.appendChild(ff)
-                                    ff.appendChild(ff1)
-                                    ff.appendChild(ff2)
-
-                                }
-
-
-                                menobar.style.marginTop = (5 * a) + 'px'
-
-                                menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
-
-                                meno.style.height = (150 * a) + 'px'
-                                meno.style.width = (470 * a) + 'px'
-
-                                                   
-                            } else if (tp4) {
-                                tp4 = false
-                                const re3 = document.querySelectorAll('.menobar,.meno');
-                                re3.forEach(re1 => re1.classList.add('an'));
-                                setTimeout(() => {
-                                    re3.forEach(re => { re.remove() });
-                                }, 300)
-                            }
-                        })
-                    }
-                    if (i == 5) {
-                        im.addEventListener('click', () => {
-                            if (!tp4) {
-                                tp4 = true
-                                const bar = document.createElement('div')
-                                bar.className = 'bar'
-                                bar.style.height = window.innerHeight - 50 + 'px'
-                                col.appendChild(bar)
-                                const menobar = document.createElement('div')
-                                const meno = document.createElement('div')
-
-                                menobar.className = 'menobar'
-                                meno.className = 'meno'
-
-                                col.appendChild(menobar)
-                                col.appendChild(meno)
-
-                                bar.appendChild(menobar)
-                                bar.appendChild(meno)
-                                bar.style.width = (520 * a) + 'px'
-
-
-                                menobar.style.backgroundImage = `url("/${i + 1}h.png")`
-                                menobar.style.backgroundPosition = 'center'
-
-                                setTimeout(() => {
-                                    menobar.classList.add('show');
-                                    meno.classList.add('show');
-                                }, i * 350)
-                                const prof = document.createElement('img')
-
-                                const name = document.createElement('span')
-                                const file = document.createElement('input')
-                                file.type = 'file'
-                                prof.addEventListener('click', () => {
-                                    file.click();
-                                })
-                                file.addEventListener('change', () => {
-                                    const f = file.files[0];
-                                    if (!file) return;
-
-                                    const url = URL.createObjectURL(f)
-                                    prof.src = url;
-
-                                })
-
-                                prof.style.width = (80 * a) + 'px'
-                                prof.style.height = (80 * a) + 'px'
-                                prof.style.marginTop = (15 * a) + 'px'
-                                prof.style.marginLeft = (15 * a) + 'px'
-                                name.style.marginTop = (110 * a) + 'px'
-                                name.style.marginLeft = (22 * a) + 'px'
-                                name.style.fontSize = (14 * a) + 'px'
-                                name.textContent = 'exaplename'
-                                prof.classList.add('prof')
-                                name.style.display = 'inline-block'
-                                name.style.position = 'fixed'
-
-                                meno.appendChild(prof)
-
-                                meno.appendChild(name)
-
-                                const gmail = document.createElement('div')
-                                const phoag = document.createElement('img')
-                                const gt = document.createElement('span')
-                                gmail.style.width = (180 * a) + 'px'
-                                gmail.style.height = (20 * a) + 'px'
-                                gmail.style.marginTop = (15) + 'px'
-                                gmail.style.marginLeft = (110 * a) + 'px'
-                                gmail.classList.add('prof')
-
-                                phoag.style.height = (15 * a) + 'px'
-                                phoag.style.width = (15 * a) + 'px'
-                                phoag.style.marginLeft = (10 * a) + 'px'
-                                phoag.style.marginTop = (2 * a) + 'px'
-                                phoag.src = '/1h.png'
-                                phoag.style.display = 'inline-block'
-                                phoag.style.position = 'fixed'
-
-                                gt.textContent = 'google@gmail.com'
-                                gt.style.color = 'white'
-                                gt.style.fontSize = (12 * a) + 'px'
-                                gt.style.marginLeft = (30 * a) + 'px'
-                                gt.style.marginTop = (2 * a) + 'px'
-
-                                gt.style.display = 'inline-block'
-                                gt.style.position = 'fixed'
-
-
-                                meno.appendChild(gmail)
-
-                                gmail.appendChild(gt)
-                                gmail.appendChild(phoag)
-                                const adress = document.createElement('div')
-                                const phoa = document.createElement('img')
-                                const ta = document.createElement('span')
-                                adress.style.width = (180 * a) + 'px'
-                                adress.style.height = (20 * a) + 'px'
-                                adress.style.marginTop = (35 * a) + 'px'
-                                adress.style.marginLeft = (110 * a) + 'px'
-                                adress.classList.add('prof')
-
-
-                                phoa.style.height = (15 * a) + 'px'
-                                phoa.style.width = (15 * a) + 'px'
-                                phoa.style.marginLeft = (10 * a) + 'px'
-                                phoa.style.marginTop = (2 * a) + 'px'
-                                phoa.src = '/1h.png'
-                                phoa.style.display = 'inline-block'
-                                phoa.style.position = 'fixed'
-
-                                ta.textContent = '---flowstreta-landan-emereka'
-                                gmail.style.overflow = 'auto'
-                                ta.style.color = 'white'
-                                ta.style.fontSize = (12 * a) + 'px'
-                                ta.style.marginLeft = (30 * a) + 'px'
-                                ta.style.marginTop = (3 * a) + 'px'
-
-                                ta.style.display = 'inline-block'
-                                ta.style.position = 'fixed'
-
-
-                                meno.appendChild(adress)
-
-                                adress.appendChild(phoa)
-                                adress.appendChild(ta)
-
-                                const addf = document.createElement('div')
-                                const addff = document.createElement('div')
-                                const phof = document.createElement('img')
-                                const tad = document.createElement('span')
-                                addf.style.display = 'flex'
-                                addf.style.flexWrap = 'wrap'
-                                addff.style.position = 'relative'
-
-                                addff.addEventListener('click', () => {
-                                    if (addf.children.length <= 11) {
-                                        const ff = document.createElement('div')
-                                        const ff1 = document.createElement('img')
-                                        const ff2 = document.createElement('span')
-                                        ff.classList.add('prof')
-                                        ff.style.position = 'relative'
-                                        ff.style.background = `rgba(${2}37, ${1}37, ${1}37, 0.655)`
-
-                                        ff.style.width = (80 * a) + 'px'
-                                        ff.style.height = (20 * a) + 'px'
-                                        ff.style.marginTop = (4 * a) + 'px'
-                                        ff.style.marginLeft = (4 * a) + 'px'
-
-                                        addf.appendChild(ff)
-                                        ff.appendChild(ff1)
-                                        ff.appendChild(ff2)
-                                    }
-                                })
-                                addf.style.width = (340 * a) + 'px'
-                                addf.style.height = (85 * a) + 'px'
-                                addf.style.marginTop = (60 * a) + 'px'
-                                addf.style.marginLeft = (110 * a) + 'px'
-                                addf.style.position = 'fixed'
-                                addff.classList.add('prof')
-
-                                addff.style.width = (70 * a) + 'px'
-                                addff.style.height = (20 * a) + 'px'
-                                addff.style.marginTop = (4 * a) + 'px'
-                                addff.style.marginLeft = (5 * a) + 'px'
-
-
-                                meno.appendChild(addf)
-                                addf.appendChild(addff)
-                                addff.appendChild(phof)
-                                addff.appendChild(tad)
-
-                                const coment = document.createElement('div')
-                                const phoc = document.createElement('img')
-                                const tc = document.createElement('span')
-                                coment.style.width = (80 * a) + 'px'
-                                coment.style.height = (45 * a) + 'px'
-                                coment.style.marginTop = (10 * a) + 'px'
-                                coment.style.marginLeft = (295 * a) + 'px'
-                                coment.classList.add('prof')
-                                phoc.classList.add('prof')
-                                tc.classList.add('prof')
-
-                                meno.appendChild(coment)
-
-                                coment.appendChild(phoc)
-                                coment.appendChild(tc)
-
-                                const me = document.createElement('div')
-                                const phom = document.createElement('img')
-                                const tm = document.createElement('span')
-                                me.style.width = (80 * a) + 'px'
-                                me.style.height = (45 * a) + 'px'
-                                me.style.marginTop = (10 * a) + 'px'
-                                me.style.marginLeft = (380 * a) + 'px'
-                                me.classList.add('prof')
-                                phom.classList.add('prof')
-                                tm.classList.add('prof')
-
-                                meno.appendChild(me)
-                                me.appendChild(phom)
-                                me.appendChild(tm)
-
-                        
-                                menobar.style.marginTop = (5 * a) + 'px'
-
-                                menobar.style.marginLeft = 60 + (a * i * 80) + 'px'
-
-                                meno.style.height = (150 * a) + 'px'
-                                meno.style.width = (470 * a) + 'px'
-
-                        
-                            } else if (tp4) {
-                                tp4 = false
-                                const re3 = document.querySelectorAll('.menobar,.meno');
-                                re3.forEach(re1 => re1.classList.add('an'));
-                                setTimeout(() => {
-                                    re3.forEach(re => { re.remove() });
-                                }, 300)
-                            }
-                        })
-                    }
-
-                }
-            } else {
-
-                win = false
-            }
-
-            if (win == true) {
-
-                console.log('111')
+      //          win = false
             }
 
 
+
+    ////////////////////
+
+
+    const ph4ch = document.querySelector(".ph4ch");
+    const ph4 = document.querySelector(".ph4");
+
+    var ph1 = 0;
+    var ph2 = 0;
+
+    Array.from(ph4.children).forEach((p,i) => {
+      p.addEventListener('click',() =>{
+      if(i == 0 && ph1 == 0 && ph2 == 0){
+        ph1 = 1
+      p.classList.add('pchsel')
+      }else if(i == 0 && ph2 == 1){
+        ph2 = 0
+        ph1 = 1
+      p.classList.add('pchsel')
+      ph4.children[1].classList.remove('pchsel')
+        }
+      if(i == 1 && ph2 == 0 && ph1 == 0){
+        ph2 = 1
+      p.classList.add('pchsel')      
+      }else if(i == 1 && ph1 == 1){
+        ph1 = 0
+        ph2 = 1
+        p.classList.add('pchsel')
+      ph4.children[0].classList.remove('pchsel')
+      }      
+        
+    })
+    })
+
+
+
+    const sbut = document.querySelector(".submitbut");
+    const cuntry = document.querySelector(".Cuntryn");
+    const sad = document.querySelector(".selectAd");
+    const amuntf = document.querySelector(".amuntf");
+    const peytype = document.querySelector(".peytype");
+
+
+    sbut.addEventListener("click", async () => {
+              var stype = ""
+      Array.from(ph4.children).forEach((p) => {
+             Array.from(p.classList).forEach((t) => {
+              if(t == "pchsel"){
+                stype = p.dataset.type
+                console.log(p.dataset.type)
+              }
+             })
+      })
+
+        const pey =  {
+          peytype:peytype.value,
+          stype:stype,
+          amuntf:amuntf.value,
+          adress:sad.value,
+          cuntry:cuntry.value
+        } 
+        
+        console.log(pey)
+      const res = fetch("/Pay/Index",{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body: JSON.stringify(pey)
+      })
+      const d = res.json();
+
+      if(res.issuccess){
+window.location.replace(d.redier)
+
+}else{
+   alert("error in redirect to pay")
+}
+    });
+
+    //////////////////
     </script>
 
-    </body>
-</html>

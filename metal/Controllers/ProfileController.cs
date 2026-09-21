@@ -4,6 +4,7 @@ using metal.Utilities;
 using metal.wwwroot.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
 
 namespace metal.Controllers
@@ -26,7 +27,44 @@ namespace metal.Controllers
             var pdet = _getProfileDetailService.Execute(userid).Data;
             var pod = _getProfileDetailService.GetCOrders(userid).Data;
 
+
             return View((pdet, pod));
+        }
+        public IActionResult mprof()
+        {
+            long? userid = ClaimUtility.GetUserId(User);
+            var pdet = _getProfileDetailService.Execute(userid).Data;
+
+            return PartialView(viewName:"mprof",pdet);
+        }
+        public IActionResult favprof([FromBody] List<string> fav)
+        {
+
+
+            long? userid = ClaimUtility.GetUserId(User);
+            var pdet = _getProfileDetailService.GetCfav(userid,fav).IsSuccess;
+
+            return PartialView();
+        }
+        public IActionResult compprof(string? adr, string? adrid, int? post, IFormFile? psrc)
+        {
+            long? userid = ClaimUtility.GetUserId(User);
+            if (psrc != null && psrc?.Length != 0)
+            {
+                psrc = Request.Form.Files[0];
+            }
+            var pdet = _getProfileDetailService.compprof(userid,adrid:adrid,adr,post,psrc).IsSuccess;
+
+            return PartialView( pdet);
+        }
+        public IActionResult compprofimg(string? adr, string? adrid, int? post, IFormFile psrc)
+        {
+            long? userid = ClaimUtility.GetUserId(User);
+            psrc = Request.Form.Files[0];
+            
+            var pdet = _getProfileDetailService.compprof(userid, adrid: adrid, adr, post,psrc).IsSuccess;
+
+            return PartialView(pdet);
         }
 
 

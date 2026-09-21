@@ -1,0 +1,88 @@
+﻿@using metal.Application.service.Profile.ProfileDetail.Quarys.GetProfileDetail
+@using static metal.Application.service.Profile.ProfileDetail.Quarys.GetProfileDetail.GetProfileDetailService
+@model ProfileDetailDto;
+
+
+@if(Model != null)
+{
+    if (Model.PSrc != null)
+    {
+        <img class="prof" src="@Model.PSrc" alt="">
+        <span class="name">@Model.Name</span>
+    }
+    else
+    {
+        <span class="name">@Model.Name</span>
+        <input type="file" class="profin">
+    }
+
+
+
+<div class="gmail">
+     <button class="addadr" onclick="pcompadr()">ad</button> 
+    <span class="gte">@(Model.Adresse == null ? "Add Adress" : Model.Adresse.Adress)</span>
+</div>
+<div class="adre">
+      <button class="addpos" onclick="pcomp()">ad</button> 
+    <span class="ta">@(Model.Adresse?.PostCode == null ? "Add Adress" : Model.Adresse.PostCode)</span>
+</div>
+<div class="addf">
+
+    <div class="addff">
+        <img src="" alt="" class="phof">
+        <span class="tad">Add Faivrete Type</span>
+    </div>
+
+    @if(Model.Defav != null)
+    {
+        @foreach (var i in Model.Defav)
+        {
+            <div class="addff">
+                <img src="" alt="" class="phof">
+                <span class="tad">@i.Name</span>
+            </div>
+        }
+    }
+
+
+
+
+</div> 
+}
+
+
+
+@section scr{
+    <script>
+
+    const addff = document.querySelector(".addff");
+    const addf = document.querySelector(".addf");
+
+    selfa(addff);
+    f12.addEventListener("click", () => {
+    selfa1(addf, "addff");
+    });
+
+        var data2 = new FormData();
+        const profin = document.querySelector(".profin");
+
+        profin.addEventListener('change',async function pimg(){
+
+         //   prof0.style.display = 'none'
+         //   const prof = document.createElement('img')
+
+         ////   prof.classList.add('prof0')
+          //  info.appendChild(prof)
+
+        //const res = fetch(`/Profile/compprof?psrc=${prof0.value}`)
+
+
+         data2.append('psrc', this.files[0]);
+         uploadImage(data1)
+         } )
+
+
+
+    </script>
+
+}

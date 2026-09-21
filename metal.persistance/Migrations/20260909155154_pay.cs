@@ -5,7 +5,7 @@
 namespace metal.persistance.Migrations
 {
     /// <inheritdoc />
-    public partial class pay : Migration
+    public partial class paydto : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

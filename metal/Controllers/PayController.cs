@@ -1,8 +1,10 @@
 ﻿using Dto.Payment;
 using metal.Application.service.Carts;
 using metal.Application.service.Finance.Command.AddRequestPay;
+using metal.Application.service.Finance.httpRequast;
 using metal.Application.service.Finance.Quary.GetRequestPay;
 using metal.Application.service.Orders.Commands.AddNewOrder;
+using metal.Areas.troy.Models.Authen;
 using metal.Domain.Entities.users;
 using metal.persistance.Migrations;
 using metal.Utilities;
@@ -24,11 +26,15 @@ namespace metal.Controllers
         private readonly Transactions _transactions;
         private readonly IGetRequestPayService _getRequestPayService;
         private readonly IAddNewOrderService _addNewOrderService;
-        public PayController(IAddRequestPayService addRequestPayService, ICartService cartService
-            , IGetRequestPayService getRequestPayService
+        private readonly IZarinPalService _zarinPalService;
+        private readonly bool _isSandbox = true; // بر اساس کانفیگ
 
-
-             )
+        public PayController(
+            IAddRequestPayService addRequestPayService,
+            ICartService cartService,
+            IGetRequestPayService getRequestPayService,
+            IZarinPalService zarinPalService
+                            )
         {
             _addRequestPayService = addRequestPayService;
             _cartService = cartService;
@@ -38,29 +44,48 @@ namespace metal.Controllers
             _authority = expose.CreateAuthority();
             _transactions = expose.CreateTransactions();
             _getRequestPayService = getRequestPayService;
+            _zarinPalService = zarinPalService;
 
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([FromBody] peydto pay)
         {
             long? UserId = ClaimUtility.GetUserId(User);
             var cart = _cartService.GetMyCart(_cookiesManeger.GetBrowserId(HttpContext), UserId);
             if (cart.Data.SumAmount > 0)
             {
-                var requestPay = _addRequestPayService.Execute(cart.Data.SumAmount, UserId.Value);
+                var requestPay = _addRequestPayService.Execute(cart.Data.SumAmount, UserId.Value,pay.peytype,pay.stype,pay.amuntf,pay.cuntry);
                 // ارسال در گاه پرداخت
 
 
 
-                var result = await _payment.Request(new DtoRequest()
+                string callbackUrl = $"https://localhost:7016/Pay/Verify?guid={requestPay.Data.guid}";
+
+                var result = await _zarinPalService.RequestPaymentAsync(
+                    amount: cart.Data.SumAmount,
+                    description: "description",
+                    callbackUrl: callbackUrl,
+                    mobile: "09120000000",
+                    email: "test@example.com"
+                );
+
+                if (result?.Data?.Code == 100)
                 {
-                    Mobile = "09121112222",
-                    CallbackUrl = $"https://localhost:7016/Pay/Verify?guid={requestPay.Data.guid}",
-                    Description = "پرداخت فاکتور شماره:" + requestPay.Data.RequestPayId,
-                   Email = requestPay.Data.Email,
-                    Amount = requestPay.Data.Amount,
-                    MerchantId = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-                }, ZarinPal.Class.Payment.Mode.sandbox);
-                return Redirect($"https://sandbox.zarinpal.com/pg/v4/payment/{result.Authority}");
+                    // آدرس درگاه برای هدایت کاربر
+                    string gatewayUrl = _isSandbox
+                        ? $"https://sandbox.zarinpal.com/pg/StartPay/{result.Data.Authority}"
+                        : $"https://payment.zarinpal.com/pg/StartPay/{result.Data.Authority}";
+
+                    return Ok(new
+                    {
+                        issuccess = true,
+                        redier = gatewayUrl
+                    });
+                }
+                else
+                {
+                return BadRequest(new { Message = "خطا در ایجاد تراکنش", Errors = result?.Errors });
+                }
+
 
 
             }
@@ -71,39 +96,39 @@ namespace metal.Controllers
 
         }
 
-        public async Task<IActionResult> Verify(Guid guid, string authority, string status)
+        public async Task<IActionResult> Verify([FromQuery] Guid guid,[FromQuery] string Authority, [FromQuery] string Status)
         {
 
             var requestPay = _getRequestPayService.Execute(guid);
 
-            var verification = await _payment.Verification(new DtoVerification
+            if (Status != "OK")
             {
-                Amount = requestPay.Data.Amount,
-                MerchantId = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-                Authority = authority
-            }, Payment.Mode.sandbox);
+                return BadRequest("پرداخت توسط کاربر لغو شد یا ناموفق بود.");
+            }
 
             long? UserId = ClaimUtility.GetUserId(User);
             var cart = _cartService.GetMyCart(_cookiesManeger.GetBrowserId(HttpContext), UserId);
 
+            var verifyResult = await _zarinPalService.VerifyPaymentAsync(cart.Data.SumAmount, Authority);
 
-
-            if (verification.Status == 100)
+            if (verifyResult?.Data?.Code == 100)
             {
+
                 _addNewOrderService.Execute(new RequestAddNewOrderSericeDto
                 {
                     CartId = cart.Data.CartId,
                     UserId = UserId.Value,
                     RequestPayId = requestPay.Data.Id,
-                    authority = authority
+                    authority = Authority,
+                    
                 });
 
                 //redirect to orders
                 return RedirectToAction("Index", "Orders");
             }
-            else
+            else if (verifyResult?.Data?.Code == 101)
             {
-
+                return Ok("این تراکنش قبلاً تأیید شده است.");
             }
 
             return View();

@@ -14,8 +14,11 @@ namespace metal.Domain.Entities.Finance
         public string? type { get; set; }
         public long UserId { get; set; }
         public int Amount { get; set; }
+        public int fee { get; set; }
         public bool IsPay { get; set; }
-        public DateTime? PayDate { get; set; }
+        public string cuntry { get; set; }
+        public int SendType { get; set; } = 0;
+        public DateTime? PayDate { get; set; } 
         public string? Authority { get; set; }
         public long? RefId { get; set; } = 0;
         public virtual ICollection<Order>? Orders { get; set; }

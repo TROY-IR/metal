@@ -13,7 +13,7 @@ namespace metal.persistance.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
     [Migration("20260909155154_pay")]
-    partial class pay
+    partial class paydto
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

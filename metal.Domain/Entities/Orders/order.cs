@@ -21,9 +21,10 @@ namespace metal.Domain.Entities.Orders
 
         public string? ordimgsrc { get; set; }
         public string? ordimgdetail { get; set; }
-
+        public string? cimgsrc { get; set; }
+        public string? cimgdetail { get; set; }
         public string Address { get; set; }
-        public long postcode { get; set; }
+        public long? postcode { get; set; }
         public string SoshialName { get; set; }
         public string SoshialAdress { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

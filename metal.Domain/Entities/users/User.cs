@@ -31,12 +31,12 @@ namespace metal.Domain.Entities.users
         [ForeignKey("Id")]
         public virtual User Users { get; set; }
 
-        public string? Name { get; set; }
-        public string? Name1 { get; set; }
-        public string? Name2 { get; set; }
-        public string? Name3 { get; set; }
-        public string? Name4 { get; set; }
-        public string? Name5 { get; set; }
+        public bool? Name { get; set; }
+        public bool? Name1 { get; set; }
+        public bool? Name2 { get; set; }
+        public bool? Name3 { get; set; }
+        public bool? Name4 { get; set; }
+        public bool? Name5 { get; set; }
     }
 
     public class Adresse : BaseEntity
@@ -44,5 +44,6 @@ namespace metal.Domain.Entities.users
         public virtual User Users { get; set; }
         public string Adress { get; set; }
         public long? PostCode { get; set; }
+        public bool? Isactive { get; set; } = false;
     }
 }
