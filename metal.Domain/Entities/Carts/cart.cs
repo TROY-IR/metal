@@ -15,6 +15,7 @@ namespace metal.Domain.Entities.Carts
         public Guid BrowserId { get; set; }
         public bool Finished { get; set; }
         public ICollection<CartItem> CartItems { get; set; }
+        public ICollection<dCartItem> dCartItems { get; set; }
     }
 
 
@@ -29,5 +30,29 @@ namespace metal.Domain.Entities.Carts
         public virtual Cart Cart { get; set; }
         public long CartId { get; set; }
 
+    }
+    public class dCartItem : BaseEntity
+    {
+        public string? size { get; set; } = "22*33";
+        public string? txchra { get; set; } = "merory";
+        public string tozih { get; set; } = "bbbb";
+        public string imsrc { get; set; } = "bbb.jpg";
+        public int? Count { get; set; } = 1;
+        public int? Price { get; set; }
+        public virtual Cart Cart { get; set; }
+        public long CartId { get; set; }
+
+    }
+    public class size
+    {
+        public long Id { get; set; }
+        public string msize {  get; set; }
+        public int ? Price { get; set; }
+    }
+    public class texra
+    {
+        public long Id { get; set; }
+        public string mtexra { get; set; }
+        public int? Price { get; set; }
     }
 }

@@ -1,9 +1,9 @@
-﻿namespace metal.Domain.Entities.users
-{
-    public class Userinrole
-    {
-        public bool? IsRemoved;
+﻿using metal.Domain.Entities.commons;
 
+namespace metal.Domain.Entities.users
+{
+    public class Userinrole : BaseEntity
+    {
         public long Id { get; set; }
         public virtual User? User { get; set; }
         public long UserId { get; set; }

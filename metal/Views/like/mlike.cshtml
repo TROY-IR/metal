@@ -1,0 +1,43 @@
+﻿@using metal.Application.service.like.Quarys.getlike
+@using metal.Domain.Entities.Products
+@model List<prod>;
+
+
+
+
+
+<div class="ffpar ppp">
+    @if(Model != null)
+    {
+        @foreach (var item in Model)
+        {
+
+            <div class="fff0 ">
+
+                <div class="fff ">
+
+                    <div class=price0>
+                        <span class="price">
+                            @item?.price $
+                        </span>
+                    </div>
+
+                    <img class="fff1 " src="@item?.src">
+                    <span class="fff2">@item?.name</span>
+                </div>
+
+                <h4 class="fff22 ">
+                    @item?.category
+                </h4>
+            </div>
+        }
+    }
+    else
+    {
+        <span class="loading">
+            You like list is empty
+        </span>
+    }
+
+</div>
+

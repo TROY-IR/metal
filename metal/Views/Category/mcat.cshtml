@@ -1,0 +1,15 @@
+﻿@using metal.Application.service.Common.Quereis.GetMenuItem
+
+@model List<MenuItemDto>;
+
+
+
+<div class="ffpar ppp">
+    @foreach (var cat in Model)
+{
+    <div class="gk">
+        <img src="/@cat.Images.FirstOrDefault()" class="acs" alt="">
+        <h4 class="mtn">@cat.Name</h4>
+    </div>
+}
+</div>

@@ -1,0 +1,12 @@
+﻿@using metal.Application.service.like.Quarys.getlike
+@model List<Likedto>;
+
+@foreach(var item in Model)
+{
+    <div data-id="@item.Id" class="lselect">
+        <img class="sim" src="" alt="">
+        <span class="sspan">@item.name</span>
+    </div>
+}
+
+

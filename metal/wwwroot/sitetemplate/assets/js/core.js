@@ -14,19 +14,17 @@ const camera = new THREE.PerspectiveCamera(
 );
 
 
-camera.position.set(-4, 0, 25);
+camera.position.set(0, 0.5, 22);
 
 const renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true
 });
 
-renderer.setSize(
-    khodecore1.clientWidth,
-    khodecore1.clientHeight
-);
+renderer.setSize(50, 50);
 
-renderer.setPixelRatio(window.devicePixelRatio);
+// renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setPixelRatio(10);
 
 document.body.appendChild(renderer.domElement);
 
@@ -370,7 +368,7 @@ const ph = document.querySelector('.photo')
 
 scene.background = null
 khodecore1.appendChild(renderer.domElement)
-renderer.domElement.style.height = window.innerHeight * 0.6 + 'px'
-renderer.domElement.style.width = window.innerHeight * 0.6 + 'px'
-renderer.domElement.style.background = 'none'
+renderer.domElement.style.height = window.innerWidth * 0.34 + "px";
+renderer.domElement.style.width = window.innerWidth * 0.34 + "px";
+// renderer.domElement.style.background = 'none'
 //   co.style.height = 920 * a + 'px'

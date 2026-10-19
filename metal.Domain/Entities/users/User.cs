@@ -1,4 +1,5 @@
 ﻿using metal.Domain.Entities.commons;
+using metal.Domain.Entities.likedto;
 using metal.Domain.Entities.Orders;
 using System;
 using System.Collections.Generic;
@@ -22,10 +23,11 @@ namespace metal.Domain.Entities.users
         public virtual ICollection<Adresse>? adresses { get; set; }
         public ICollection<Userinrole>? Userinrole { get; set; }
         public virtual ICollection<Order>? Orders { get; set; }
+        public ICollection<Like> likes { get; set; }
 
     }
 
-    public class Defav
+    public class Defav : BaseEntity
     {
         public long Id { get; set; }
         [ForeignKey("Id")]

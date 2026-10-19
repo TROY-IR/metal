@@ -1,6 +1,7 @@
 using metal;
 using metal.Application.InterFace.Contexts;
 using metal.Application.InterFace.FacadPaerns;
+using metal.Application.service.AiSearch.n8n;
 using metal.Application.service.Carts;
 using metal.Application.service.Common.Quereis.GetCategory;
 using metal.Application.service.Common.Quereis.GetSlider;
@@ -10,6 +11,9 @@ using metal.Application.service.Finance.Quary;
 using metal.Application.service.Finance.Quary.GetRequestPay;
 using metal.Application.service.Finance.Quary.GetRequsetPeyForAdmin;
 using metal.Application.service.HomePages;
+using metal.Application.service.like.Commands.addlike;
+using metal.Application.service.like.Quarys.getlike;
+using metal.Application.service.NewFolder;
 using metal.Application.service.Orders.Commands.AddNewOrder;
 using metal.Application.service.Orders.Commands.Quary.GetUserOrder;
 using metal.Application.service.Products.Facadpatern;
@@ -65,8 +69,14 @@ builder.Services.AddScoped<IGetUserOrdersService, GetUserOrdersService>();
 builder.Services.AddScoped<IGetOrdersForAdminService, GetOrdersForAdminService>();
 builder.Services.AddScoped<IGetRequestPayForAdminService, GetRequestPayForAdminService>();
 builder.Services.AddScoped<IGetProfileDetailService, GetProfileDetailService>();
+builder.Services.AddScoped<IAddLikeService, AddLikeService>();
+builder.Services.AddScoped<IGetLikeService, GetLikeService>();
+builder.Services.AddScoped<IGetLike, GetLike>();
+
+builder.Services.AddScoped<IuploadService, uploadService>();
 
 builder.Services.AddHttpClient<IZarinPalService, ZarinPalService>();
+builder.Services.AddHttpClient<IRequestGetResultSearchService, RequestGetResultSearchService>();
 
 
 builder.Services.AddAuthorization(options =>
@@ -85,7 +95,7 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 }).AddCookie(options =>
 {
-    options.LoginPath = new PathString("/");
+    options.LoginPath = new PathString("/Authentication/Signup");
     options.ExpireTimeSpan = TimeSpan.FromMinutes(5.0);
 });
 
@@ -103,6 +113,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthentication();

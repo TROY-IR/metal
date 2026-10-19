@@ -99,6 +99,96 @@ namespace metal.persistance.Migrations
                     b.ToTable("cartItems");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.Carts.dCartItem", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("CartId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("imsrc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("tozih")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("txchra")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CartId");
+
+                    b.ToTable("dCartItems");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Carts.size", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<int?>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("msize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("sizes");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Carts.texra", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<int?>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("mtexra")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("texras");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.Finance.RequestPay", b =>
                 {
                     b.Property<long>("Id")
@@ -404,6 +494,12 @@ namespace metal.persistance.Migrations
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("txchra")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
@@ -411,6 +507,58 @@ namespace metal.persistance.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("orderDetails");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Orders.dOrderDetail", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<long>("OrderId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("imsrc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("size")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("tozih")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("txchra")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("dOrderDetails");
                 });
 
             modelBuilder.Entity("metal.Domain.Entities.Products.Category", b =>
@@ -607,6 +755,70 @@ namespace metal.persistance.Migrations
                     b.ToTable("ProductImages");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.likedto.Like", b =>
+                {
+                    b.Property<long>("Id")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("Cunt")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("likes");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.likedto.likechild", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("likeid")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("productid")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("likeid");
+
+                    b.HasIndex("productid");
+
+                    b.ToTable("likechildren");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.posters.element1", b =>
                 {
                     b.Property<int>("Id")
@@ -694,6 +906,12 @@ namespace metal.persistance.Migrations
                     b.Property<long>("Id")
                         .HasColumnType("bigint");
 
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
                     b.Property<bool?>("Name")
                         .HasColumnType("bit");
 
@@ -711,6 +929,12 @@ namespace metal.persistance.Migrations
 
                     b.Property<bool?>("Name5")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -731,23 +955,6 @@ namespace metal.persistance.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            Name = "Admin"
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            Name = "Operator"
-                        },
-                        new
-                        {
-                            Id = 3L,
-                            Name = "Customer"
-                        });
                 });
 
             modelBuilder.Entity("metal.Domain.Entities.users.User", b =>
@@ -808,8 +1015,20 @@ namespace metal.persistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<long>("RoleId")
                         .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
@@ -849,6 +1068,17 @@ namespace metal.persistance.Migrations
                     b.Navigation("Cart");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.Carts.dCartItem", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.Carts.Cart", "Cart")
+                        .WithMany()
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cart");
                 });
 
             modelBuilder.Entity("metal.Domain.Entities.Finance.RequestPay", b =>
@@ -933,6 +1163,17 @@ namespace metal.persistance.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.Orders.dOrderDetail", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.Orders.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.Products.Category", b =>
                 {
                     b.HasOne("metal.Domain.Entities.Products.Category", "ParentCategory")
@@ -984,6 +1225,35 @@ namespace metal.persistance.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.likedto.Like", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.users.User", "user")
+                        .WithMany("likes")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("user");
+                });
+
+            modelBuilder.Entity("metal.Domain.Entities.likedto.likechild", b =>
+                {
+                    b.HasOne("metal.Domain.Entities.likedto.Like", "like")
+                        .WithMany("likechild")
+                        .HasForeignKey("likeid")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("metal.Domain.Entities.Products.Product", "products")
+                        .WithMany()
+                        .HasForeignKey("productid")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("like");
+
+                    b.Navigation("products");
                 });
 
             modelBuilder.Entity("metal.Domain.Entities.users.Adresse", b =>
@@ -1068,6 +1338,11 @@ namespace metal.persistance.Migrations
                     b.Navigation("ProductImages");
                 });
 
+            modelBuilder.Entity("metal.Domain.Entities.likedto.Like", b =>
+                {
+                    b.Navigation("likechild");
+                });
+
             modelBuilder.Entity("metal.Domain.Entities.users.Role", b =>
                 {
                     b.Navigation("Userinrole");
@@ -1082,6 +1357,8 @@ namespace metal.persistance.Migrations
                     b.Navigation("Userinrole");
 
                     b.Navigation("adresses");
+
+                    b.Navigation("likes");
                 });
 #pragma warning restore 612, 618
         }

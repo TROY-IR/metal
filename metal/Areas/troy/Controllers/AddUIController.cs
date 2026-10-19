@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace metal.Areas.troy.Controllers
 {
-    [Authorize(Roles = "Admin")]
+ //   [Authorize(Roles = "Admin")]
     [Area("troy")]
     public class AddUIController : Controller
     {

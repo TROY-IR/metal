@@ -1,0 +1,113 @@
+﻿@using metal.Application.service.Carts
+@model CartDto;
+<div class="ffpar ppp">
+    <div class="pose">
+        <div class="price0">
+            <span class="price"> 99$ </span>
+        </div>
+        <img class="po_f" src="/j.jpg" />
+        <div class="det">
+            <div class="pname">
+                <input class="tozih" type="text" />
+                <button class="sbtn" onclick="sendf()">send</button>
+            </div>
+            <div class="ptexra">
+                <div class="texra t1"><span class="tt">size</span></div>
+                <div class="val">
+                    <div class="texra v t2"><span class="tt">22*33</span></div>
+                    <div class="texra v t3"><span class="tt">22*33</span></div>
+                    <div class="texra v t4"><span class="tt">22*33</span></div>
+                    <div class="seleu selecter pos1"></div>
+                </div>
+            </div>
+            <div class="psize">
+                <div class="texra t1"><span class="tt">size</span></div>
+                <div class="val1">
+                    <div class="texra v t2"><span class="tt">22*33</span></div>
+                    <div class="texra v t3"><span class="tt">22*33</span></div>
+                    <div class="texra v t4"><span class="tt">22*33</span></div>
+                    <div class="seleu1 selecter pos1"></div>
+                </div>
+            </div>
+            <div class="pprice">
+                <div class="texra v p4"><img class="tt" /></div>
+                <div class="texra v p2"><span class="tt">MOVE</span></div>
+                <div class="texra v p3">
+                    <input class="many"
+                           type="number"
+                           min="1"
+                           max="100"
+                           step="1"
+                           value=""
+                           id="count-" />
+                    <div class="quantity-nav">
+                        <div class="quantity-button quantity-up">+</div>
+                        <div class="quantity-button quantity-down">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (Model.dCartItems != null)
+    {
+        foreach (var i in Model.dCartItems)
+        {
+            <div class="pose">
+                <div class="price0">
+                    <span class="price"> @i.Price$ </span>
+                </div>
+                <img class="po_f" src="/@i.imsrc" />
+                <div class="det">
+                    <div class="pname">
+                        <p class="tozih" type="text"> @i.tozih</p>
+                        <button class="sbtn" onclick="sendf()">send</button>
+                    </div>
+                    <div class="ptexra">
+                        <div class="texra t1"><span class="tt">size</span></div>
+                        <div class="val">
+                            <div class="texra v t2"><span class="tt">22*33</span></div>
+                            <div class="texra v t3"><span class="tt">22*33</span></div>
+                            <div class="texra v t4"><span class="tt">22*33</span></div>
+                            <div class="seleu selecter pos1 @(i.size == "22*33" ? "one" : "") @(i.size == "33*44" ? "two" : "") @(i.size == "38*48" ? "three" : "")"></div>
+                        </div>
+                    </div>
+                    <div class="psize">
+                        <div class="texra t1"><span class="tt">size</span></div>
+                        <div class="val1">
+                            <div class="texra v t2"><span class="tt">22*33</span></div>
+                            <div class="texra v t3"><span class="tt">22*33</span></div>
+                            <div class="texra v t4"><span class="tt">22*33</span></div>
+                            <div class="seleu1 selecter pos1  @(i.size == "memory" ? "one" : "") @(i.size == "moat" ? "two" : "") @(i.size == "texra" ? "three" : "")"></div>
+                        </div>
+                    </div>
+                    <div class="pprice">
+                        <div class="texra v p4"><img class="tt" /></div>
+                        <div class="texra v p2"><span class="tt">MOVE</span></div>
+                        <div class="texra v p3">
+                            <input class="many"
+                                   type="number"
+                                   min="1"
+                                   max="100"
+                                   step="1"
+                                   value="@i.Count"
+                                   id="count-" />
+                            <div class="quantity-nav">
+                                <div class="quantity-button quantity-up">+</div>
+                                <div class="quantity-button quantity-down">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    }
+    else
+    {
+        <span class="loading">
+            You cart is empty
+        </span>
+    }
+
+</div>

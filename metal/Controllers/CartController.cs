@@ -1,4 +1,6 @@
 ﻿using metal.Application.service.Carts;
+using metal.Application.service.NewFolder;
+using metal.Models.dorder;
 using metal.Utilities;
 using metal.wwwroot.Utilities;
 using Microsoft.AspNetCore.Mvc;
@@ -9,11 +11,13 @@ namespace metal.Controllers
     {
         private readonly ICartService _cartService;
         private readonly CookiesManeger cookiesManeger;
+        private readonly IuploadService _upload;
 
-        public CartController(ICartService cartService)
+        public CartController(ICartService cartService, IuploadService upload)
         {
             _cartService = cartService;
             cookiesManeger = new CookiesManeger();
+            _upload = upload;
         }
 
         public IActionResult Index()
@@ -24,12 +28,26 @@ namespace metal.Controllers
 
             return View(resultGetLst.Data);
         }
+        public IActionResult mdcart()
+        {
+            var userId = ClaimUtility.GetUserId(User);
 
-        public IActionResult AddToCart(long ProductId)
+            var resultGetLst = _cartService.GetMyCart(cookiesManeger.GetBrowserId(HttpContext), userId);
+
+            return PartialView(viewName:"mdcart",resultGetLst.Data);
+        }
+        public IActionResult AddToCart([FromForm] long? ProductId, [FromForm]  dorder? dorder)
         {
 
-
-            var resultAdd = _cartService.AddToCart(ProductId, cookiesManeger.GetBrowserId(HttpContext));
+            dCartItemdto dd = new dCartItemdto()
+            {
+                imsrc = _upload.UploadFile(dorder.imgsrc).FileNameAddress,
+                tozih = dorder.tozih,
+                size = dorder.size,
+                txchra = dorder.txchra,
+                Count = dorder.Count,
+            };
+            var resultAdd = _cartService.AddToCart(ProductId, cookiesManeger.GetBrowserId(HttpContext), dd);
 
             return RedirectToAction("Index");
         }

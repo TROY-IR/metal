@@ -1,5 +1,4 @@
-﻿
-* {
+﻿* {
     margin: 0px;
 }
 
@@ -225,19 +224,24 @@
 .su {
     width: 270px;
     height: 50px;
-    margin-top: 30px;
+    margin-top: 80px;
     display: block;
     border-radius: 12px;
     border: none;
     margin-left: 30px;
     transition: width 0.4s ease-in-out;
+    outline: none;
+    border-radius: 18px;
+    background: #202124;
+    color: #dddddd;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.55), -10px -10px 20px rgba(255, 255, 255, 0.04);
+    transition: 0.2s;
 }
 
-.op {
-    color: #e3e2e2;
-    background-color: rgb(55, 55, 55);
-    border: none;
-}
 
 
 
@@ -300,21 +304,15 @@
 
 
 
-button {
-    width: 100%;
-    height: 75px;
-    border: none;
-    outline: none;
-    border-radius: 18px;
-    background: #202124;
-    color: #dddddd;
-    font-size: 23px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    cursor: pointer;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.55), -10px -10px 20px rgba(255, 255, 255, 0.04);
-    transition: 0.2s;
+
+
+
+/* Switch فعال */
+.ro1 input:checked + .switch::before {
+    transform: translateX(22px);
 }
+
+
 
 
 

@@ -30,12 +30,22 @@ namespace metal.Controllers
 
             return View((pdet, pod));
         }
-        public IActionResult mprof()
+        [AllowAnonymous]
+        public IActionResult mprof(long us)
         {
-            long? userid = ClaimUtility.GetUserId(User);
-            var pdet = _getProfileDetailService.Execute(userid).Data;
-
+            if(us != 0)
+            {
+       //     long? userid = ClaimUtility.GetUserId(User);
+            var pdet = _getProfileDetailService.Execute(us).Data;
             return PartialView(viewName:"mprof",pdet);
+            }
+            else
+            {
+                return PartialView(viewName: "signbt");
+            }
+
+
+
         }
         public IActionResult favprof([FromBody] List<string> fav)
         {

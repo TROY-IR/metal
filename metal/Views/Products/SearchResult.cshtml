@@ -1,5 +1,5 @@
 ﻿@using metal.Application.service.Products.Quary.GetProductForSearch
-@model (List<productSearchDto>,List<CatForSearchDto>,List<ProductForSearchDto>);
+@model (List<productSearchDto>,List<CatForSearchDto>);
 
 
 <div class="radif">
@@ -24,15 +24,16 @@
 
                 <div class="radif">
 
-                    @foreach (var p2 in Model.Item3)
+                    @foreach (var p2 in p1?.products)
                     {
-                    <div class="gk1">
-                        <div class="gkk">
-                            <img src="/@p2.imsrc" class="acsk mah" data-id="@p2.Id" alt="">
-                            <h4 class="mtnk0">@p2.titel</h4>
+                        <div class="gk1">
+                            <div class="gkk">
+                                <img src="/@p2.ProductImages?.FirstOrDefault()?.Src" class="acsk mah" data-id="@p2.Id" alt="">
+                                <h4 class="mtnk0">@p2.Description</h4>
+                            </div>
+                            <h4 class="mtnk">@p2.Name</h4>
                         </div>
-                        <h4 class="mtnk">@p2.Name</h4>
-                    </div>                        
+                     
                     }
  
 

@@ -3,6 +3,7 @@ using metal.Common.Bugeto_Store.Common.Roles;
 using metal.Domain.Entities.Carts;
 using metal.Domain.Entities.Finance;
 using metal.Domain.Entities.HomePages;
+using metal.Domain.Entities.likedto;
 using metal.Domain.Entities.Media;
 using metal.Domain.Entities.Orders;
 using metal.Domain.Entities.posters;
@@ -23,7 +24,7 @@ namespace metal.persistance.Contexts
         public DataBaseContext(DbContextOptions op) :base(op)
         {
         }
-        public DbSet<User> Users { get; set; }
+
         public DbSet<Role> Roles { get; set; }
         public DbSet<Userinrole> Userinroles { get; set; }
 
@@ -49,8 +50,13 @@ namespace metal.persistance.Contexts
         public DbSet<OrderDetail> orderDetails { get; set; }
         public DbSet<Defav> Defavs { get; set; }
         public DbSet<Adresse> Adresses { get; set; }
-
-
+        public DbSet<Like> likes { get; set; }
+        public DbSet<likechild> likechildren { get; set; }
+        public DbSet<dCartItem> dCartItems { get; set; }
+        public DbSet<dOrderDetail> dOrderDetails { get; set; }
+        public DbSet<size> sizes { get; set; }
+        public DbSet<texra> texras { get; set; }
+        public DbSet<User> Users { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -66,12 +72,31 @@ namespace metal.persistance.Contexts
                 .WithMany(p => p.Orders)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            modelBuilder.Entity<User>()
+            .HasMany(p => p.likes)
+            .WithOne(u => u.user)
+            .HasForeignKey(x => x.Id)
+            .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Like>()
+                .HasMany(i => i.likechild)
+                .WithOne(l => l.like)
+                .HasForeignKey(x => x.likeid)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<likechild>()
+                .HasOne(i => i.like)
+                .WithMany(l => l.likechild)
+                .HasForeignKey(x => x.likeid)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<likechild>()
+                .HasOne(i => i.products)
+                .WithMany()
+                .HasForeignKey(x => x.productid)
+                .OnDelete(DeleteBehavior.NoAction);
 
 
-            //Seed Data
-            SeedData(modelBuilder);
-
-           
             // اعمال ایندکس بر روی فیلد ایمیل
             // اعمال عدم تکراری بودن ایمیل
             modelBuilder.Entity<User>().HasIndex(u => u.EmailAdress).IsUnique();
@@ -88,8 +113,9 @@ namespace metal.persistance.Contexts
         private void ApplyQueryFilter(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasQueryFilter(p => !p.IsRemoved);
-     //       modelBuilder.Entity<Role>().HasQueryFilter(p => !p.IsRemoved);
-      //      modelBuilder.Entity<Userinrole>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Userinrole>().HasQueryFilter(p => !p.IsRemoved);
+            //       modelBuilder.Entity<Role>().HasQueryFilter(p => !p.IsRemoved);
+            //      modelBuilder.Entity<Userinrole>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Category>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<CategoryImages>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Product>().HasQueryFilter(p => !p.IsRemoved);
@@ -102,6 +128,11 @@ namespace metal.persistance.Contexts
             modelBuilder.Entity<Order>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<OrderDetail>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Adresse>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Defav>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Like>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<likechild>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<dCartItem>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<dOrderDetail>().HasQueryFilter(p => !p.IsRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)

@@ -30,6 +30,18 @@ namespace metal.Domain.Entities.Orders
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 
+    public class dOrderDetail : BaseEntity
+    {
+        public virtual Order Order { get; set; }
+        public long OrderId { get; set; }
+        public string size { get; set; }
+        public string txchra { get; set; }
+        public string tozih { get; set; }
+        public string imsrc { get; set; }
+        public int Price { get; set; }
+        public int Count { get; set; }
+    }
+
     public class OrderDetail : BaseEntity
     {
         public virtual Order Order { get; set; }
@@ -37,11 +49,11 @@ namespace metal.Domain.Entities.Orders
 
         public virtual Product Product { get; set; }
         public long ProductId { get; set; }
-
+        public string? size { get; set; } = "33*44";
+        public string? txchra { get; set; } = "merory";
         public int Price { get; set; }
         public int Count { get; set; }
     }
-
 
     public enum OrderState
     {
