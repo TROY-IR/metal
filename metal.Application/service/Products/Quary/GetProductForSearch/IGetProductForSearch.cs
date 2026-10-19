@@ -42,8 +42,8 @@ namespace metal.Application.service.Products.Quary.GetProductForSearch
 
             if (catid != null)
             {
-                pr = pr.Where(p => p.CategoryId == catid).ToList();
-                cat = _context.Categories.Where(p => p.Id == catid).ToList();
+                pr.AddRange( pr.Where(p => p.CategoryId == catid).ToList());
+                cat.AddRange(_context.Categories.Where(p => p.Id == catid).ToList());
             }
 
             pro = pr.Select(p => new productSearchDto

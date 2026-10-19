@@ -47,6 +47,7 @@ namespace metal.Controllers
 
 
         }
+        [AllowAnonymous]
         public IActionResult favprof([FromBody] List<string> fav)
         {
 
@@ -56,7 +57,8 @@ namespace metal.Controllers
 
             return PartialView();
         }
-        public IActionResult compprof(string? adr, string? adrid, int? post, IFormFile? psrc)
+        [AllowAnonymous]
+        public IActionResult compprof( string? adr, string? adrid, int? post, IFormFile? psrc)
         {
             long? userid = ClaimUtility.GetUserId(User);
             if (psrc != null && psrc?.Length != 0)
@@ -67,6 +69,7 @@ namespace metal.Controllers
 
             return PartialView( pdet);
         }
+        [AllowAnonymous]
         public IActionResult compprofimg(string? adr, string? adrid, int? post, IFormFile psrc)
         {
             long? userid = ClaimUtility.GetUserId(User);

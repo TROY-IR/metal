@@ -239,7 +239,8 @@ namespace metal.Application.service.Profile.ProfileDetail.Quarys.GetProfileDetai
                                 y.Adress = adr;
                             y.Isactive = true;
                             break;
-                            if (i == ind - 1) {
+                         }
+                         if (i == ind - 1) {
                                 _context.Adresses.Add(new Adresse
                                 {
                                     Adress = adr,
@@ -247,7 +248,7 @@ namespace metal.Application.service.Profile.ProfileDetail.Quarys.GetProfileDetai
                                     Isactive = true
                                 });
                             }
-                        }
+                        
                     }
                 }
 
@@ -277,6 +278,7 @@ namespace metal.Application.service.Profile.ProfileDetail.Quarys.GetProfileDetai
                                 y.PostCode = post;
                                 y.Isactive = true;
                             break;
+                         }
                             if (i == ind1 - 1)
                             {
                                 _context.Adresses.Add(new Adresse
@@ -286,7 +288,7 @@ namespace metal.Application.service.Profile.ProfileDetail.Quarys.GetProfileDetai
                                     Isactive = true
                                 });
                             }
-                        }
+                        
                     }
                 }
             }
@@ -315,19 +317,19 @@ namespace metal.Application.service.Profile.ProfileDetail.Quarys.GetProfileDetai
             getadr adrlist = new getadr()
             {
                 Adress = "select your adress",
-                Id = null
+                Id = 0
             };
             List<getadr> adrs = new List<getadr>();
             adrs.Add(adrlist);
-            
-             adrs.AddRange(_context.Adresses.Where(p => p.Users.Id == Id && p.Adress != null).ToList().
+
+            List<getadr> adrse1 = _context.Adresses.Where(p => p.Users.Id == Id && p.Adress != null).ToList().
                 Select(p => new getadr
                 {
                     Id = p.Id,
                     Adress = p.Adress,
-                }).ToList());
+                }).ToList();
 
-
+            adrs.AddRange(adrse1);
 
             return new ResultDto<List<getadr>>() {
             Data = adrs
@@ -345,13 +347,14 @@ namespace metal.Application.service.Profile.ProfileDetail.Quarys.GetProfileDetai
             List<getpos> poss = new List<getpos>();
             poss.Add(poslist);
 
-            poss.AddRange(_context.Adresses.Where(p => p.Users.Id == Id && p.PostCode != null).ToList().
+            List<getpos> poss1 = _context.Adresses.Where(p => p.Users.Id == Id && p.PostCode != null).ToList().
                 Select(p => new getpos
                 {
                     Id = p.Id,
                     Postcode = p.PostCode,
-                }).ToList());
+                }).ToList();
 
+            poss.AddRange(poss1);
             return new ResultDto<List<getpos>>()
             {
                 Data = poss
