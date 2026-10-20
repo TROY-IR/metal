@@ -46,9 +46,7 @@
 const val = document.querySelectorAll(".val");
 const val1 = document.querySelectorAll(".val1");
 const shop = document.querySelector(".shop");
-const input = document.querySelectorAll(".many");
-const btnPlus = document.querySelectorAll(".quantity-up");
-const btnMinus = document.querySelectorAll(".quantity-down");    
+
 
 
         const inf = 0;
@@ -173,32 +171,7 @@ if (logr != null) {
     }
 
 //////////////////
-document.addEventListener('DOMContentLoaded', () => {
-    Array.from(input).forEach((in1, ind) => {
-        in1.addEventListener('change', () => {
-            let min = parseInt(in1.min) || 0;
-            let max = parseInt(in1.max) || Infinity;
-            let val = parseInt(in1.value) || min;
 
-            if (val < min) in1.value = min;
-            if (val > max) in1.value = max;
-
-        });
-
-        btnPlus[ind].addEventListener('click', () => {
-            input[ind].stepUp();
-            input[ind].dispatchEvent(new Event('change', { bubbles: true }));
-        });
-
-        // کاهش مقدار
-        btnMinus[ind].addEventListener('click', () => {
-            input[ind].stepDown();
-            input[ind].dispatchEvent(new Event('change', { bubbles: true }));
-        });
-
-        // جلوگیری از تایپ دستی مقادیر کمتر از min یا بیشتر از max
-    });
-});
 function AddCount(CartItemId) {
     //   window.location.replace('/cart/add?CartItemId=' + CartItemId);
     var fet = fetch('/cart/add?CartItemId=' + CartItemId)
@@ -303,9 +276,15 @@ function lowCount(CartItemId) {
 
                  function bar(ll) {
                     const op = document.querySelectorAll(`.meno-${ll}`);
-                    const barr = document.querySelector(".bar");
-                    barr.classList.remove("displaynone");
+                     const barr = document.querySelector(".bar");
+                     if (barr.classList.contains('displaynone')) {
+                         barr.classList.remove("displaynone");
                     console.log(barr.style.display);
+                     } else {
+                         barr.classList.add("displaynone")
+                     }
+
+
 
                      Array.from(op).forEach(async (p, n) => {
                          if (p.classList.contains("displaynone")) {
@@ -401,6 +380,35 @@ function lowCount(CartItemId) {
                             const chtml = await sabad1.text();
                        //     p.style.height = 210 + 'px'
                             p.innerHTML = chtml;
+
+                            const input = document.querySelectorAll(".many");
+                            const btnPlus = document.querySelectorAll(".quantity-up");
+                            const btnMinus = document.querySelectorAll(".quantity-down");
+                            Array.from(input).forEach((in1, ind) => {
+                                in1.addEventListener('change', () => {
+                                    let min = parseInt(in1.min) || 0;
+                                    let max = parseInt(in1.max) || Infinity;
+                                    let val = parseInt(in1.value) || min;
+
+                                    if (val < min) in1.value = min;
+                                    if (val > max) in1.value = max;
+
+                                });
+                                console.log('btnpls')
+                                btnPlus[ind].addEventListener('click', () => {
+                                    input[ind].stepUp();
+                                    input[ind].dispatchEvent(new Event('change', { bubbles: true }));
+                                });
+
+                                // کاهش مقدار
+                                btnMinus[ind].addEventListener('click', () => {
+                                    input[ind].stepDown();
+                                    input[ind].dispatchEvent(new Event('change', { bubbles: true }));
+                                });
+
+                                // جلوگیری از تایپ دستی مقادیر کمتر از min یا بیشتر از max
+                            });
+
                         }
 
 
