@@ -24,7 +24,7 @@ namespace metal.Controllers
         {
             var userId = ClaimUtility.GetUserId(User);
 
-            var resultGetLst = _cartService.GetMyCart(cookiesManeger.GetBrowserId(HttpContext), userId);
+           var resultGetLst = _cartService.GetMyCart(cookiesManeger.GetBrowserId(HttpContext), userId);
 
             return View(resultGetLst.Data);
         }
@@ -36,8 +36,12 @@ namespace metal.Controllers
 
             return PartialView(viewName:"mdcart",resultGetLst.Data);
         }
-        public IActionResult AddToCart([FromForm] long? ProductId, [FromForm]  dorder? dorder)
+        public IActionResult AddToCart([FromQuery] long? ProductId, [FromForm]  dorder? dorder)
         {
+
+
+
+            if(dorder != null && ProductId == null) {
 
             dCartItemdto dd = new dCartItemdto()
             {
@@ -49,7 +53,23 @@ namespace metal.Controllers
             };
             var resultAdd = _cartService.AddToCart(ProductId, cookiesManeger.GetBrowserId(HttpContext), dd);
 
-            return RedirectToAction("Index");
+                var userId = ClaimUtility.GetUserId(User);
+
+                var resultGetLst = _cartService.GetMyCart(cookiesManeger.GetBrowserId(HttpContext), userId);
+
+                return PartialView(viewName: "mdcart", resultGetLst.Data);
+            }
+            else if(ProductId != null)
+            {
+                dCartItemdto dn = new dCartItemdto();
+                var resultAdd = _cartService.AddToCart(ProductId, cookiesManeger.GetBrowserId(HttpContext), dn);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+
         }
 
 
@@ -65,6 +85,29 @@ namespace metal.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult dAdd(long dCartItemId)
+        {
+            _cartService.dAdd(dCartItemId);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult dLowOff(long dCartItemId)
+        {
+            _cartService.dLowOff(dCartItemId);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult size(long? dCartItemId, long? CartItemId,long size)
+        {
+            _cartService.dsize(dCartItemId, CartItemId,size);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult txhra(long? dCartItemId, long? CartItemId, long txhra )
+        {
+            _cartService.dtxhra(dCartItemId, CartItemId,txhra);
+            return RedirectToAction("Index");
+        }
         public IActionResult Remove(long ProductId)
         {
             _cartService.RemoveFromCart(ProductId, cookiesManeger.GetBrowserId(HttpContext));

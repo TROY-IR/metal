@@ -90,6 +90,12 @@ namespace metal.persistance.Migrations
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("txchra")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CartId");
@@ -157,7 +163,7 @@ namespace metal.persistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<int?>("Price")
+                    b.Property<int>("Price")
                         .HasColumnType("int");
 
                     b.Property<string>("msize")
@@ -177,7 +183,7 @@ namespace metal.persistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<int?>("Price")
+                    b.Property<int>("Price")
                         .HasColumnType("int");
 
                     b.Property<string>("mtexra")
@@ -677,8 +683,7 @@ namespace metal.persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId")
-                        .IsUnique();
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
                 });
@@ -1073,7 +1078,7 @@ namespace metal.persistance.Migrations
             modelBuilder.Entity("metal.Domain.Entities.Carts.dCartItem", b =>
                 {
                     b.HasOne("metal.Domain.Entities.Carts.Cart", "Cart")
-                        .WithMany()
+                        .WithMany("dCartItems")
                         .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1197,8 +1202,8 @@ namespace metal.persistance.Migrations
             modelBuilder.Entity("metal.Domain.Entities.Products.Product", b =>
                 {
                     b.HasOne("metal.Domain.Entities.Products.Category", "Category")
-                        .WithOne("products")
-                        .HasForeignKey("metal.Domain.Entities.Products.Product", "CategoryId")
+                        .WithMany("products")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1300,6 +1305,8 @@ namespace metal.persistance.Migrations
             modelBuilder.Entity("metal.Domain.Entities.Carts.Cart", b =>
                 {
                     b.Navigation("CartItems");
+
+                    b.Navigation("dCartItems");
                 });
 
             modelBuilder.Entity("metal.Domain.Entities.Finance.RequestPay", b =>
@@ -1327,8 +1334,7 @@ namespace metal.persistance.Migrations
 
                     b.Navigation("SubCategories");
 
-                    b.Navigation("products")
-                        .IsRequired();
+                    b.Navigation("products");
                 });
 
             modelBuilder.Entity("metal.Domain.Entities.Products.Product", b =>

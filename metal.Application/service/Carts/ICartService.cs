@@ -2,6 +2,7 @@
 using metal.Common;
 using metal.Domain.Entities.Carts;
 using metal.Domain.Entities.commons;
+using metal.Domain.Entities.Products;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,12 @@ namespace metal.Application.service.Carts
 
         ResultDto Add(long CartItemId);
         ResultDto LowOff(long CartItemId);
+        ResultDto dAdd(long dCartItemId);
+        ResultDto dLowOff(long dCartItemId);
+        ResultDto dsize(long? dCartItemId, long? CartItemId, long size);
+        ResultDto dtxhra(long? dCartItemId, long? CartItemId, long txhra);
+
+
     }
 
     public class CartService : ICartService
@@ -108,6 +115,7 @@ namespace metal.Application.service.Carts
 
                 var cart = _context.carts
                     .Include(p => p.CartItems)
+                    .ThenInclude(p => p.Product.ProductFeatures)
                     .Include(p => p.dCartItems)
                     .Where(p => p.BrowserId == BrowserId && p.Finished == false)
                     .OrderByDescending(p => p.Id)
@@ -131,6 +139,8 @@ namespace metal.Application.service.Carts
                     cart.User = user;
                     _context.SaveChanges();
                 }
+       
+            
             var cartit = cart.CartItems;
             var dcartit = cart.dCartItems;
             CartDto da = new CartDto()
@@ -143,6 +153,8 @@ namespace metal.Application.service.Carts
                     Count = p.Count,
                     Price = p.Price,
                     Product = _context?.Products?.FirstOrDefault(x => x.Id == p.ProductId)?.Name,
+                    size = p.size,
+                    txchra = p.txchra,
                     Id = p.Id,
                     Images = _context?.Products?.Find(p.ProductId)?.ProductImages?.FirstOrDefault()?.Src,
                 }).ToList(),
@@ -212,6 +224,91 @@ namespace metal.Application.service.Carts
             }
         }
 
+        public ResultDto dLowOff(long dCartItemId)
+        {
+            var cartItem = _context.dCartItems.Find(dCartItemId);
+
+            if (cartItem.Count <= 1)
+            {
+                return new ResultDto()
+                {
+                    IsSuccess = false,
+                };
+            }
+            cartItem.Count--;
+            _context.SaveChanges();
+            return new ResultDto()
+            {
+                IsSuccess = true,
+            };
+        }
+        public ResultDto dAdd(long dCartItemId)
+        {
+            var cartItem = _context.dCartItems.Find(dCartItemId);
+            cartItem.Count++;
+            _context.SaveChanges();
+            return new ResultDto()
+            {
+                IsSuccess = true,
+            };
+        }
+        public ResultDto dsize(long? dCartItemId, long? CartItemId, long size)
+        {
+            if(dCartItemId != null)
+            {
+            var cartItem = _context.dCartItems.Find(dCartItemId);
+            var s = _context.sizes.Find(size);
+
+            cartItem.size = s.msize;
+            cartItem.Price = cartItem.Count * 79 + s.Price + _context.texras.ToList().Where(p => p.mtexra == cartItem.txchra).FirstOrDefault().Price;
+
+            }
+            if (CartItemId != null)
+            {
+                var cartItem = _context.cartItems.Find(CartItemId);
+                var s = _context.sizes.Find(size);
+
+                cartItem.size = s.msize;
+                cartItem.Price = cartItem.Count * 79 + s.Price + _context.texras.ToList().Where(p => p.mtexra == cartItem.txchra).FirstOrDefault().Price;
+
+            }
+
+            _context.SaveChanges();
+            return new ResultDto()
+            {
+                IsSuccess = true,
+            };
+
+
+        }
+
+        public ResultDto dtxhra(long? dCartItemId, long? CartItemId, long txhra)
+        {
+            if (dCartItemId != null)
+            {
+                var cartItem = _context.dCartItems.Find(dCartItemId);
+                var t = _context.texras.Find(txhra);
+
+                cartItem.txchra = t.mtexra;
+                cartItem.Price = cartItem.Count * 79 + t.Price + _context.sizes.ToList().Where(p => p.msize == cartItem.size).FirstOrDefault().Price;
+            }
+            if (CartItemId != null)
+            {
+                var cartItem = _context.cartItems.Find(CartItemId);
+                var t = _context.texras.Find(txhra);
+
+
+                cartItem.txchra = t.mtexra;
+                cartItem.Price = cartItem.Count * 79 + t.Price + _context.sizes.ToList().Where(p => p.msize == cartItem.size).FirstOrDefault().Price;
+
+            }
+
+            _context.SaveChanges();
+            return new ResultDto()
+            {
+                IsSuccess = true,
+            };
+        }
     }
 
     public class CartDto
@@ -227,9 +324,12 @@ namespace metal.Application.service.Carts
     {
         public long Id { get; set; }
         public string? Product { get; set; }
+        public string? size { get; set; }
+        public string? txchra { get; set; }
         public string Images { get; set; }
         public int Count { get; set; }
         public int Price { get; set; }
+
     }
     public class dCartItemdto
     {

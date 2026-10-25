@@ -64,7 +64,8 @@ namespace metal.Application.service.like.Commands.addlike
             likechild likechild = new likechild()
             {
              //   like = likelist,
-                products = product
+                products = product,
+                likeid= likelist.Id
                 
             };
 

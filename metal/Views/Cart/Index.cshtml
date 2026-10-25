@@ -42,11 +42,11 @@
 
                                 <div class="ptexra">
                                     <div class="texra t1"><span class="tt">size</span></div>
-                                    <div class="val">
+                                    <div class="val0">
                                         <div class="texra v t2"><span class="tt">22*33</span></div>
                                         <div class="texra v t3"><span class="tt">22*33</span></div>
                                         <div class="texra v t4"><span class="tt">22*33</span></div>
-                                        <div class="selecter"></div>
+                                        <div class="selecter @(item.txchra == "memory" ? "one" : "") @(item.txchra == "moat" ? "two" : "") @(item.txchra == "texra" ? "three" : "")" data-v="@(item.txchra)" data-id=@item.Id></div>
                                      </div>
                                 </div>
 
@@ -56,7 +56,7 @@
                                         <div class="texra v t2"><span class="tt">22*33</span></div>
                                         <div class="texra v t3"><span class="tt">22*33</span></div>
                                         <div class="texra v t4"><span class="tt">22*33</span></div>
-                                        <div class="selecter"></div>
+                                        <div class="selecter  @(item.size == "22*33" ? "one" : "") @(item.size == "33*44" ? "two" : "") @(item.size == "38*48" ? "three" : "")"  data-v="@item.size" data-id=@item.Id ></div>
                                     </div>
                                 </div>
                                
@@ -66,8 +66,8 @@
                                     <div class="texra v p3">
                                         <input class="many" type="number" min="1" max="100" step="1" value="@item.Count" id="count-@item.Id">
                                         <div class="quantity-nav">
-                                        <div class="quantity-button quantity-up" onclick="AddCount('@item.Id')">+</div>
-                                        <div class="quantity-button quantity-down" onclick="lowCount('@item.Id')">-</div>
+                                        <div class="quantity-button quantity-up" onclick="AddCount(@item.Id)">+</div>
+                                        <div class="quantity-button quantity-down" onclick="lowCount(@item.Id)">-</div>
                                         </div>
                                     </div>
 
@@ -75,6 +75,63 @@
                             </div>
                         </div>
                     }
+
+                @if (Model.dCartItems != null)
+                {
+                foreach (var i in Model.dCartItems)
+               {
+            <div class="pose pose1">
+                <div class="price0">
+                    <span class="price"> @i.Price$ </span>
+                </div>
+                <img class="po_f" src="/@i.imsrc" />
+                <div class="det">
+                    <div class="pname">
+                        <p class="tozih" type="text"> @i.tozih</p>
+                    </div>
+                    <div class="ptexra">
+                        <div class="texra t1"><span class="tt">size</span></div>
+                        <div class="val2">
+                    <div class="texra v t2"><span class="tt t2">22*33</span></div>
+                    <div class="texra v t3"><span class="tt t3">22*33</span></div>
+                    <div class="texra v t4"><span class="tt t4">22*33</span></div>
+                            <div data-id=@i.id class="seleu selecter pos1 @(i.size == "22*33" ? "one" : "") @(i.size == "33*44" ? "two" : "") @(i.size == "38*48" ? "three" : "")"></div>
+                        </div>
+                    </div>
+                    <div class="psize">
+                        <div class="texra t1"><span class="tt">size</span></div>
+                        <div class="val1">
+                    <div class="texra v t2"><span class="tt t2">22*33</span></div>
+                    <div class="texra v t3"><span class="tt t3">22*33</span></div>
+                    <div class="texra v t4"><span class="tt t4">22*33</span></div>
+                            <div data-id=@i.id class="seleu1 selecter pos1  @(i.txchra == "memory" ? "one" : "") @(i.txchra == "moat" ? "two" : "") @(i.txchra == "texra" ? "three" : "")"></div>
+                        </div>
+                    </div>
+                    <div class="pprice">
+                        <div class="texra v p4"><img class="tt" /></div>
+                        <div class="texra v p2"><span class="tt">MOVE</span></div>
+                        <div class="texra v p3">
+                            <input class="many"
+                                   type="number"
+                                   min="1"
+                                   max="100"
+                                   step="1"
+                                   value="@i.Count"
+                                   id="count-"
+                                   data-id=@i.id />
+                            <div class="quantity-nav">
+                                        <div class="quantity-button quantity-up" onclick="dAddCount(@i.id)">+</div>
+                                        <div class="quantity-button quantity-down" onclick="dlowCount(@i.id)">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    }
+
+
                 </div>
 
                 <div class="pardakht">
@@ -282,7 +339,11 @@ value="ZM">🇿🇲 Zambia</option>
             const input = document.querySelectorAll('.many');
             const btnPlus = document.querySelectorAll('.quantity-up');
             const btnMinus = document.querySelectorAll('.quantity-down');
-         //       const val = document.querySelectorAll('.val');
+            const val0 = document.querySelectorAll('.val0');
+            const val = document.querySelectorAll('.val');
+
+            const val2 = document.querySelectorAll('.val2');
+            const val1 = document.querySelectorAll('.val1');
             //    const ba = document.getElementById('idaste');
         //    const base = searchBar.offsetWidth;
        //     const a = window.innerWidth / 520;
@@ -296,29 +357,161 @@ value="ZM">🇿🇲 Zambia</option>
          //   let cha = 0
 
 
-          Array.from(val).forEach((v) => {
-           const selecter = v.children[3];
+function AddCount(CartItemId) {
+    //   window.location.replace('/cart/add?CartItemId=' + CartItemId);
+    var fet = fetch('/cart/add?CartItemId=' + CartItemId)
+}
 
-            Array.from(v.children).forEach((v1) => {
-                Array.from(v1.children).forEach((v2) => {
+function lowCount(CartItemId) {
+    //   window.location.replace('/cart/LowOff?CartItemId=' + CartItemId);
+    var fet1 = fetch('/cart/LowOff?CartItemId=' + CartItemId)
+}
+    function dAddCount(CartItemId) {
+        //   window.location.replace('/cart/add?CartItemId=' + CartItemId);
+        var fet = fetch('/cart/dadd?dCartItemId=' + CartItemId)
+    }
+
+    function dlowCount(CartItemId) {
+        //   window.location.replace('/cart/LowOff?CartItemId=' + CartItemId);
+        var fet1 = fetch('/cart/dLowOff?dCartItemId=' + CartItemId)
+    }
+           Array.from(val0).forEach((v,vi) => {
+                                const selecter = v.children[3];
+                                console.log(vi)
+                                Array.from(v.children).forEach((v1) => {
+                                    Array.from(v1.children).forEach((v2) => {
+                                        v2.addEventListener("click", async (t) => {
+                                            if (t.target.parentElement.classList.contains("t2")) {
+                                                console.log(selecter);
+                                                selecter.style.marginLeft = 2 + "%";
+                                                selecter.dataset.v = 'memory'
+                                                
+                                            const res = await fetch(`txhra?CartItemId=${selecter.dataset.id}&txhra=${1}`)
+                                                
+                                            }
+                                            if (t.target.parentElement.classList.contains("t3")) {
+                                                selecter.style.marginLeft = 32 + "%";
+                                                selecter.dataset.v = 'moat'
+                                            
+                                                    const res = await fetch(`txhra?CartItemId=${selecter.dataset.id}&txhra=${2}`)
+                                                
+                                            }
+                                            if (t.target.parentElement.classList.contains("t4")) {
+                                                selecter.style.marginLeft = 64 + "%";
+                                                selecter.dataset.v = 'texra'
+                                               
+                                                    const res = await fetch(`txhra?CartItemId=${selecter.dataset.id}&txhra=${3}`)
+                                                
+                                            }
+                                        });
+                                    });
+                                });
+                            });
+           Array.from(val).forEach((v, vi) => {
+                                const selecter = v.children[3];
+
+                                Array.from(v.children).forEach((v1) => {
+                                    Array.from(v1.children).forEach((v2) => {
+                                        v2.addEventListener("click", async (t) => {
+                                            console.log(v2)
+                                            if (t.target.parentElement.classList.contains("t2")) {
+                                                console.log(selecter);
+                                                selecter.style.marginLeft = 2 + "%";
+                                                selecter.dataset.v = '22*33'
+                                                
+                                                    const res = await fetch(`size?CartItemId=${selecter.dataset.id}&size=${1}`)
+                                               
 
 
-            v2.addEventListener('click', (t) => {
-                  
-                if(t.target.parentElement.classList.contains("t2")){
-                    console.log(selecter)
-                   selecter.style.left = 2 + '%'
-                }
-                if (t.target.parentElement.classList.contains("t3")) {
-                    selecter.style.left = 32 + '%'
-                }
-                if (t.target.parentElement.classList.contains("t4")) {
-                    selecter.style.left = 64 + '%'
-                }  
-            })                              
-            })
-        })
-          })
+                                            }
+                                            if (t.target.parentElement.classList.contains("t3")) {
+                                                selecter.style.marginLeft = 32 + "%";
+                                                selecter.dataset.v = '33*44'
+                                                
+                                                    const res = await fetch(`size?CartItemId=${selecter.dataset.id}&size=${2}`)
+                                                
+
+                                            }
+                                            if (t.target.parentElement.classList.contains("t4")) {
+                                                selecter.style.marginLeft = 64 + "%";
+                                                selecter.dataset.v = '38*48'
+                                                
+                                                    const res = await fetch(`size?CartItemId=${selecter.dataset.id}&size=${3}`)
+                                            
+                                            }
+                                        });
+                                    });
+                                });
+                            });
+
+           Array.from(val2).forEach((v, vi) => {
+                                const selecter = v.children[3];
+
+                                Array.from(v.children).forEach((v1) => {
+                                    Array.from(v1.children).forEach((v2) => {
+                                        v2.addEventListener("click", async (t) => {
+                                            console.log(v2)
+                                            if (t.target.parentElement.classList.contains("t2")) {
+                                                console.log(selecter);
+                                                selecter.style.marginLeft = 2 + "%";
+                                                selecter.dataset.v = '22*33'
+                                                
+                                                    const res = await fetch(`size?CartItemId=${selecter.dataset.id}&size=${1}`)
+                                               
+
+
+                                            }
+                                            if (t.target.parentElement.classList.contains("t3")) {
+                                                selecter.style.marginLeft = 32 + "%";
+                                                selecter.dataset.v = '33*44'
+                                                
+                                                    const res = await fetch(`size?CartItemId=${selecter.dataset.id}&size=${2}`)
+                                                
+
+                                            }
+                                            if (t.target.parentElement.classList.contains("t4")) {
+                                                selecter.style.marginLeft = 64 + "%";
+                                                selecter.dataset.v = '38*48'
+                                                
+                                                    const res = await fetch(`size?CartItemId=${selecter.dataset.id}&size=${3}`)
+                                            
+                                            }
+                                        });
+                                    });
+                                });
+                            });
+           Array.from(val1).forEach((v,vi) => {
+                                const selecter = v.children[3];
+                                console.log(vi)
+                                Array.from(v.children).forEach((v1) => {
+                                    Array.from(v1.children).forEach((v2) => {
+                                        v2.addEventListener("click", async (t) => {
+                                            if (t.target.parentElement.classList.contains("t2")) {
+                                                console.log(selecter);
+                                                selecter.style.marginLeft = 2 + "%";
+                                                selecter.dataset.v = 'memory'
+                                                
+                                            const res = await fetch(`txhra?dCartItemId=${selecter.dataset.id}&txhra=${1}`)
+                                                
+                                            }
+                                            if (t.target.parentElement.classList.contains("t3")) {
+                                                selecter.style.marginLeft = 32 + "%";
+                                                selecter.dataset.v = 'moat'
+                                            
+                                                    const res = await fetch(`txhra?dCartItemId=${selecter.dataset.id}&txhra=${2}`)
+                                                
+                                            }
+                                            if (t.target.parentElement.classList.contains("t4")) {
+                                                selecter.style.marginLeft = 64 + "%";
+                                                selecter.dataset.v = 'texra'
+                                               
+                                                    const res = await fetch(`txhra?dCartItemId=${selecter.dataset.id}&txhra=${3}`)
+                                                
+                                            }
+                                        });
+                                    });
+                                });
+                            });
 
 
             document.addEventListener('DOMContentLoaded', () => {

@@ -1,5 +1,6 @@
 ﻿//import {poster3d} from './show'
                   const t = document.querySelector(`.t`);
+                  const notif = document.querySelector(".notif");
                   const serinp = document.querySelector(`.serinp`);
                   const sop = document.querySelector(`.sop`);
                   const sop1 = document.querySelector(`.sop1`);
@@ -42,9 +43,6 @@
             const f12 = document.querySelector(".f12");
       //      const favrate = document.querySelector(".favrate");
 
-
-const val = document.querySelectorAll(".val");
-const val1 = document.querySelectorAll(".val1");
 const shop = document.querySelector(".shop");
 
 
@@ -87,8 +85,34 @@ async function uploadImage(Formdata) {
         console.error("Error:", error);
     }
 }
+function displaynone(r) {
+    const p = document.querySelector(`.${r}`);
+    if (p.classList.contains('displaynone')) {
+        p.classList.remove('displaynone')
+    } else {
+    p.classList.add('displaynone')
+    }
+
+}
+function notife(message) {
+    notif.innerHTML = message
+    notif.style.width = 20 + (message.length * 6.8) + 'px'
+    notif.style.left = (window.innerWidth - 20 - (message.length * 6.1)) / 2 + 'px'
+
+    displaynone('notif')
+    notif.classList.add('show')
+
+    setTimeout(() => {
+        notif.classList.remove('show')
+       setTimeout(() => {
+    displaynone('notif')
+       }, 1400)
+
+    }, message.length * 150)
 
 
+
+}
 /////////////////////////////////////
 
 function loading(pel) {
@@ -200,6 +224,7 @@ function lowCount(CartItemId) {
             function selfa(seli) {
                 seli.addEventListener("click", () => {
                     body1.style.display = "flex";
+                    notife('Choose your favorite')
                 });
             }
 
@@ -279,8 +304,7 @@ function lowCount(CartItemId) {
                      const barr = document.querySelector(".bar");
                      if (barr.classList.contains('displaynone')) {
                          barr.classList.remove("displaynone");
-                    console.log(barr.style.display);
-                     } else {
+                     } else if (barr.children.length == 0) {
                          barr.classList.add("displaynone")
                      }
 
@@ -291,9 +315,9 @@ function lowCount(CartItemId) {
                              p.classList.remove("displaynone");
                              console.log(p.style.display);
                          } else {
-                             if (barr.children.length == 0) {
-                                 barr.classList.add("displaynone")
-                             }
+
+                             barr.classList.add("displaynone")
+
                              p.classList.add("displaynone");
                              console.log(p.style.display);
                          }
@@ -306,6 +330,8 @@ function lowCount(CartItemId) {
                           console.log(resp1.url)
                           const ht = await resp1.text();
                             p.innerHTML = ht
+
+                            notife('for visit full page plese duble click')
 
 
                           const file = await document.querySelector(".profin");
@@ -353,38 +379,129 @@ function lowCount(CartItemId) {
                           //              });
 
                         }
-                        if (ll == "op2" && n == 1 && p.children.length == 0) {
+                        if (ll == "op2" && n == 1 ) {
                             loading(p);
                             const sabad1 = await fetch("/like/getlike")
+                            if (logr.dataset.v == 0) {
                             window.location.href = sabad1.url
+                            }
                             console.log(sabad1.url)
                             const chtml = await sabad1.text();
                             p.innerHTML = chtml;
+                            notife('for visit full page plese duble click')
                         }
-                        if (ll == "op3" && n == 1 && p.children.length == 0) {
+                        if (ll == "op3" && n == 1 ) {
                             loading(p);
-                              const sabad1 = await fetch("/Cart/CartUi")
+                            const sabad1 = await fetch("/Cart/CartUi")
+                            if (logr.dataset.v == 0) {
+                                window.location.href = sabad1.url
+                            }
                               const chtml = await sabad1.text();
-                              p.innerHTML = chtml;
+                            p.innerHTML = chtml;
+                            notife('for visit full page plese duble click')
                         }
-                        if (ll == "op4" && n == 1 && p.children.length == 0) {
+                        if (ll == "op4" && n == 1 ) {
                             loading(p);
                             const sabad1 = await fetch("/Category/mcat")
+                            if (logr.dataset.v == 0) {
+                                window.location.href = sabad1.url
+                            }
                             const chtml = await sabad1.text();
                             p.style.height = 210 + 'px'
                             p.innerHTML = chtml;
+                            notife('for visit full page plese duble click')
                         }
-                        if (ll == "op5" && n == 1 && p.children.length == 0) {
+                        if (ll == "op5" && n == 1 ) {
                             loading(p);
                             const sabad1 = await fetch("/Cart/mdcart")
+                            if (logr.dataset.v == 0) {
+                                window.location.href = sabad1.url
+                            }
                             const chtml = await sabad1.text();
                        //     p.style.height = 210 + 'px'
                             p.innerHTML = chtml;
+
+                            notife('for visit full page plese duble click')
+
+
+                            const val = document.querySelectorAll(".val");
+                            const val1 = document.querySelectorAll(".val1");
+                            Array.from(val).forEach((v, vi) => {
+                                const selecter = v.children[3];
+
+                                Array.from(v.children).forEach((v1) => {
+                                    Array.from(v1.children).forEach((v2) => {
+                                        v2.addEventListener("click", async (t) => {
+                                            console.log(v2)
+                                            if (t.target.parentElement.classList.contains("t2")) {
+                                                console.log(selecter);
+                                                selecter.style.marginLeft = 2 + "%";
+                                                selecter.dataset.v = '22*33'
+                                                if (vi != 0) {
+                                                    const res = await fetch(`Cart/size?dCartItemId=${selecter.dataset.id}&size=${1}`)
+                                                }
+
+
+                                            }
+                                            if (t.target.parentElement.classList.contains("t3")) {
+                                                selecter.style.marginLeft = 32 + "%";
+                                                selecter.dataset.v = '33*44'
+                                                if (vi != 0) {
+                                                    const res = await fetch(`Cart/size?dCartItemId=${selecter.dataset.id}&size=${2}`)
+                                                }
+
+                                            }
+                                            if (t.target.parentElement.classList.contains("t4")) {
+                                                selecter.style.marginLeft = 64 + "%";
+                                                selecter.dataset.v = '38*48'
+                                                if (vi != 0) {
+                                                    const res = await fetch(`Cart/size?dCartItemId=${selecter.dataset.id}&size=${3}`)
+                                                }
+                                            }
+                                        });
+                                    });
+                                });
+                            });
+
+                            Array.from(val1).forEach((v,vi) => {
+                                const selecter = v.children[3];
+                                console.log(vi)
+                                Array.from(v.children).forEach((v1) => {
+                                    Array.from(v1.children).forEach((v2) => {
+                                        v2.addEventListener("click", async (t) => {
+                                            if (t.target.parentElement.classList.contains("t2")) {
+                                                console.log(selecter);
+                                                selecter.style.marginLeft = 2 + "%";
+                                                selecter.dataset.v = 'memory'
+                                                if (vi != 0) {
+                                                    const res = await fetch(`Cart/txhra?dCartItemId=${selecter.dataset.id}&txhra=${1}`)
+                                                }
+                                            }
+                                            if (t.target.parentElement.classList.contains("t3")) {
+                                                selecter.style.marginLeft = 32 + "%";
+                                                selecter.dataset.v = 'moat'
+                                                if (vi != 0) {
+                                                    const res = await fetch(`Cart/txhra?dCartItemId=${selecter.dataset.id}&txhra=${2}`)
+                                                }
+                                            }
+                                            if (t.target.parentElement.classList.contains("t4")) {
+                                                selecter.style.marginLeft = 64 + "%";
+                                                selecter.dataset.v = 'texra'
+                                                if (vi != 0) {
+                                                    const res = await fetch(`Cart/txhra?dCartItemId=${selecter.dataset.id}&txhra=${3}`)
+                                                }
+                                            }
+                                        });
+                                    });
+                                });
+                            });
 
                             const input = document.querySelectorAll(".many");
                             const btnPlus = document.querySelectorAll(".quantity-up");
                             const btnMinus = document.querySelectorAll(".quantity-down");
                             Array.from(input).forEach((in1, ind) => {
+                                
+                                var CartItemId = in1.dataset.id
                                 in1.addEventListener('change', () => {
                                     let min = parseInt(in1.min) || 0;
                                     let max = parseInt(in1.max) || Infinity;
@@ -398,13 +515,21 @@ function lowCount(CartItemId) {
                                 btnPlus[ind].addEventListener('click', () => {
                                     input[ind].stepUp();
                                     input[ind].dispatchEvent(new Event('change', { bubbles: true }));
+                                    if (ind != 0) {
+                                        var fet = fetch('/cart/dadd?dCartItemId=' + CartItemId)
+                                    }
                                 });
 
                                 // کاهش مقدار
                                 btnMinus[ind].addEventListener('click', () => {
                                     input[ind].stepDown();
                                     input[ind].dispatchEvent(new Event('change', { bubbles: true }));
+                                    if (ind != 0) {
+                                        var fet = fetch('/cart/dLowOff?dCartItemId=' + CartItemId)
+                                    }
                                 });
+                                
+
 
                                 // جلوگیری از تایپ دستی مقادیر کمتر از min یا بیشتر از max
                             });
@@ -429,29 +554,6 @@ function lowCount(CartItemId) {
         search1.placeholder = 'AI'
         search1.classList.add('ai')
 
-
-                const categore = document.querySelector('.categories')
-                const cate0 = document.querySelector('.cate0')
-                const catbb = document.querySelector('.catbb')
-
-                const sele = document.getElementById('sele')
-
-                categore.style.display = 'flex'
-                Array.from(cate0.children).forEach((bt) => {
-
-                    Array.from(bt.children).forEach((bt0) => {
-
-                        bt0.addEventListener('click', (t0) => {
-
-                            search1.placeholder = t0.target.textContent
-                            sele.value = t0.target.dataset.id
-
-                            //    console.log(sele.value)
-
-                        })
-
-                    })
-                })
             }
 
       function ser() {
@@ -545,7 +647,12 @@ function lowCount(CartItemId) {
 
 
 
-      
+    function slik(t) {
+    for (const n of slike.children) {
+        n.classList.remove("likebk");
+    }
+    slike.children[t].classList.add("likebk");
+}      
 
     async function adlike() {
     const ilike = document.querySelector('.ilike');
@@ -563,7 +670,7 @@ function lowCount(CartItemId) {
         );
 }
 
-            async function llike() {
+    async function llike() {
                 const res = await fetch('/like/getlikelist')
                 var html = await res.text()
                 slike.innerHTML = html
@@ -579,8 +686,7 @@ function lowCount(CartItemId) {
                 })
             }
 
-
-async function dlike() {
+    async function dlike() {
     if (like.classList.contains("displaynone")) {
         llike() 
         like.classList.remove("displaynone");
@@ -617,19 +723,14 @@ async function dlike() {
 }
       /////////////////
 
-
-
 ///////////////////////
 
-      async function adp(){
- var cartres = await fetch(`/Cart/AddToCart?ProductId=${jazire.dataset.id}`)
-     console.log(cartres)
+async function adp() {
+          console.log(jazire.dataset.id)
+          var cartres = await fetch(`/Cart/AddToCart?ProductId=${jazire.dataset.id}`)
+
 }
 /////////////////////////////////
-
-
-
-
 
 ////////////////////////////////
             const sele = document.getElementById('sele')
@@ -650,12 +751,41 @@ search1.addEventListener("change", (e) => {
                 myform.submit();
     }
 
+})
+    const categore = document.querySelector('.categories')
+    const cate0 = document.querySelector('.cate0')
+const catbb = document.querySelector('.catbb')
+
+search1.addEventListener("click", () => {
+
+
+    const sele = document.getElementById('sele')
+
+    categore.classList.remove('displaynone')
+    notife('you want Search in the Category or Sub Category')
+    Array.from(cate0.children).forEach((bt) => {
+
+        Array.from(bt.children).forEach((bt0) => {
+
+            bt0.addEventListener('click', (t0) => {
+
+                search1.placeholder = t0.target.textContent
+                sele.value = t0.target.dataset.id
+
+                //    console.log(sele.value)
+
             })
+
+        })
+    })
+})
 //////////////////////////////
   
 
 
 async function sendf() {
+    const mdcart = document.querySelectorAll('.meno')
+
     const dorder = new FormData()
     const tozih = document.querySelector('.tozih')
     const po_f = document.querySelector('.po_fs')
@@ -673,6 +803,9 @@ async function sendf() {
  body: dorder
     })
 
+    mdcart[4].innerHTML = await res.text()
+    
+
 
 
 }
@@ -682,53 +815,6 @@ async function sendf() {
 
 ////////////////////////////////////
 
-Array.from(val).forEach((v) => {
-    const selecter = v.children[3];
-
-    Array.from(v.children).forEach((v1) => {
-        Array.from(v1.children).forEach((v2) => {
-            v2.addEventListener("click", (t) => {
-                if (t.target.parentElement.classList.contains("t2")) {
-                    console.log(selecter);
-                    selecter.style.left = 2 + "%";
-                    selecter.dataset.v = '22*33'
-                }
-                if (t.target.parentElement.classList.contains("t3")) {
-                    selecter.style.left = 32 + "%";
-                    selecter.dataset.v = '33*44'
-                }
-                if (t.target.parentElement.classList.contains("t4")) {
-                    selecter.style.left = 64 + "%";
-                    selecter.dataset.v = '38*48'
-                }
-            });
-        });
-    });
-});
-
-Array.from(val1).forEach((v) => {
-    const selecter = v.children[3];
-
-    Array.from(v.children).forEach((v1) => {
-        Array.from(v1.children).forEach((v2) => {
-            v2.addEventListener("click", (t) => {
-                if (t.target.parentElement.classList.contains("t2")) {
-                    console.log(selecter);
-                    selecter.style.left = 2 + "%";
-                    selecter.dataset.v = 'memory'
-                }
-                if (t.target.parentElement.classList.contains("t3")) {
-                    selecter.style.left = 32 + "%";
-                    selecter.dataset.v = 'moat'
-                }
-                if (t.target.parentElement.classList.contains("t4")) {
-                    selecter.style.left = 64 + "%";
-                    selecter.dataset.v = 'texra'
-                }
-            });
-        });
-    });
-});
 
 
 

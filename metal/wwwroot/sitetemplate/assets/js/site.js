@@ -38,11 +38,6 @@
             }
         });
 
-
-
-
-
-
         const catbb = document.querySelectorAll('.catbb')
         const cab = document.querySelectorAll('.cab')
         const catb2 = document.querySelectorAll('.catb2')

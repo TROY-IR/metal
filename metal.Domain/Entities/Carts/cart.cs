@@ -24,6 +24,9 @@ namespace metal.Domain.Entities.Carts
         public virtual Product Product { get; set; }
         public long ProductId { get; set; }
 
+        public string? size { get; set; } = "22*33";
+        public string? txchra { get; set; } = "merory";
+
         public int Count { get; set; }
         public int Price { get; set; }
 
@@ -47,12 +50,12 @@ namespace metal.Domain.Entities.Carts
     {
         public long Id { get; set; }
         public string msize {  get; set; }
-        public int ? Price { get; set; }
+        public int Price { get; set; }
     }
     public class texra
     {
         public long Id { get; set; }
         public string mtexra { get; set; }
-        public int? Price { get; set; }
+        public int Price { get; set; }
     }
 }

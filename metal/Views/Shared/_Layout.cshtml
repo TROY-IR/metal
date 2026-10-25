@@ -29,20 +29,23 @@ else
     <div class="logr" data-v=0>
     </div>
 }
+<div class="notif displaynone" >
+ 
+</div>
     <div class="body1 displaynone">
         <div class="selectf">
-            <button class="botf f1"><span>Name</span></button>
-            <button class="botf f2"><span>Name1</span></button>
-            <button class="botf f3"><span>Name2</span></button>
-            <button class="botf f4"><span>Name3</span></button>
-            <button class="botf f5"><span>Name4</span></button>
-            <button class="botf f6"><span>Name5</span></button>
-            <button class="botf f7"><span>botton</span></button>
-            <button class="botf f8"><span>botton</span></button>
-            <button class="botf f9"><span>botton</span></button>
-            <button class="botf f10"><span>botton</span></button>
-            <button class="botf f11"><span>botton</span></button>
-            <button class="botf f12"><span>botton</span></button>
+            <button class="botf f1"><span>darkness</span></button>
+            <button class="botf f2"><span>lightness</span></button>
+            <button class="botf f3"><span>action</span></button>
+            <button class="botf f4"><span>unreal</span></button>
+            <button class="botf f5"><span>surreal</span></button>
+            <button class="botf f6"><span>blob</span></button>
+            <button class="botf f7"><span>blob</span></button>
+            <button class="botf f8"><span>blob</span></button>
+            <button class="botf f9"><span>blob</span></button>
+            <button class="botf f10"><span>blob</span></button>
+            <button class="botf f11"><span>blob</span></button>
+            <button class="botf f12"><span>blob</span></button>
         </div>
     </div>
     <div class="body2 displaynone">
@@ -91,7 +94,7 @@ else
         </div>
 
         <button onclick="kmog()" class="mogbtn"></button>
-        <button onclick="mogcancel()" class="mogbtn btnca"></button>
+        <button onclick="mogcancel()" class="btnca mogbtn "></button>
     </div>
     <div class="mogpan displaynone">
         <div class="moga">
@@ -135,32 +138,36 @@ else
             <button onclick="adlike()" class="blike">save</button>
         </div>
     </div>
-    <div class="detail displaynone"></div>
-    
+    <div class="detail detailv displaynone"></div>
+    <div class="categories displaynone">
+        <div class="cate0">
+            @await Component.InvokeAsync("Search")
+        </div>
+    </div>
     
     <div class="search-bar">
         <div id="sop" class="sop">
             <button onclick="tf()" class="t"></button>
             <div class="sop1">
                 <button onclick="bar('op1')"
-                        ondblclick="dbclick('http://localhost/shop.html')"
-                        type="checkbox"
+                        ondblclick="dbclick('http://localhost/Profile/Index')"
+                        
                         class="op op1"></button>
                 <button onclick="bar('op2')"
                         ondblclick="dbclick('http://localhost/shop.html')"
-                        type="checkbox"
+                        
                         class="op op2"></button>
                 <button onclick="bar('op3')"
                         ondblclick="dbclick('http://localhost/shop.html')"
-                        type="checkbox"
+                        
                         class="op op3"></button>
                 <button onclick="bar('op4')"
                         ondblclick="dbclick('http://localhost/shop.html')"
-                        type="checkbox"
+                        
                         class="op op4"></button>
                 <button onclick="bar('op5')"
                         ondblclick="dbclick('http://localhost/shop.html')"
-                        type="checkbox"
+                        
                         class="op op5"></button>
             </div>
         </div>

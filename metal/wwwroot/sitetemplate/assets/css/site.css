@@ -1,4 +1,31 @@
-﻿.loading{
+﻿.body {
+    font-family: Arial, sans-serif;
+}
+
+.notif {
+    height: 35px;
+    top: auto;
+    bottom: 13vh;
+    font-size: 14px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    color: #b6bdc2;
+    background-color: #212121;
+    opacity:0;
+
+    z-index:2000;
+
+    transition: 2.0s ease-in-out;
+}
+
+.show{
+    opacity:1
+}
+
+.loading{
     width:100%;
     height:100%;
 
@@ -234,26 +261,29 @@
     z-index: 1000;
 }
 
-.jbt1{
+.jbt1 {
+    background: none;
     background-image: url(/sitetemplate/assets/image/otherimg/view.png);
-
     background-size: 90%;
     background-position: center;
     background-repeat: no-repeat;
 }
 .jbt2 {
+    background: none;
     background-image: url(/sitetemplate/assets/image/otherimg/mog.png);
     background-size: 90%;
     background-position: center;
     background-repeat: no-repeat;
 }
 .jbt3 {
+    background: none;
     background-image: url(/sitetemplate/assets/image/otherimg/like.png);
     background-size: 90%;
     background-position: center;
     background-repeat: no-repeat;
 }
 .jbt4 {
+    background: none;
     background-image: url(/sitetemplate/assets/image/otherimg/psabad.png);
     background-size: 90%;
     background-position: center;
@@ -483,6 +513,36 @@
     border-top: 1px solid rgba(255, 255, 255, 0.25);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
+.val0 {
+    width: 70%;
+    height: 75%;
+    margin-left: 5%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 12px;
+    background: #202124;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.65), -3px -3px 10px rgba(255, 255, 255, 0.04), inset 7px 7px 15px rgba(0, 0, 0, 0.40), inset -7px -7px 15px rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.val2 {
+    width: 70%;
+    height: 75%;
+    margin-left: 5%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 12px;
+    background: #202124;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.65), -3px -3px 10px rgba(255, 255, 255, 0.04), inset 7px 7px 15px rgba(0, 0, 0, 0.40), inset -7px -7px 15px rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
 
 .v {
     width: 33%;
@@ -661,7 +721,26 @@
     user-select: none;
     font-size: 1.071rem;
 }
+.candet {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin: 4px;
+    outline: none;
+    color: white;
+    background-color: black;
+    backdrop-filter: blur(14px) opacity(70%);
+    background-image: url(/);
+    z-index: 3000;
+}
 
+    .candet:hover {
+        scale: 90%;
+    }
     .quantity-button.quantity-up {
         position: absolute;
         height: 25px;
@@ -749,18 +828,17 @@
     border-top: 1px solid rgba(255, 255, 255, 0.25);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 24px;
-    display: flex;
+
     position: fixed;
-    display: flex;
+
     top: 85px;
     left: 5%;
     height: 83px;
     width: 90%;
     z-index: 1000;
-    align-items: center;
-    justify-content: center;
 
-    display:none;
+    align-items: center;
+
 }
 
 .cate0 {
@@ -1291,6 +1369,11 @@
     flex: 0 0 auto;
 }
 
+.pose1 {
+    width: 390px;
+    height: 220px;
+}
+
 .po_f {
     width: 45%;
     height: 100%;
@@ -1590,7 +1673,7 @@
     display: flex;
     align-items: center;
     transition: 0.35s ease-in-out;
-    background: rgba(123, 123, 123, 0.08);
+    background: rgb(228 228 228 / 96%);
     backdrop-filter: blur(9px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     z-index: 2000;
@@ -1611,11 +1694,11 @@
     margin-left: 5%;
     display: flex;
     border: none;
-    background: none;
 
-    background-size: 90%;
+    background-size: 70%;
     background-position: center;
     background-repeat: no-repeat;
+    z-index:2001;
 }
 
 
@@ -1710,7 +1793,7 @@
 
 .f {
     width: 100%;
-    height: 150px;
+    height: 400px;
     display: flex;
 }
 
@@ -2016,8 +2099,29 @@
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     display: inline-block;
+
     border-radius: 24px;
     box-shadow: 0 0px 10px #28282894;
+}
+
+.fcandet {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin: 4px;
+    outline: none;
+    border:none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(14px) opacity(70%);
+    background-image: url(/);
+    z-index: 3000;
+    right: 95.5%;
+    bottom: 55%;
 }
 
     .meno.show {
@@ -2029,7 +2133,15 @@
         opacity: 0;
     }
 
-
+.tad{
+    font-size:1.3vw;
+    color:#e8e7e7ee;
+}
+.adddis{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
 
 .ffpar {
     width: 100%;
@@ -2205,7 +2317,9 @@
     background-position: center;
     transition: 0.5s ease-in-out;
 }
-
+.btnca {
+    margin-left: 50%;
+}
     .mogbtn.r {
         opacity: 0;
     }
@@ -3010,11 +3124,11 @@
         }
 
         20% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/room.avif);
         }
 
         36% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/room.avif);
         }
 
         40% {
@@ -3026,11 +3140,11 @@
         }
 
         60% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
         }
 
         76% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
         }
 
         80% {
@@ -3081,11 +3195,11 @@
         }
 
         60% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/messi1.avif);
         }
 
         76% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/messi1.avif);
         }
 
         80% {
@@ -3123,11 +3237,11 @@
         }
 
         60% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/ronald2.avif);
         }
 
         76% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/ronald2.avif);
         }
 
         80% {
@@ -3165,11 +3279,11 @@
         }
 
         60% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/fifa.avif);
         }
 
         76% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/fifa.avif);
         }
 
         80% {
@@ -3207,11 +3321,11 @@
         }
 
         60% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/messi2.avif);
         }
 
         76% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/messi2.avif);
         }
 
         80% {
@@ -3249,11 +3363,11 @@
         }
 
         60% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/messi3.avif);
         }
 
         76% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/messi3.avif);
         }
 
         80% {
@@ -3275,11 +3389,13 @@
         }
 
         20% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: none;
+            box-shadow:none
         }
 
         36% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: none;
+            box-shadow:none;
         }
 
         40% {
@@ -3291,11 +3407,11 @@
         }
 
         60% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/naymar.avif);
         }
 
         76% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/naymar.avif);
         }
 
         80% {
@@ -3333,11 +3449,11 @@
         }
 
         60% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/realmadrid.avif);
         }
 
         76% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/realmadrid.avif);
         }
 
         80% {
@@ -4160,13 +4276,26 @@
         background: linear-gradient(130deg, rgba(0, 21, 43, 0.826)20%, rgba(7, 0, 66, 0.29) 85%);
         box-shadow: 3px 3px 15px rgba(238, 238, 238, 0.836), -3px -3px 15px rgba(242, 242, 242, 0.91);
     }
+    .detailv {
+        background: #202124;
+        box-shadow:
+            3px 3px 10px rgba(0, 0, 0, 0.65),
+            -3px -3px 10px rgba(255, 255, 255, 0.04),
+            inset 7px 7px 15px rgba(0, 0, 0, 0.40),
+            inset -7px -7px 15px rgba(255, 255, 255, 0.04);
+
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
 
     .detail {
         width: 40vh;
         height: 85vh;
         margin-top: 7vh;
-        margin-left: calc((100vw - 85vh) / 2);
+        margin-left: calc((100vw - 40vh) / 2);
         border-radius: 10px;
+
+
     }
 }
 
@@ -4179,7 +4308,7 @@
     border: none;
     text-align: center;
     margin-bottom: 2px;
-    color: rgb(181, 171, 181);
+    color: #0b0b0b;
     display: flex;
     align-items: center;
     justify-content: center;

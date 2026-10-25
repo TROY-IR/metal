@@ -195,6 +195,21 @@
     border-top: 1px solid rgba(255, 255, 255, 0.25);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
+.val0 {
+    width: 70%;
+    height: 75%;
+    margin-left: 5%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 12px;
+    background: #202124;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.65), -3px -3px 10px rgba(255, 255, 255, 0.04), inset 7px 7px 15px rgba(0, 0, 0, 0.40), inset -7px -7px 15px rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
 .val1 {
     width: 70%;
     height: 75%;
@@ -210,7 +225,21 @@
     border-top: 1px solid rgba(255, 255, 255, 0.25);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
-
+.val2 {
+    width: 70%;
+    height: 75%;
+    margin-left: 5%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 12px;
+    background: #202124;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.65), -3px -3px 10px rgba(255, 255, 255, 0.04), inset 7px 7px 15px rgba(0, 0, 0, 0.40), inset -7px -7px 15px rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
 
 
 .v {
