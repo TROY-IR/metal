@@ -383,7 +383,7 @@ function lowCount(CartItemId) {
                             loading(p);
                             const sabad1 = await fetch("/like/getlike")
                             if (logr.dataset.v == 0) {
-                            window.location.href = sabad1.url
+                                window.location.href = "/Authentication/Signin"
                             }
                             console.log(sabad1.url)
                             const chtml = await sabad1.text();
@@ -394,7 +394,7 @@ function lowCount(CartItemId) {
                             loading(p);
                             const sabad1 = await fetch("/Cart/CartUi")
                             if (logr.dataset.v == 0) {
-                                window.location.href = sabad1.url
+                                window.location.href = "/Authentication/Signin"
                             }
                               const chtml = await sabad1.text();
                             p.innerHTML = chtml;
@@ -404,7 +404,7 @@ function lowCount(CartItemId) {
                             loading(p);
                             const sabad1 = await fetch("/Category/mcat")
                             if (logr.dataset.v == 0) {
-                                window.location.href = sabad1.url
+                                window.location.href = "/Authentication/Signin"
                             }
                             const chtml = await sabad1.text();
                             p.style.height = 210 + 'px'
@@ -415,7 +415,7 @@ function lowCount(CartItemId) {
                             loading(p);
                             const sabad1 = await fetch("/Cart/mdcart")
                             if (logr.dataset.v == 0) {
-                                window.location.href = sabad1.url
+                                window.location.href = "/Authentication/Signin"
                             }
                             const chtml = await sabad1.text();
                        //     p.style.height = 210 + 'px'

@@ -830,7 +830,7 @@
     border-radius: 24px;
 
     position: fixed;
-
+    display:flex;
     top: 85px;
     left: 5%;
     height: 83px;
@@ -3171,27 +3171,27 @@
 
     @keyframes h1img {
         0% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg2.avif);
         }
 
         16% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg2.avif);
         }
 
         20% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg4.avif);
         }
 
         36% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg4.avif);
         }
 
         40% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg8.avif);
         }
 
         56% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg8.avif);
         }
 
         60% {
@@ -3203,37 +3203,37 @@
         }
 
         80% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg18.avif);
         }
 
         96% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg18.avif);
         }
     }
 
     @keyframes h2img {
         0% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg14.avif);
         }
 
         16% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg14.avif);
         }
 
         20% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg1.avif);
         }
 
         36% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg1.avif);
         }
 
         40% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg10.avif);
         }
 
         56% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg10.avif);
         }
 
         60% {
@@ -3245,37 +3245,37 @@
         }
 
         80% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg19.avif);
         }
 
         96% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg19.avif);
         }
     }
 
     @keyframes h3img {
         0% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg12.avif);
         }
 
         16% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg12.avif);
         }
 
         20% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg3.avif);
         }
 
         36% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg3.avif);
         }
 
         40% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg5.avif);
         }
 
         56% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg5.avif);
         }
 
         60% {
@@ -3287,37 +3287,37 @@
         }
 
         80% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg23.avif);
         }
 
         96% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg23.avif);
         }
     }
 
     @keyframes h4img {
         0% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg16.avif);
         }
 
         16% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg16.avif);
         }
 
         20% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg21.avif);
         }
 
         36% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg21.avif);
         }
 
         40% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg24.avif);
         }
 
         56% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg24.avif);
         }
 
         60% {
@@ -3329,37 +3329,37 @@
         }
 
         80% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg26.avif);
         }
 
         96% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg26.avif);
         }
     }
 
     @keyframes h5img {
         0% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg17.avif);
         }
 
         16% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg17.avif);
         }
 
         20% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg25.avif);
         }
 
         36% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg25.avif);
         }
 
         40% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg22.avif);
         }
 
         56% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg22.avif);
         }
 
         60% {
@@ -3371,21 +3371,21 @@
         }
 
         80% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg27.avif);
         }
 
         96% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg27.avif);
         }
     }
 
     @keyframes h6img {
         0% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg13.avif);
         }
 
         16% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg13.avif);
         }
 
         20% {
@@ -3399,11 +3399,11 @@
         }
 
         40% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg11.avif);
         }
 
         56% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg11.avif);
         }
 
         60% {
@@ -3415,37 +3415,37 @@
         }
 
         80% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg28.avif);
         }
 
         96% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg28.avif);
         }
     }
 
     @keyframes h7img {
         0% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg20.avif);
         }
 
         16% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vst1.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg20.avif);
         }
 
         20% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg15.avif);
         }
 
         36% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vs1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg15.avif);
         }
 
         40% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg6.avif);
         }
 
         56% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vm.png);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg6.avif);
         }
 
         60% {
@@ -3457,11 +3457,11 @@
         }
 
         80% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg25.avif);
         }
 
         96% {
-            background-image: url(/sitetemplate/assets/image/otherimg/vd1.jpg);
+            background-image: url(/sitetemplate/assets/image/otherimg/himg25.avif);
         }
     }
 
