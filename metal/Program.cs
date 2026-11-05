@@ -77,7 +77,7 @@ builder.Services.AddScoped<IuploadService, uploadService>();
 
 builder.Services.AddHttpClient<IZarinPalService, ZarinPalService>();
 builder.Services.AddHttpClient<IRequestGetResultSearchService, RequestGetResultSearchService>();
-
+builder.Services.AddHttpClient<ITrueTradeService, TrueTradeService>();
 
 builder.Services.AddAuthorization(options =>
 {

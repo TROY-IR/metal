@@ -41,7 +41,24 @@
         const catbb = document.querySelectorAll('.catbb')
         const cab = document.querySelectorAll('.cab')
         const catb2 = document.querySelectorAll('.catb2')
-        const catb3 = document.querySelectorAll('.catb3')
+const catb3 = document.querySelectorAll('.catb3')
+
+var zi = 0
+catbb.forEach(c => {
+    Array.from(c.children).forEach(ch => {
+        ch.addEventListener('mouseenter', () => {
+            zi = ch.style.zIndex
+            ch.style.zIndex = 3001
+            ch.style.scale = 1.03
+            console.log(zi)
+        })
+        ch.addEventListener('mouseleave', () => {
+            ch.style.scale = 1
+            ch.style.zIndex = zi
+            console.log(zi)
+        })
+    })
+})
 
 catbb.forEach(c => {
     let count = 0
@@ -49,15 +66,15 @@ catbb.forEach(c => {
     let cv1 = parseFloat(getComputedStyle(c.firstElementChild).width)
     let mal = 0
     c.addEventListener('mouseenter', () => {
-
-        c.style.width = parseFloat(getComputedStyle(c).width) * 0.85 * c.childElementCount + 'px'
+   c.parentElement.classList.add('start')
+        c.style.width = parseFloat(getComputedStyle(c).width) * 0.90 * c.childElementCount + 'px'
 
         Array.from(c.children).forEach(ch => {
 
             ch.style.zIndex = 2000 - count
             ch.style.width = (parseFloat(getComputedStyle(c).width) * 0.85) + 'px'
             if (count != 0) {
-                ch.style.marginLeft = count * parseFloat(getComputedStyle(ch).width) * 0.75 + 'px'
+                ch.style.marginLeft = count * parseFloat(getComputedStyle(ch).width) * 0.80 + 'px'
 
             }
             count = count + 1
@@ -66,6 +83,8 @@ catbb.forEach(c => {
         })
     })
     c.addEventListener('mouseleave', () => {
+        c.parentElement.classList.remove('start')
+
         count = 0
         c.style.width = 15 + '%'
         if (parseFloat(getComputedStyle(c).width) < 110) {

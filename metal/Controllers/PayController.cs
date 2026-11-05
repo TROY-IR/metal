@@ -27,13 +27,15 @@ namespace metal.Controllers
         private readonly IGetRequestPayService _getRequestPayService;
         private readonly IAddNewOrderService _addNewOrderService;
         private readonly IZarinPalService _zarinPalService;
+        private readonly ITrueTradeService _trueTradeService;
         private readonly bool _isSandbox = true; // بر اساس کانفیگ
 
         public PayController(
             IAddRequestPayService addRequestPayService,
             ICartService cartService,
             IGetRequestPayService getRequestPayService,
-            IZarinPalService zarinPalService
+            IZarinPalService zarinPalService,
+            ITrueTradeService trueTradeService
                             )
         {
             _addRequestPayService = addRequestPayService;
@@ -45,6 +47,7 @@ namespace metal.Controllers
             _transactions = expose.CreateTransactions();
             _getRequestPayService = getRequestPayService;
             _zarinPalService = zarinPalService;
+            _trueTradeService = trueTradeService;
 
         }
         public async Task<IActionResult> Index([FromBody] peydto pay)
@@ -132,6 +135,13 @@ namespace metal.Controllers
             }
 
             return View();
+        }
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IActionResult> tttrequest()
+        {
+            var res = _trueTradeService.GetAssetsAsync().Result.Data;
+            return View(res);
         }
     }
 }

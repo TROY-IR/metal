@@ -1,0 +1,9 @@
+﻿@using metal.Application.service.Finance.httpRequast
+
+@model List<TTTDto>;
+@foreach(var t in Model)
+{
+    <h1>
+        @t.balance , @t.asset
+    </h1>
+}
